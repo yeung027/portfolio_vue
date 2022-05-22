@@ -1,5 +1,12 @@
 [
   {
+    "name": "work",
+    "path": "/work",
+    "component": "/home/heyhei/Documents/dev/portfolio_vue/pages/work.vue",
+    "chunkName": "pages/work",
+    "_name": "_1340796d"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "/home/heyhei/Documents/dev/portfolio_vue/pages/index.vue",
