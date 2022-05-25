@@ -19,8 +19,8 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/assets/main.css',
-    '~/assets/main.min.css',
-    '~/assets/atom-one-dark.min.css',
+    // '~/assets/main.min.css',
+    // '~/assets/atom-one-dark.min.css',
     '~/node_modules/boxicons/css/boxicons.min.css'
   ],
 

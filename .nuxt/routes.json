@@ -2,15 +2,15 @@
   {
     "name": "work",
     "path": "/work",
-    "component": "/home/heyhei/Documents/dev/portfolio_vue/pages/work.vue",
+    "component": "C:\\\\Users\\\\pitmu1\\\\dev\\\\vue\\\\portfolio_vue\\\\pages\\\\work.vue",
     "chunkName": "pages/work",
-    "_name": "_1340796d"
+    "_name": "_6580e018"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "/home/heyhei/Documents/dev/portfolio_vue/pages/index.vue",
+    "component": "C:\\\\Users\\\\pitmu1\\\\dev\\\\vue\\\\portfolio_vue\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
-    "_name": "_33658ab4"
+    "_name": "_47ccad4a"
   }
 ]
