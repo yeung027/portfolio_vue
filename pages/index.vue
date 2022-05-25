@@ -1,5 +1,7 @@
 <template>
 <div class="h-screen items-center justify-center flex-col">
+  <div class="rounded-full bg-emerald-400 h-10 w-10 fixed right-4 top-4 bx bx-menu bx-sm text-white flex justify-center">
+  </div>
   <section 
     class="flex flex-col items-center justify-center w-screen h-screen bg-clip-border bg-center-top bg-scroll bg-cover ]" 
     v-observe-visibility="introVisibilityChanged"
