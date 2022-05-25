@@ -18,7 +18,10 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/main.css'
+    '~/assets/main.css',
+    '~/assets/main.min.css',
+    '~/assets/atom-one-dark.min.css',
+    '~/node_modules/boxicons/css/boxicons.min.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -34,6 +37,7 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    'nuxt-resolve-url-loader',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
