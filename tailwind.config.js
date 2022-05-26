@@ -14,6 +14,9 @@ module.exports = {
         backgroundPosition: {
           'mobile': '60% 0%',
         },
+        fontFamily: {
+          'open_sans': ['Open Sans', 'sans-serif'],
+        },
         extend: {
             colors: {
               amber: colors.amber,
@@ -23,6 +26,7 @@ module.exports = {
               'deep-dark': '#040b14',
               'deep-blue': '#2c2f3f',
               'custom-sky': '#149ddd',
+              'dark-blue': '#173b6c',
             },
             backgroundImage: {
               'hero': "url('~@/static/img/hero-bg.jpg')"
