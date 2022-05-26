@@ -14,7 +14,7 @@
   </div>
   <div 
     class="bg-deep-dark w-72 fixed h-screen z-10 flex flex-col text-white ease-in-out duration-300"
-    :class="[isMobileMenuOpen ? '-left-0' : '-left-72']"
+    :class="[isMobileMenuOpen ? '-left-0' : 'sm:-left-72']"
   >
     <div class="flex justify-center pt-5">
       <nuxt-img 
