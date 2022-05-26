@@ -3,10 +3,19 @@
   class="h-screen items-center justify-center flex-col"
   :class="[isMobileMenuOpen ? 'overflow-hidden' : '']"
 >
-  <div class="rounded-full bg-sky-400 h-10 w-10 fixed right-4 top-4 flex items-center justify-center text-white cursor-pointer">
-    <div class="bx bx-menu bx-sm h-auto w-auto" />
+  <div 
+    class="rounded-full bg-sky-400 h-10 w-10 fixed right-4 top-4 flex items-center justify-center text-white cursor-pointer"
+    @click="menuBtnClick"
+  >
+    <div 
+      class="bx bx-sm h-auto w-auto"
+      :class="[isMobileMenuOpen ? 'bx-x' : 'bx-menu']"
+     />
   </div>
-  <div class="bg-deep-dark w-72 fixed h-screen z-10 flex flex-col text-white ">
+  <div 
+    class="bg-deep-dark w-72 fixed h-screen z-10 flex flex-col text-white ease-in-out duration-300"
+    :class="[isMobileMenuOpen ? '-left-0' : '-left-72']"
+  >
     <div class="flex justify-center pt-5">
       <nuxt-img 
         src="/img/profile-img.jpg" 
@@ -130,6 +139,10 @@ export default Vue.extend({
   },
   methods: 
   {
+    menuBtnClick(e:Event)
+    {
+      this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    },
     themeSwitch()
     {
       this.isDarkMode = !this.isDarkMode;
