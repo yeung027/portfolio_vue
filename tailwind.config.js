@@ -27,6 +27,10 @@ module.exports = {
             backgroundImage: {
               'hero': "url('~@/static/img/hero-bg.jpg')"
             }
+          },
+          screens: {
+            'mobile': '390px',
+            'desktop': '1280px',
           }
       }
 }

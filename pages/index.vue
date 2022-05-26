@@ -1,10 +1,10 @@
 <template>
 <div 
-  class="h-screen items-center justify-center flex-col"
-  :class="[isMobileMenuOpen ? 'overflow-hidden' : '']"
+  class="h-screen flex flex-row"
+  :class="[isMobileMenuOpen ? 'mobile:overflow-hidden' : '']"
 >
   <div 
-    class="rounded-full bg-sky-400 h-10 w-10 fixed right-4 top-4 flex items-center justify-center text-white cursor-pointer"
+    class="rounded-full bg-sky-400 h-10 w-10 block mobile:fixed right-4 top-4 flex items-center justify-center text-white cursor-pointer block desktop:hidden"
     @click="menuBtnClick"
   >
     <div 
@@ -14,7 +14,7 @@
   </div>
   <div 
     class="bg-deep-dark w-72 fixed h-screen z-10 flex flex-col text-white ease-in-out duration-300"
-    :class="[isMobileMenuOpen ? '-left-0' : '-left-72']"
+    :class="[isMobileMenuOpen ? '-left-0' : '-left-72 desktop:-left-0']"
   >
     <div class="flex justify-center pt-5">
       <nuxt-img 
@@ -91,8 +91,15 @@
        Contact
        </div>
     </div>
+    <div class="flex-col bottom-0 h-full justify-end pb-10 hidden desktop:flex">
+      <div class="text-center text-sm">
+        <span class="font-normal">by</span>
+        <span class="font-medium text-custom-sky">HeyHei</span>
+      </div>
+    </div>
   </div>
-  <section 
+  <div class="h-screen items-center justify-center desktop:justify-start desktop:ml-72">
+    <section 
     class="flex flex-col items-center justify-center w-screen h-screen bg-clip-border bg-center-top bg-scroll bg-cover bg-hero bg-mobile" 
     v-observe-visibility="introVisibilityChanged"
   >
@@ -113,7 +120,8 @@
     ></span>
   </div>
   </section>
-  <div :class="$style.highhigh"></div>
+  <div class="h-screen bg-black">dsad</div>
+  </div>
 </div>
 </template>
 
