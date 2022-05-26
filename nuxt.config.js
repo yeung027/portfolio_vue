@@ -38,6 +38,7 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     'nuxt-resolve-url-loader',
+    '@nuxt/image',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

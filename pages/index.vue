@@ -1,29 +1,110 @@
 <template>
-<div class="h-screen items-center justify-center flex-col">
-  <div class="rounded-full bg-emerald-400 h-10 w-10 fixed right-4 top-4 bx bx-menu bx-sm text-white flex justify-center">
+<div 
+  class="h-screen items-center justify-center flex-col"
+  :class="[isMobileMenuOpen ? 'overflow-hidden' : '']"
+>
+  <div class="rounded-full bg-sky-400 h-10 w-10 fixed right-4 top-4 flex items-center justify-center text-white cursor-pointer">
+    <div class="bx bx-menu bx-sm h-auto w-auto" />
+  </div>
+  <div class="bg-deep-dark w-72 fixed h-screen z-10 flex flex-col text-white ">
+    <div class="flex justify-center pt-5">
+      <nuxt-img 
+        src="/img/profile-img.jpg" 
+        class="rounded-full w-28 h-28 border-8 border-deep-blue"
+      />
+    </div>
+    <div class="flex justify-center text-white font-medium text-2xl pt-3 tracking-wide cursor-pointer">Alex Smith</div>
+    <div class="flex justify-center flex-row gap-4 mt-4">
+      <div class="bx bxl-twitter bx-xs text-white rounded-full h-auto w-auto bg-deep-blue p-1.5 cursor-pointer" />
+      <div class="bx bxl-github bx-xs text-white rounded-full h-auto w-auto bg-deep-blue p-1.5 cursor-pointer" />
+      <div class="bx bxl-instagram bx-xs text-white rounded-full h-auto w-auto bg-deep-blue p-1.5 cursor-pointer" />
+      <div class="bx bx-envelope bx-xs text-white rounded-full h-auto w-auto bg-deep-blue p-1.5 cursor-pointer" />
+    </div>
+    <div class="flex justify-left flex-col gap-8 px-8 mt-10">
+      <div 
+        class="flex flex-row gap-2 text-white leading-7"
+        :class="[false ? 'text-gray-500' : 'text-white']"
+      >
+        <div 
+          class="bx bx-home bx-sm h-auto w-auto"
+          :class="[false ? 'text-gray-500' : 'text-custom-sky']"
+        />
+       Home
+       </div>
+      <div 
+        class="flex flex-row gap-2 text-white leading-7"
+        :class="[true ? 'text-gray-500' : 'text-white']"
+      >
+        <div 
+          class="bx bx-user bx-sm h-auto w-auto"
+          :class="[true ? 'text-gray-500' : 'text-custom-sky']"
+        />
+       About
+       </div>
+       <div 
+        class="flex flex-row gap-2 text-white leading-7"
+        :class="[true ? 'text-gray-500' : 'text-white']"
+      >
+        <div 
+          class="bx bx-note bx-sm h-auto w-auto bx-rotate-180"
+          :class="[true ? 'text-gray-500' : 'text-custom-sky']"
+        />
+       Resume
+       </div>
+       <div 
+        class="flex flex-row gap-2 text-white leading-7"
+        :class="[true ? 'text-gray-500' : 'text-white']"
+      >
+        <div 
+          class="bx bx-briefcase-alt bx-sm h-auto w-auto"
+          :class="[true ? 'text-gray-500' : 'text-custom-sky']"
+        />
+       Portfolio
+       </div>
+       <div 
+        class="flex flex-row gap-2 text-white leading-7"
+        :class="[true ? 'text-gray-500' : 'text-white']"
+      >
+        <div 
+          class="bx bx-support bx-sm h-auto w-auto"
+          :class="[true ? 'text-gray-500' : 'text-custom-sky']"
+        />
+       Services
+       </div>
+       <div 
+        class="flex flex-row gap-2 text-white leading-7"
+        :class="[true ? 'text-gray-500' : 'text-white']"
+      >
+        <div 
+          class="bx bx-envelope bx-sm h-auto w-auto"
+          :class="[true ? 'text-gray-500' : 'text-custom-sky']"
+        />
+       Contact
+       </div>
+    </div>
   </div>
   <section 
-    class="flex flex-col items-center justify-center w-screen h-screen bg-clip-border bg-center-top bg-scroll bg-cover ]" 
+    class="flex flex-col items-center justify-center w-screen h-screen bg-clip-border bg-center-top bg-scroll bg-cover bg-hero bg-mobile" 
     v-observe-visibility="introVisibilityChanged"
-    :class="$style.intro"
   >
   <div class="w-screen pl-6 text-white font-medium text-3xl">
     Alex Smith
   </div>
   <div class="w-screen pl-6 flex flex-row gap-2 text-white font-normal text-2xl pt-3 tracking-wide">
   <span class="">I'm</span>
-  <span class="overflow-x-hidden group-hover:animate-type-reverse whitespace-nowrap text-brand-accent border-b-3 border-emerald-400"  
+  <span class="overflow-x-hidden group-hover:animate-type-reverse whitespace-nowrap text-brand-accent border-b-3 border-sky-400"  
         :class="[introVisible ? $style.type_reverse : '']"
   >
     Stupid
     </span>
 
   <span
-      class="box-border inline-block h-5 w-0.5 bg-black my-1.5"
+      class="box-border inline-block h-5 w-0.5 bg-black my-1.5 z-0"
       :class="$style.cursor"
     ></span>
   </div>
   </section>
+  <div :class="$style.highhigh"></div>
 </div>
 </template>
 
@@ -61,11 +142,6 @@ export default Vue.extend({
 })
 </script>
 <style module>
-  section.intro
-  {
-    background-image: url('~@/static/img/hero-bg.jpg');
-    background-position:  60% 0%;
-  }
 
   .highhigh
   {
@@ -97,6 +173,10 @@ export default Vue.extend({
   {
     animation: type 1.8s ease-out .8s 1 normal both;
   }
+  .type_reverse
+  {
+    animation: type 1.8s ease-out 0s infinite alternate-reverse both
+  }
 
   @keyframes type {
     0% { width: 0ch }
@@ -107,13 +187,8 @@ export default Vue.extend({
     45%, 50% { width: 4ch }
     55%, 60% { width: 4ch }
     65%, 70% { width: 4ch }
-    75%, 80% { width: 5.5ch; }
-    85%, 90% { width: 5.5ch }
-    95% { width: 5.5.5ch }
-  }
-
-  .type_reverse
-  {
-    animation: type 1.8s ease-out 0s infinite alternate-reverse both
+    75%, 80% { width: 5ch }
+    85%, 90% { width: 5ch }
+    95% { width: 5ch }
   }
 </style>
