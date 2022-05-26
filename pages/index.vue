@@ -4,7 +4,7 @@
   :class="[isMobileMenuOpen ? 'mobile:overflow-hidden' : '']"
 >
   <div 
-    class="rounded-full bg-sky-400 h-10 w-10 block mobile:fixed right-4 top-4 flex items-center justify-center text-white cursor-pointer block desktop:hidden"
+    class="rounded-full bg-sky-400 h-10 w-10 block fixed desktop:static right-4 top-4 flex items-center justify-center text-white cursor-pointer block desktop:hidden"
     @click="menuBtnClick"
   >
     <div 
@@ -98,77 +98,83 @@
       </div>
     </div>
   </div>
-  <div class="h-screen items-center justify-center desktop:justify-start desktop:ml-72">
+  <div class="h-screen items-center justify-center desktop:justify-start desktop:ml-72 w-full">
     <section 
-    class="flex flex-col items-center justify-center w-screen h-screen bg-clip-border bg-center-top bg-scroll bg-cover bg-hero bg-mobile" 
+    class="flex flex-col items-center justify-center h-screen bg-clip-border bg-center-top bg-scroll bg-cover bg-hero bg-mobile w-full" 
     v-observe-visibility="introVisibilityChanged"
-  >
-  <h1 class="w-screen pl-6 text-white font-medium text-3xl">
-    Alex Smith
-  </h1>
-  <div class="w-screen pl-6 flex flex-row gap-2 text-white font-normal text-2xl pt-3 tracking-wide">
-  <h2 class="">I'm</h2>
-  <h2 class="overflow-x-hidden group-hover:animate-type-reverse whitespace-nowrap text-brand-accent border-b-3 border-sky-400"  
-        :class="[introVisible ? $style.type_reverse : '']"
-  >
-    Stupid
-    </h2>
+    >
+      <h1 class="flex w-full pl-6 text-white font-medium text-3xl">
+        Alex Smith
+      </h1>
+      <div class="w-full pl-6 flex flex-row gap-2 text-white font-normal text-2xl pt-3 tracking-wide">
+        <h2 class="">I'm</h2>
+        <h2 class="overflow-x-hidden group-hover:animate-type-reverse whitespace-nowrap text-brand-accent border-b-3 border-sky-400"  
+              :class="[introVisible ? $style.type_reverse : '']"
+        >
+          Stupid
+          </h2>
 
-  <span
-      class="box-border inline-block h-5 w-0.5 bg-black my-1.5 z-0"
-      :class="$style.cursor"
-    ></span>
-  </div>
-  </section>
-  <section 
-    class="w-screen min-h-screen" 
-    v-observe-visibility="aboutVisibilityChanged"
-  >
-    <div class="flex flex-col items-start justify-start ">
+        <span
+            class="box-border inline-block h-5 w-0.5 bg-black my-1.5 z-0"
+            :class="$style.cursor"
+          ></span>
+        </div>
+    </section>
+    <section 
+      class="w-full min-h-screen px-8" 
+    >
       <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">About</h1>
       <div class="border-b-3 border-sky-400 w-14 ml-2 mb-5" />
       <article class="mx-2 font-normal font-open_sans font-light">
         Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
       </article>
-      <div class="flex flex-col mx-2 mt-6 items-start">
-        <div class="flex justify-center">
-          <nuxt-img 
-            src="/img/profile-img.jpg" 
-            class="w-11/12"
-          />
-        </div>
-        <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">Redundant Staff</h1>
-        <article class="mx-2 font-normal font-open_sans font-light">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </article>
-        <ul class='bx-ul bx-xs'>
-          <li class="ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
-            <span class="-ml-6 font-normal text-base pr-2">Phone:</span>
-            <span class="font-open_sans font-light text-base">12345678</span>
-          </li>
-          <li class="ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
-            <span class="-ml-6 font-normal text-base pr-2">Town:</span>
-            <span class="font-open_sans font-light text-base">Kwai Chung</span>
-          </li>
-          <li class="ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
-            <span class="-ml-6 font-normal text-base pr-2">Website:</span>
-            <span class="font-open_sans font-light text-base">www.abc.com</span>
-          </li>
-          <li class="ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
-            <span class="-ml-6 font-normal text-base pr-2">Email:</span>
-            <span class="font-open_sans font-light text-base">abc@gmail.com</span>
-          </li>
-          <li class="ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
-            <span class="-ml-6 font-normal text-base pr-2">Freelance:</span>
-            <span class="font-open_sans font-light text-base">Available</span>
-          </li>
-        </ul>
-        <article class=" my-3 mx-2 font-normal font-open_sans font-light">
-          Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis. Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
-        </article>
+      <div class="flex flex-col desktop:flex-row mx-2 mt-6 items-start">
+      <div 
+        class="relative ease-in-out duration-500 desktop:w-1/4"
+        v-observe-visibility="aboutVisibilityChanged"
+        :class="[aboutVisible ? 'opacity-100 left-0' : 'opacity-0 -left-1/4']"
+      >
+        <nuxt-img 
+          src="/img/profile-img.jpg" 
+          class="w-full"
+        />
       </div>
+      <div 
+        class="relative ease-in-out duration-500 mt-14 desktop:mt-0 desktop:w-3/5 pl-6 -right-0"
+        :class="[aboutVisible ? 'opacity-100 right-0' : 'opacity-0 -right-3/4']"
+      >
+      <h1 class="font-medium text-3xl text-dark-blue pb-4 ml-2 dekstop:ml-5">Redundant Staff</h1>
+      <article class="mx-2 font-normal font-open_sans font-light">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </article>
+      <ul class='bx-ul bx-xs desktop:grid desktop:grid-cols-2 desktop:pt-4'>
+        <li class="ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
+          <span class="-ml-6 font-normal text-base pr-2">Phone:</span>
+          <span class="font-open_sans font-light text-base">12345678</span>
+        </li>
+        <li class="ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
+          <span class="-ml-6 font-normal text-base pr-2">Town:</span>
+          <span class="font-open_sans font-light text-base">Kwai Chung</span>
+        </li>
+        <li class="ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
+          <span class="-ml-6 font-normal text-base pr-2">Website:</span>
+          <span class="font-open_sans font-light text-base">www.abc.com</span>
+        </li>
+        <li class="ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
+          <span class="-ml-6 font-normal text-base pr-2">Email:</span>
+          <span class="font-open_sans font-light text-base">abc@gmail.com</span>
+        </li>
+        <li class="ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
+          <span class="-ml-6 font-normal text-base pr-2">Freelance:</span>
+          <span class="font-open_sans font-light text-base">Available</span>
+        </li>
+      </ul>
+      <article class=" my-3 mx-2 font-normal font-open_sans font-light">
+        Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis. Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
+      </article>
     </div>
-  </section>
+    </div>
+    </section>
   </div>
 </div>
 </template>

@@ -3,12 +3,14 @@
     "name": "work",
     "path": "/work",
     "component": "C:\\\\Users\\\\pitmu1\\\\dev\\\\vue\\\\portfolio_vue\\\\pages\\\\work.vue",
-    "chunkName": "pages/work"
+    "chunkName": "pages/work",
+    "_name": "_6580e018"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\pitmu1\\\\dev\\\\vue\\\\portfolio_vue\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_47ccad4a"
   }
 ]
