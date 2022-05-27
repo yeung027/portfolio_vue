@@ -340,9 +340,12 @@
       </article>
       <div 
         class="flex flex-col desktop:flex-row px-2 mt-6 mb-10"
-        v-observe-visibility="resumeVisibilityChanged"
       >
-        <div class="pb-8 desktop:pb-0">
+        <div 
+          class="pb-8 desktop:pb-0 ease-in-out delay-300 duration-1000 transition transform"
+          v-observe-visibility="resumeVisibilityChanged"
+          :class="[resumeVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10']"
+        >
           <div class="text-black font-roboto text-2xl font-medium pb-4">Professional Experience</div>
           <div class="border-l-2 border-dark-blue px-6 pb-1">
             <div class="relative border-2 border-dark-blue rounded-full w-4 h-4 -ml-8 -mt-2 bg-white" />
@@ -366,7 +369,11 @@
           </div>
         </div>
         
-        <div>
+        <div
+          class="pb-8 desktop:pb-0 ease-in-out delay-500 duration-1000 transition transform"
+          v-observe-visibility="resume2VisibilityChanged"
+          :class="[resume2Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10']"
+        >
           <div class="text-black font-roboto text-2xl font-medium pb-4">Education</div>
           <div class="border-l-2 border-dark-blue px-6 pb-1">
             <div class="relative border-2 border-dark-blue rounded-full w-4 h-4 -ml-8 -mt-2 bg-white" />
@@ -416,7 +423,8 @@ export default Vue.extend({
       aboutImgVisible:false,
       aboutDetailVisible:false,
       skillBarVisible:false,
-      resumeVisible:false
+      resumeVisible:false,
+      resume2Visible:false
     }
   },
   methods: 
@@ -443,6 +451,9 @@ export default Vue.extend({
     },
     resumeVisibilityChanged (isVisible:boolean, entry:any) {
       this.resumeVisible = isVisible
+    },
+    resume2VisibilityChanged (isVisible:boolean, entry:any) {
+      this.resume2Visible = isVisible
     },
   }
 })
@@ -487,14 +498,14 @@ export default Vue.extend({
   @keyframes type {
     0% { width: 0ch }
     5%, 10% { width: 1ch }
-    15%, 20% { width: 2ch }
-    25%, 30% { width: 3ch }
-    35%, 40% { width: 3ch }
-    45%, 50% { width: 4ch }
-    55%, 60% { width: 4ch }
-    65%, 70% { width: 4ch }
-    75%, 80% { width: 5ch }
-    85%, 90% { width: 5ch }
-    95% { width: 5ch }
+    15%, 20% { width: 1ch }
+    25%, 30% { width: 1ch }
+    35%, 40% { width: 1ch }
+    45%, 50% { width: 2.6ch }
+    55%, 60% { width: 2.6ch }
+    65%, 70% { width: 2.6ch }
+    75%, 80% { width: 2.6ch }
+    85%, 90% { width: 2.6ch }
+    100% { width: 2.6ch }
   }
 </style>
