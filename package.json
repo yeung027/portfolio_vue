@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "export NODE_OPTIONS=--openssl-legacy-provider && nuxt",
     "build": "nuxt build",
-    "start": "export NODE_OPTIONS=--openssl-legacy-provider && mpm i && nuxt start",
+    "start": "export NODE_OPTIONS=--openssl-legacy-provider && npm i && nuxt start",
     "generate": "nuxt generate"
   },
   "dependencies": {
