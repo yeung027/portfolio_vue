@@ -100,13 +100,14 @@
   </div>
   <div class="h-screen items-center justify-center desktop:justify-start desktop:ml-72 w-full">
     <section 
-    class="flex flex-col items-center justify-center h-screen bg-clip-border bg-center-top bg-scroll bg-cover bg-hero bg-mobile w-full" 
+    class="flex flex-col desktop:items-center justify-center h-screen bg-clip-border bg-center-top bg-cover bg-hero bg-mobile bg-fixed w-full" 
     v-observe-visibility="introVisibilityChanged"
     >
-      <h1 class="flex w-full pl-6 text-white font-medium text-3xl">
+      <div>
+      <h1 class="flex w-auto text-white font-medium text-3xl desktop:text-5xl desktop:-ml-60 pl-12 desktop:0">
         Alex Smith
       </h1>
-      <div class="w-full pl-6 flex flex-row gap-2 text-white font-normal text-2xl pt-3 tracking-wide">
+      <div class="w-auto flex flex-row gap-2 text-white font-normal text-2xl pt-3 tracking-wide desktop:-ml-60 pl-12 desktop:0">
         <h2 class="">I'm</h2>
         <h2 class="overflow-x-hidden group-hover:animate-type-reverse whitespace-nowrap text-brand-accent border-b-3 border-sky-400"  
               :class="[introVisible ? $style.type_reverse : '']"
@@ -118,6 +119,7 @@
             class="box-border inline-block h-5 w-0.5 bg-black my-1.5 z-0"
             :class="$style.cursor"
           ></span>
+        </div>
         </div>
     </section>
     <section 
