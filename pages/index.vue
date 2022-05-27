@@ -509,6 +509,42 @@
         </div>
       </div>
     </section>
+    <section 
+      class="w-full px-0 bg-yellow-50 mb-20" 
+    >
+      <div class="bg-white dekstop:pl-5 px-2 desktop:px-8 pl-4">
+        <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ">Contact</h1>
+        <div class="border-b-3 border-sky-400 w-14 mb-5" />
+        <article class="pr-2 pb-4 font-normal font-open_sans font-light">
+          Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
+        </article>
+      </div>
+      <div 
+        class="flex flex-col desktop:flex-row px-2 mt-2 pb-2 gap-2"
+      >
+        <div class="flex flex-col mt-0 bg-white px-6 w-full desktop:w-5/12">
+          <div class="flex flex-col pt-6">
+            <div class="flex flex-row pb-6 px-0 desktop:px-4 justify-center content-center border-2 border-black">
+              <div class="bx bx-map bx-sm text-custom-sky bg-light-sky rounded-full p-4 mr-4" />
+              <div class="flex flex-col">
+                <div class="text-2xl text-black">Location</div>
+                <div class="text-sm text-dark-blue whitespace-nowrap">A108 Adam Street, New York, NY 535022</div>
+              </div>
+            </div>
+            <div class="flex flex-row pb-6 px-0 desktop:px-4 justify-center content-center border-2 border-black">
+              <div class="bx bx-map bx-sm text-custom-sky bg-light-sky rounded-full p-4 mr-4" />
+              <div class="flex flex-col">
+                <div class="text-2xl text-black">Location</div>
+                <div class="text-sm text-dark-blue whitespace-nowrap">A108 Adam Street, New York, NY 535022</div>
+              </div>
+            </div>
+            <div>u</div>
+          </div>
+          <div>b</div>
+        </div>
+        <div class="flex w-full bg-white">2</div>
+      </div>
+    </section>
   </div>
 </div>
 </template>

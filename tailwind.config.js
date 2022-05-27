@@ -27,6 +27,7 @@ module.exports = {
               'deep-dark': '#040b14',
               'deep-blue': '#2c2f3f',
               'custom-sky': '#149ddd',
+              'light-sky': '#cff0ff',
               'dark-blue': '#173b6c',
             },
             backgroundImage: {
