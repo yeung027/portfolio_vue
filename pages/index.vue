@@ -1,10 +1,10 @@
 <template>
 <div 
-  class="h-screen flex flex-row"
+  class="h-screen flex flex-row overflow-x-hidden"
   :class="[isMobileMenuOpen ? 'mobile:overflow-hidden' : '']"
 >
   <div 
-    class="rounded-full bg-sky-400 h-10 w-10 block fixed desktop:static right-4 top-4 flex items-center justify-center text-white cursor-pointer block desktop:hidden"
+    class="rounded-full z-10 bg-sky-400 h-10 w-10 block fixed desktop:static right-4 top-4 flex items-center justify-center text-white cursor-pointer block desktop:hidden"
     @click="menuBtnClick"
   >
     <div 
@@ -121,7 +121,7 @@
         </div>
     </section>
     <section 
-      class="w-full min-h-screen px-2 desktop:px-8" 
+      class="w-full px-2 desktop:px-8" 
     >
       <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">About</h1>
       <div class="border-b-3 border-sky-400 w-14 ml-2 mb-5" />
@@ -136,7 +136,7 @@
       >
           <nuxt-img 
             src="/img/profile-img.jpg" 
-            class="desktop:w-11/12"
+            class="desktop:w-11/12 z-0"
           />
         </div>
       <div 
@@ -175,6 +175,75 @@
       </article>
     </div>
     </div>
+    </section>
+    <section 
+      class="w-full min-h-screen px-2 desktop:px-8" 
+    >
+      <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">Skills</h1>
+      <div class="border-b-3 border-sky-400 w-14 ml-2 mb-5" />
+      <article class="mx-2 font-normal font-open_sans font-light">
+        Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
+      </article>
+      <div class="flex flex-col desktop:flex-row px-2 mt-6">
+        <div class="desktop:w-1/2 desktop:pr-4 flex flex-col gap-6">
+            <div>
+              <div class="grid grid-cols-2 font-roboto text-xs pb-1">
+                <span>HTML</span>
+                <span class="text-right">100%</span>
+              </div>
+              <div class="w-full bg-sky-100  h-2.5">
+                <div class="bg-sky-400 h-2.5 " style="width: 80%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="grid grid-cols-2 font-roboto text-xs pb-1">
+                <span>HTML</span>
+                <span class="text-right">100%</span>
+              </div>
+              <div class="w-full bg-sky-100  h-2.5">
+                <div class="bg-sky-400 h-2.5 " style="width: 80%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="grid grid-cols-2 font-roboto text-xs pb-1">
+                <span>HTML</span>
+                <span class="text-right">100%</span>
+              </div>
+              <div class="w-full bg-sky-100  h-2.5">
+                <div class="bg-sky-400 h-2.5 " style="width: 80%"></div>
+              </div>
+            </div>
+        </div>
+        <div class="desktop:w-1/2 desktop:pl-4 flex flex-col gap-6 mt-6 desktop:mt-0">
+          <div>
+            <div class="grid grid-cols-2 font-roboto text-xs pb-1">
+              <span>HTML</span>
+              <span class="text-right">100%</span>
+            </div>
+            <div class="w-full bg-sky-100  h-2.5">
+              <div class="bg-sky-400 h-2.5 " style="width: 80%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="grid grid-cols-2 font-roboto text-xs pb-1">
+              <span>HTML</span>
+              <span class="text-right">100%</span>
+            </div>
+            <div class="w-full bg-sky-100  h-2.5">
+              <div class="bg-sky-400 h-2.5 " style="width: 80%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="grid grid-cols-2 font-roboto text-xs pb-1">
+              <span>HTML</span>
+              <span class="text-right">100%</span>
+            </div>
+            <div class="w-full bg-sky-100  h-2.5">
+              <div class="bg-sky-400 h-2.5 " style="width: 80%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 </div>

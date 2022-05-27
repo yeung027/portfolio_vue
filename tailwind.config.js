@@ -16,6 +16,7 @@ module.exports = {
         },
         fontFamily: {
           'open_sans': ['Open Sans', 'sans-serif'],
+          'roboto': ['Roboto', 'sans-serif']
         },
         extend: {
             colors: {
