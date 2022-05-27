@@ -41,5 +41,10 @@ module.exports = {
             'mobile': '390px',
             'desktop': '1280px',
           }
-      }
+      },
+      variants: {
+        extend: {
+          translate: ['group-hover', 'hover'],
+        }
+      },
 }

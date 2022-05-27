@@ -398,6 +398,117 @@
         </div>
       </div>
     </section>
+    <section 
+      class="w-full px-2 desktop:px-8 desktop:min-h-screen" 
+    >
+      <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">Portfolio</h1>
+      <div class="border-b-3 border-sky-400 w-14 ml-2 mb-5" />
+      <article class="mx-2 font-normal font-open_sans font-light">
+        Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
+      </article>
+      <div 
+        class="grid grid-cols-1 desktop:grid-cols-3 gap-y-6 pl-2 pb-20 pt-10 ease-in-out delay-300 duration-1000 transition transform"
+        v-observe-visibility="portfolioVisibilityChanged"
+        :class="[portfolioVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10']"
+      >
+        <div 
+          class="w-11/12 text-white overflow-y-hidden group"
+        >
+          <nuxt-img 
+            src="/portfolio/1.png" 
+            class="w-full group-hover:opacity-50"
+          />
+          <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
+            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
+              <div class="bx bx-sm bx-plus h-6 my-2" />
+            </div>
+            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
+              <div class="bx bx-sm bx-link h-6 my-2" />
+            </div>
+          </div>
+        </div>
+        <div 
+          class="w-11/12 text-white overflow-y-hidden group"
+        >
+          <nuxt-img 
+            src="/portfolio/2.png" 
+            class="w-full group-hover:opacity-50"
+          />
+          <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
+            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
+              <div class="bx bx-sm bx-plus h-6 my-2" />
+            </div>
+            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
+              <div class="bx bx-sm bx-link h-6 my-2" />
+            </div>
+          </div>
+        </div>
+        <div 
+          class="w-11/12 text-white overflow-y-hidden group"
+        >
+          <nuxt-img 
+            src="/portfolio/3.png" 
+            class="w-full group-hover:opacity-50"
+          />
+          <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
+            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
+              <div class="bx bx-sm bx-plus h-6 my-2" />
+            </div>
+            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
+              <div class="bx bx-sm bx-link h-6 my-2" />
+            </div>
+          </div>
+        </div>
+        <div 
+          class="w-11/12 text-white overflow-y-hidden group"
+        >
+          <nuxt-img 
+            src="/portfolio/4.png" 
+            class="w-full group-hover:opacity-50"
+          />
+          <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
+            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
+              <div class="bx bx-sm bx-plus h-6 my-2" />
+            </div>
+            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
+              <div class="bx bx-sm bx-link h-6 my-2" />
+            </div>
+          </div>
+        </div>
+        <div 
+          class="w-11/12 text-white overflow-y-hidden group"
+        >
+          <nuxt-img 
+            src="/portfolio/5.png" 
+            class="w-full group-hover:opacity-50"
+          />
+          <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
+            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
+              <div class="bx bx-sm bx-plus h-6 my-2" />
+            </div>
+            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
+              <div class="bx bx-sm bx-link h-6 my-2" />
+            </div>
+          </div>
+        </div>
+        <div 
+          class="w-11/12 text-white overflow-y-hidden group"
+        >
+          <nuxt-img 
+            src="/portfolio/6.png" 
+            class="w-full group-hover:opacity-50"
+          />
+          <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
+            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
+              <div class="bx bx-sm bx-plus h-6 my-2" />
+            </div>
+            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
+              <div class="bx bx-sm bx-link h-6 my-2" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </div>
 </template>
@@ -424,7 +535,8 @@ export default Vue.extend({
       aboutDetailVisible:false,
       skillBarVisible:false,
       resumeVisible:false,
-      resume2Visible:false
+      resume2Visible:false,
+      portfolioVisible:false
     }
   },
   methods: 
@@ -454,6 +566,9 @@ export default Vue.extend({
     },
     resume2VisibilityChanged (isVisible:boolean, entry:any) {
       this.resume2Visible = isVisible
+    },
+    portfolioVisibilityChanged (isVisible:boolean, entry:any) {
+      this.portfolioVisible = isVisible
     },
   }
 })
