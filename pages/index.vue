@@ -177,7 +177,7 @@
     </div>
     </section>
     <section 
-      class="w-full min-h-screen px-2 desktop:px-8" 
+      class="w-full px-2 desktop:px-8" 
     >
       <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">Skills</h1>
       <div class="border-b-3 border-sky-400 w-14 ml-2 mb-5" />
@@ -185,11 +185,13 @@
         Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
       </article>
       <div 
-        class="flex flex-col desktop:flex-row px-2 mt-6 ease-in-out delay-300 duration-1000 transition transform"
+        class="flex flex-col desktop:flex-row px-2 mt-6"
         v-observe-visibility="skillBarVisibilityChanged"
-        :class="[skillBarVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10']"
       >
-        <div class="desktop:w-1/2 desktop:pr-4 flex flex-col gap-6">
+        <div 
+          class="desktop:w-1/2 desktop:pr-4 flex flex-col gap-6 ease-in-out delay-300 duration-1000 transition transform"
+          :class="[skillBarVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10']"
+        >
             <div>
               <div class="grid grid-cols-2 font-roboto text-xs pb-1">
                 <span>HTML</span>
@@ -259,7 +261,10 @@
               </div>
             </div>
         </div>
-        <div class="desktop:w-1/2 desktop:pl-4 flex flex-col gap-6 mt-6 desktop:mt-0">
+        <div 
+          class="desktop:w-1/2 desktop:pl-4 flex flex-col gap-6 mt-6 desktop:mt-0 delay-700 duration-1000 transition transform"
+          :class="[skillBarVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10']"
+        >
           <div>
               <div class="grid grid-cols-2 font-roboto text-xs pb-1">
                 <span>Vue</span>
@@ -271,7 +276,7 @@
                   style="width: 70%"
                 >
                   <div 
-                    class="bg-sky-400 h-full w-full ease-in-out delay-500 duration-1000 transition transform"
+                    class="bg-sky-400 h-full w-full ease-in-out delay-700 duration-1000 transition transform"
                     :class="[skillBarVisible ? 'translate-x-0' : '-translate-x-10']"
                    />
                 </div>
@@ -288,7 +293,7 @@
                   style="width: 55%"
                 >
                   <div 
-                    class="bg-sky-400 h-full w-full ease-in-out delay-500 duration-1000 transition transform"
+                    class="bg-sky-400 h-full w-full ease-in-out delay-700 duration-1000 transition transform"
                     :class="[skillBarVisible ? 'translate-x-0' : '-translate-x-10']"
                    />
                 </div>
@@ -314,12 +319,73 @@
                   style="width: 80%"
                 >
                   <div 
-                    class="bg-sky-400 h-full w-full ease-in-out delay-500 duration-1000 transition transform"
+                    class="bg-sky-400 h-full w-full ease-in-out delay-700 duration-1000 transition transform"
                     :class="[skillBarVisible ? 'translate-x-0' : '-translate-x-10']"
                    />
                 </div>
               </div>
             </div>
+        </div>
+      </div>
+    </section>
+    <section 
+      class="w-full px-2 desktop:px-8" 
+    >
+      <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">Resume</h1>
+      <div class="border-b-3 border-sky-400 w-14 ml-2 mb-5" />
+      <article class="mx-2 font-normal font-open_sans font-light">
+        Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
+      </article>
+      <div 
+        class="flex flex-col desktop:flex-row px-2 mt-6 mb-10"
+        v-observe-visibility="resumeVisibilityChanged"
+      >
+        <div class="pb-8 desktop:pb-0">
+          <div class="text-black font-roboto text-2xl font-medium pb-4">Professional Experience</div>
+          <div class="border-l-2 border-dark-blue px-6 pb-1">
+            <div class="relative border-2 border-dark-blue rounded-full w-4 h-4 -ml-8 -mt-2 bg-white" />
+            <div class="text-black font-roboto text-xl font-medium -mt-5">Senior graphic design specialist</div>
+            <div class="text-black font-open_sans text-base font-medium pt-2 pl-2">2019 - Present</div>
+            <div class="text-black font-open_sans text-base font-normal pt-2 italic">Experion, New York, NY</div>
+            <ul class="list-disc ml-4 pt-2 font-open_sans text-base font-normal pb-8">
+              <li class="my-2">Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
+              <li class="my-2">Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project.</li>
+            </ul>
+          </div>
+          <div class="border-l-2 border-dark-blue px-6 pb-1">
+            <div class="relative border-2 border-dark-blue rounded-full w-4 h-4 -ml-8 -mt-2 bg-white" />
+            <div class="text-black font-roboto text-xl font-medium -mt-5">Graphic design specialist</div>
+            <div class="text-black font-open_sans text-base font-medium pt-2 pl-2">2017 - 2018</div>
+            <div class="text-black font-open_sans text-base font-normal pt-2 italic">Stepping Stone Advertising, New York, NY</div>
+            <ul class="list-disc ml-4 pt-2 font-open_sans text-base font-normal pb-2">
+              <li class="my-2">Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
+              <li class="my-2">Managed up to 5 projects or tasks at a given time while under pressure</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div>
+          <div class="text-black font-roboto text-2xl font-medium pb-4">Education</div>
+          <div class="border-l-2 border-dark-blue px-6 pb-1">
+            <div class="relative border-2 border-dark-blue rounded-full w-4 h-4 -ml-8 -mt-2 bg-white" />
+            <div class="text-black font-roboto text-xl font-medium -mt-5">Senior graphic design specialist</div>
+            <div class="text-black font-open_sans text-base font-medium pt-2 pl-2">2019 - Present</div>
+            <div class="text-black font-open_sans text-base font-normal pt-2 italic">Experion, New York, NY</div>
+            <ul class="list-disc ml-4 pt-2 font-open_sans text-base font-normal pb-8">
+              <li class="my-2">Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
+              <li class="my-2">Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project.</li>
+            </ul>
+          </div>
+          <div class="border-l-2 border-dark-blue px-6 pb-1">
+            <div class="relative border-2 border-dark-blue rounded-full w-4 h-4 -ml-8 -mt-2 bg-white" />
+            <div class="text-black font-roboto text-xl font-medium -mt-5">Graphic design specialist</div>
+            <div class="text-black font-open_sans text-base font-medium pt-2 pl-2">2017 - 2018</div>
+            <div class="text-black font-open_sans text-base font-normal pt-2 italic">Stepping Stone Advertising, New York, NY</div>
+            <ul class="list-disc ml-4 pt-2 font-open_sans text-base font-normal pb-2">
+              <li class="my-2">Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
+              <li class="my-2">Managed up to 5 projects or tasks at a given time while under pressure</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -347,7 +413,8 @@ export default Vue.extend({
       introVisible:false,
       aboutImgVisible:false,
       aboutDetailVisible:false,
-      skillBarVisible:false
+      skillBarVisible:false,
+      resumeVisible:false
     }
   },
   methods: 
@@ -371,6 +438,9 @@ export default Vue.extend({
     },
     skillBarVisibilityChanged (isVisible:boolean, entry:any) {
       this.skillBarVisible = isVisible
+    },
+    resumeVisibilityChanged (isVisible:boolean, entry:any) {
+      this.resumeVisible = isVisible
     },
   }
 })

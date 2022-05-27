@@ -35,7 +35,7 @@ module.exports = {
             inset: {
               '1/5': '20%',
               '1/6': '16.66%',
-            }
+            },
           },
           screens: {
             'mobile': '390px',
