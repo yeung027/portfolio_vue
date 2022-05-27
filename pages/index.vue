@@ -121,7 +121,7 @@
         </div>
     </section>
     <section 
-      class="w-full min-h-screen px-8" 
+      class="w-full min-h-screen px-2 desktop:px-8" 
     >
       <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">About</h1>
       <div class="border-b-3 border-sky-400 w-14 ml-2 mb-5" />
@@ -130,46 +130,47 @@
       </article>
       <div class="flex flex-col desktop:flex-row mx-2 mt-6 items-start">
       <div 
-        class="relative ease-in-out duration-500 desktop:w-1/4"
-        v-observe-visibility="aboutVisibilityChanged"
-        :class="[aboutVisible ? 'opacity-100 left-0' : 'opacity-0 -left-1/4']"
+        class="flex desktop:justify-center w-11/12 desktop:w-2/5 ease-in-out duration-500 transform"
+        v-observe-visibility="aboutImgVisibilityChanged"
+        :class="[aboutImgVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full']"
       >
-        <nuxt-img 
-          src="/img/profile-img.jpg" 
-          class="w-full"
-        />
-      </div>
+          <nuxt-img 
+            src="/img/profile-img.jpg" 
+            class="desktop:w-11/12"
+          />
+        </div>
       <div 
-        class="relative ease-in-out duration-500 mt-14 desktop:mt-0 desktop:w-3/5 pl-6 -right-0"
-        :class="[aboutVisible ? 'opacity-100 right-0' : 'opacity-0 -right-3/4']"
+        class="ease-in-out duration-500 desktop:w-3/5 mt-6 desktop:mt-0 transform"
+        v-observe-visibility="aboutDetailVisibilityChanged"
+        :class="[aboutDetailVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full']"
       >
-      <h1 class="font-medium text-3xl text-dark-blue pb-4 ml-2 dekstop:ml-5">Redundant Staff</h1>
-      <article class="mx-2 font-normal font-open_sans font-light">
+      <h1 class="font-medium text-3xl text-dark-blue pb-4 ml-0 dekstop:ml-5">Redundant Staff</h1>
+      <article class="dekstop:mx-2 font-normal font-open_sans font-light">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </article>
       <ul class='bx-ul bx-xs desktop:grid desktop:grid-cols-2 desktop:pt-4'>
-        <li class="ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
+        <li class="ml-2 desktop:ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
           <span class="-ml-6 font-normal text-base pr-2">Phone:</span>
           <span class="font-open_sans font-light text-base">12345678</span>
         </li>
-        <li class="ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
+        <li class="ml-2 desktop:ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
           <span class="-ml-6 font-normal text-base pr-2">Town:</span>
           <span class="font-open_sans font-light text-base">Kwai Chung</span>
         </li>
-        <li class="ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
+        <li class="ml-2 desktop:ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
           <span class="-ml-6 font-normal text-base pr-2">Website:</span>
           <span class="font-open_sans font-light text-base">www.abc.com</span>
         </li>
-        <li class="ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
+        <li class="ml-2 desktop:ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
           <span class="-ml-6 font-normal text-base pr-2">Email:</span>
           <span class="font-open_sans font-light text-base">abc@gmail.com</span>
         </li>
-        <li class="ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
+        <li class="ml-2 desktop:ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
           <span class="-ml-6 font-normal text-base pr-2">Freelance:</span>
           <span class="font-open_sans font-light text-base">Available</span>
         </li>
       </ul>
-      <article class=" my-3 mx-2 font-normal font-open_sans font-light">
+      <article class=" my-3 desktop:mx-2 font-normal font-open_sans font-light">
         Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis. Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
       </article>
     </div>
@@ -197,7 +198,8 @@ export default Vue.extend({
       isMobileMenuOpen: false,
       isDarkMode: false,
       introVisible:false,
-      aboutVisible:false
+      aboutImgVisible:false,
+      aboutDetailVisible:false
     }
   },
   methods: 
@@ -213,8 +215,11 @@ export default Vue.extend({
     introVisibilityChanged (isVisible:boolean, entry:any) {
       this.introVisible = isVisible
     },
-    aboutVisibilityChanged (isVisible:boolean, entry:any) {
-      this.aboutVisible = isVisible
+    aboutImgVisibilityChanged (isVisible:boolean, entry:any) {
+      this.aboutImgVisible = isVisible
+    },
+    aboutDetailVisibilityChanged (isVisible:boolean, entry:any) {
+      this.aboutDetailVisible = isVisible
     }
   }
 })
