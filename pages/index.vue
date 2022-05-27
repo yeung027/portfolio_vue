@@ -130,9 +130,9 @@
       </article>
       <div class="flex flex-col desktop:flex-row mx-2 mt-6 items-start">
       <div 
-        class="flex desktop:justify-center w-11/12 desktop:w-2/5 ease-in-out duration-500 transform"
+        class="flex desktop:justify-center w-11/12 desktop:w-2/5 ease-in-out duration-500 delay-500 transform"
         v-observe-visibility="aboutImgVisibilityChanged"
-        :class="[aboutImgVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full']"
+        :class="[aboutImgVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10']"
       >
           <nuxt-img 
             src="/img/profile-img.jpg" 
@@ -140,9 +140,9 @@
           />
         </div>
       <div 
-        class="ease-in-out duration-500 desktop:w-3/5 mt-6 desktop:mt-0 transform"
+        class="ease-in-out duration-500 delay-300 desktop:w-3/5 mt-6 desktop:mt-0 transform"
         v-observe-visibility="aboutDetailVisibilityChanged"
-        :class="[aboutDetailVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full']"
+        :class="[aboutDetailVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10']"
       >
       <h1 class="font-medium text-3xl text-dark-blue pb-4 ml-0 dekstop:ml-5">Redundant Staff</h1>
       <article class="dekstop:mx-2 font-normal font-open_sans font-light">
@@ -184,64 +184,142 @@
       <article class="mx-2 font-normal font-open_sans font-light">
         Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
       </article>
-      <div class="flex flex-col desktop:flex-row px-2 mt-6">
+      <div 
+        class="flex flex-col desktop:flex-row px-2 mt-6 ease-in-out delay-300 duration-1000 transition transform"
+        v-observe-visibility="skillBarVisibilityChanged"
+        :class="[skillBarVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10']"
+      >
         <div class="desktop:w-1/2 desktop:pr-4 flex flex-col gap-6">
             <div>
               <div class="grid grid-cols-2 font-roboto text-xs pb-1">
                 <span>HTML</span>
                 <span class="text-right">100%</span>
               </div>
-              <div class="w-full bg-sky-100  h-2.5">
-                <div class="bg-sky-400 h-2.5 " style="width: 80%"></div>
+              <div class="w-full bg-sky-100  h-2.5 overflow-x-hidden">
+                <div 
+                  class="h-2.5" 
+                  style="width: 100%"
+                >
+                  <div 
+                    class="bg-sky-400 h-full w-full ease-in-out delay-500 duration-1000 transition transform"
+                    :class="[skillBarVisible ? 'translate-x-0' : '-translate-x-10']"
+                   />
+                </div>
               </div>
             </div>
             <div>
               <div class="grid grid-cols-2 font-roboto text-xs pb-1">
-                <span>HTML</span>
-                <span class="text-right">100%</span>
+                <span>CSS / SCSS</span>
+                <span class="text-right">95%</span>
               </div>
-              <div class="w-full bg-sky-100  h-2.5">
-                <div class="bg-sky-400 h-2.5 " style="width: 80%"></div>
+              <div class="w-full bg-sky-100  h-2.5 overflow-x-hidden">
+                <div 
+                  class="h-2.5" 
+                  style="width: 95%"
+                >
+                  <div 
+                    class="bg-sky-400 h-full w-full ease-in-out delay-500 duration-1000 transition transform"
+                    :class="[skillBarVisible ? 'translate-x-0' : '-translate-x-10']"
+                   />
+                </div>
               </div>
             </div>
             <div>
               <div class="grid grid-cols-2 font-roboto text-xs pb-1">
-                <span>HTML</span>
-                <span class="text-right">100%</span>
+                <span>React</span>
+                <span class="text-right">95%</span>
               </div>
-              <div class="w-full bg-sky-100  h-2.5">
-                <div class="bg-sky-400 h-2.5 " style="width: 80%"></div>
+              <div class="w-full bg-sky-100  h-2.5 overflow-x-hidden">
+                <div 
+                  class="h-2.5" 
+                  style="width: 95%"
+                >
+                  <div 
+                    class="bg-sky-400 h-full w-full ease-in-out delay-500 duration-1000 transition transform"
+                    :class="[skillBarVisible ? 'translate-x-0' : '-translate-x-10']"
+                   />
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="grid grid-cols-2 font-roboto text-xs pb-1">
+                <span>Ruby on rails</span>
+                <span class="text-right">96%</span>
+              </div>
+              <div class="w-full bg-sky-100  h-2.5 overflow-x-hidden">
+                <div 
+                  class="h-2.5" 
+                  style="width: 96%"
+                >
+                  <div 
+                    class="bg-sky-400 h-full w-full ease-in-out delay-500 duration-1000 transition transform"
+                    :class="[skillBarVisible ? 'translate-x-0' : '-translate-x-10']"
+                   />
+                </div>
               </div>
             </div>
         </div>
         <div class="desktop:w-1/2 desktop:pl-4 flex flex-col gap-6 mt-6 desktop:mt-0">
           <div>
+              <div class="grid grid-cols-2 font-roboto text-xs pb-1">
+                <span>Vue</span>
+                <span class="text-right">70%</span>
+              </div>
+              <div class="w-full bg-sky-100  h-2.5 overflow-x-hidden">
+                <div 
+                  class="h-2.5" 
+                  style="width: 70%"
+                >
+                  <div 
+                    class="bg-sky-400 h-full w-full ease-in-out delay-500 duration-1000 transition transform"
+                    :class="[skillBarVisible ? 'translate-x-0' : '-translate-x-10']"
+                   />
+                </div>
+              </div>
+            </div>
+          <div>
+              <div class="grid grid-cols-2 font-roboto text-xs pb-1">
+                <span>Design</span>
+                <span class="text-right">55%</span>
+              </div>
+              <div class="w-full bg-sky-100  h-2.5 overflow-x-hidden">
+                <div 
+                  class="h-2.5" 
+                  style="width: 55%"
+                >
+                  <div 
+                    class="bg-sky-400 h-full w-full ease-in-out delay-500 duration-1000 transition transform"
+                    :class="[skillBarVisible ? 'translate-x-0' : '-translate-x-10']"
+                   />
+                </div>
+              </div>
+            </div>
+          <div>
             <div class="grid grid-cols-2 font-roboto text-xs pb-1">
-              <span>HTML</span>
+              <span>Backend</span>
               <span class="text-right">100%</span>
             </div>
             <div class="w-full bg-sky-100  h-2.5">
-              <div class="bg-sky-400 h-2.5 " style="width: 80%"></div>
+              <div class="bg-sky-400 h-2.5 " style="width: 100%"></div>
             </div>
           </div>
           <div>
-            <div class="grid grid-cols-2 font-roboto text-xs pb-1">
-              <span>HTML</span>
-              <span class="text-right">100%</span>
+              <div class="grid grid-cols-2 font-roboto text-xs pb-1">
+                <span>Ubuntu</span>
+                <span class="text-right">80%</span>
+              </div>
+              <div class="w-full bg-sky-100  h-2.5 overflow-x-hidden">
+                <div 
+                  class="h-2.5" 
+                  style="width: 80%"
+                >
+                  <div 
+                    class="bg-sky-400 h-full w-full ease-in-out delay-500 duration-1000 transition transform"
+                    :class="[skillBarVisible ? 'translate-x-0' : '-translate-x-10']"
+                   />
+                </div>
+              </div>
             </div>
-            <div class="w-full bg-sky-100  h-2.5">
-              <div class="bg-sky-400 h-2.5 " style="width: 80%"></div>
-            </div>
-          </div>
-          <div>
-            <div class="grid grid-cols-2 font-roboto text-xs pb-1">
-              <span>HTML</span>
-              <span class="text-right">100%</span>
-            </div>
-            <div class="w-full bg-sky-100  h-2.5">
-              <div class="bg-sky-400 h-2.5 " style="width: 80%"></div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -268,7 +346,8 @@ export default Vue.extend({
       isDarkMode: false,
       introVisible:false,
       aboutImgVisible:false,
-      aboutDetailVisible:false
+      aboutDetailVisible:false,
+      skillBarVisible:false
     }
   },
   methods: 
@@ -289,7 +368,10 @@ export default Vue.extend({
     },
     aboutDetailVisibilityChanged (isVisible:boolean, entry:any) {
       this.aboutDetailVisible = isVisible
-    }
+    },
+    skillBarVisibilityChanged (isVisible:boolean, entry:any) {
+      this.skillBarVisible = isVisible
+    },
   }
 })
 </script>
