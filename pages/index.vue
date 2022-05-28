@@ -415,7 +415,7 @@
           class="w-11/12 text-white overflow-y-hidden group"
         >
           <nuxt-img 
-            src="/portfolio/1.png" 
+            src="~/static/portfolio/1.png" 
             class="w-full group-hover:opacity-50"
           />
           <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
