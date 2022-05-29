@@ -19,6 +19,7 @@
     <div class="flex justify-center pt-5">
       <nuxt-img 
         src="/img/profile-img.jpg" 
+        format="jpg"
         class="rounded-full w-28 h-28 border-8 border-deep-blue"
       />
     </div>
@@ -138,6 +139,7 @@
       >
           <nuxt-img 
             src="/img/profile-img.jpg" 
+            format="jpg"
             class="desktop:w-11/12 z-0"
           />
         </div>
@@ -415,7 +417,8 @@
           class="w-11/12 text-white overflow-y-hidden group"
         >
           <nuxt-img 
-            src="~/static/portfolio/1.png" 
+            src="/portfolio/1.png" 
+            format="png"
             class="w-full group-hover:opacity-50"
           />
           <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
@@ -432,6 +435,7 @@
         >
           <nuxt-img 
             src="/portfolio/2.png" 
+            format="png"
             class="w-full group-hover:opacity-50"
           />
           <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
@@ -448,6 +452,7 @@
         >
           <nuxt-img 
             src="/portfolio/3.png" 
+            format="png"
             class="w-full group-hover:opacity-50"
           />
           <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
@@ -464,6 +469,7 @@
         >
           <nuxt-img 
             src="/portfolio/4.png" 
+            format="png"
             class="w-full group-hover:opacity-50"
           />
           <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
@@ -480,6 +486,7 @@
         >
           <nuxt-img 
             src="/portfolio/5.png" 
+            format="png"
             class="w-full group-hover:opacity-50"
           />
           <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
@@ -496,6 +503,7 @@
         >
           <nuxt-img 
             src="/portfolio/6.png" 
+            format="png"
             class="w-full group-hover:opacity-50"
           />
           <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
