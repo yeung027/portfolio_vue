@@ -29,6 +29,10 @@ module.exports = {
               'custom-sky': '#149ddd',
               'light-sky': '#cff0ff',
               'dark-blue': '#173b6c',
+              'light-light-green': '#f7fee7',
+              'light-green': '#84cc16',
+              'green': '#65a30d',
+              'light-gray': '#525252',
             },
             backgroundImage: {
               'hero': "url('~@/static/img/hero-bg.jpg')"

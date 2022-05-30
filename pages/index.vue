@@ -108,6 +108,25 @@
   >
   </div>
   </div>
+
+  <div
+    class="fixed right-6 desktop:right-10 bottom-6 border pl-4 pr-2 rounded flex flex-row items-center ease-in-out duration-300 transition transform z-20"
+    :class="[snackOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      , snackType=='normal' ? 'bg-light-light-green text-green border-green' : 'bg-red-100 border-red-400 text-red-700']"
+  >
+    <span 
+      class="bx bx-xs py-3"
+      :class="[snackType=='normal' ? 'bx-check' : 'bx-error']"
+     />
+    <span class="">{{snackMessage}}</span>
+    <span 
+      class="text-light-gray cursor-pointer h-10 flex items-center px-2"
+      @click="setSnackOpen(false)"
+     >
+      <span class="bx bx-xs bx-x" />
+     </span>
+  </div>
+
   <div class="h-screen items-center justify-center desktop:justify-start desktop:ml-72 w-full">
     <section 
     class="flex flex-col desktop:items-center justify-center h-screen bg-clip-border bg-center-top bg-cover bg-hero bg-mobile bg-fixed w-full" 
@@ -678,6 +697,9 @@ import { elements } from 'vue-meta/types/vue-meta'
   mapsApiKey:any
   mapOptions:object
   capabilities:object
+  snackOpen: boolean
+  snackType: string
+  snackMessage: string
 }
 
 import { ObserveVisibility } from 'vue-observe-visibility'
@@ -702,6 +724,9 @@ export default Vue.extend({
         subject:'',
         message:''
       },
+      snackOpen:false,
+      snackType:'normal',
+      snackMessage:'dasdasdasdssa',
       locations:[
         {"title":"葵聯邨聯逸樓","address1":"香港葵涌葵盛圍","coords":{"lat":22.361802297540137,"lng":114.12586327790989},"placeId":"ChIJbyr84JX4AzQRRjDmwoKaPK0"}
       ],
@@ -720,6 +745,16 @@ export default Vue.extend({
     {
       this.isMobileMenuOpen = !this.isMobileMenuOpen;
       this.currentSection = str;
+    },
+    setSnackOpen(v:any)
+    {
+      this.snackOpen = v;
+
+      if(v==true)
+      {
+        let that = this;
+        setTimeout(function () { that.setSnackOpen(false) }.bind(this), 6000)
+      }
     },
     themeSwitch()
     {
@@ -746,25 +781,55 @@ export default Vue.extend({
     portfolioVisibilityChanged (isVisible:boolean, entry:any) {
       this.portfolioVisible = isVisible
     },
-    contactValidation () {
+    contactValidation_name ():string {
       let name: HTMLInputElement = document.querySelector('input[name="name"]')!;
+      if(name.value=='' || name.value.trim() =='') return 'Please enter your name';
+      else return '';
+    },
+    contactValidation_email ():string {
       let email: HTMLInputElement = document.querySelector('input[name="email"]')!;
-      let subject: HTMLInputElement = document.querySelector('input[name="subject"]')!;
-      let message: HTMLTextAreaElement = document.querySelector('textarea[name="message"]')!;
       const emailRegexp  =/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
       let emailV  = emailRegexp.test(email.value);
-      if(name.value=='' || name.value.trim() =='') this.contactErrors.name = 'Please enter your name';
+      if(email.value=='' || email.value.trim() =='') return 'Please enter email';
+      else if(!emailV) return 'Invalid email';
+      else return '';
+    },
+    contactValidation_subject ():string {
+      let subject: HTMLInputElement = document.querySelector('input[name="subject"]')!;
+      if(subject.value=='' || subject.value.trim() =='') return 'Please enter subject';
+      else return '';
+    },
+    contactValidation_message ():string {
+      let message: HTMLTextAreaElement = document.querySelector('textarea[name="message"]')!;
+      if(message.value==null || message.value=='' || message.value.trim() =='') return 'Please enter message';
+      else return '';
+    },
+    contactValidation () {
+      let error = 0;
+      let name = this.contactValidation_name();
+      let email = this.contactValidation_email();
+      let subject = this.contactValidation_subject();
+      let message = this.contactValidation_message();
+
+
+      if(name!=''){ this.contactErrors.name = name; error++;}
       else this.contactErrors.name = '';
 
-      if(email.value=='' || email.value.trim() =='') this.contactErrors.email = 'Please enter email';
-      else if(!emailV) this.contactErrors.email = 'Invalid email';
+      if(email!=''){ this.contactErrors.email = email; error++;}
       else this.contactErrors.email = '';
 
-      if(subject.value=='' || subject.value.trim() =='') this.contactErrors.subject = 'Please enter subject';
+      if(subject!=''){ this.contactErrors.subject = subject; error++;}
       else this.contactErrors.subject = '';
 
-      if(message.value==null || message.value=='' || message.value.trim() =='') this.contactErrors.message = 'Please enter message';
+      if(message!=''){ this.contactErrors.message = message; error++;}
       else this.contactErrors.message = '';
+
+      if(error>0)
+      {
+        this.snackType  = 'error';
+        this.snackMessage = 'test';
+        this.setSnackOpen(true);
+      }
     }
   }
 })
