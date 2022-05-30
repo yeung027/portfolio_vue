@@ -597,28 +597,57 @@
           </div>
         </div>
         <div class="shadow-box1 w-auto desktop:w-full m-2 desktop:ml-6 desktop:mt-0 p-4 py-8">
-          <form class="grid grid-cols-1 desktop:grid-cols-2 gap-6">
+          <form class="grid grid-cols-1 desktop:grid-cols-2 gap-6" method="get">
             <div class="">
-              <div class="pb-1">Your Name</div>
-              <input type="text" class="border border-gray-400 w-full h-10 px-4 focus:border-custom-sky" />
+              <div class="pb-1 flex flex-row">
+                <span class="whitespace-nowrap flex items-end">Your Name</span>
+                <span
+                  :class="[contactErrors.name!='' ? 'text-red-600 text-sm italic pl-2 leading-6' : 'hidden']"
+                >
+                  {{contactErrors.name}}
+                </span>
+              </div>
+              <input type="text" name="name" class="border border-gray-400 w-full h-10 px-4 focus:border-custom-sky" />
             </div>
             <div class="">
-              <div class="pb-1">Your Email</div>
-              <input type="text" class="border border-gray-400 w-full h-10 px-4 focus:border-custom-sky" />
+              <div class="pb-1 flex flex-row">
+                <span class="whitespace-nowrap flex items-end">Your Email</span>
+                <span
+                  :class="[contactErrors.email!='' ? 'text-red-600 text-sm italic pl-2 leading-6' : 'hidden']"
+                >
+                  {{contactErrors.email}}
+                </span>
+              </div>
+              <input type="text" name="email" class="border border-gray-400 w-full h-10 px-4 focus:border-custom-sky" />
             </div>
             <div class="desktop:col-span-2">
-              <div class="pb-1">Subject</div>
-              <input type="text" class="border border-gray-400 w-full h-10 px-4 focus:border-custom-sky" />
+              <div class="pb-1 flex flex-row">
+                <span class="whitespace-nowrap flex items-end">Subject</span>
+                <span
+                  :class="[contactErrors.subject!='' ? 'text-red-600 text-sm italic pl-2 leading-6' : 'hidden']"
+                >
+                  {{contactErrors.subject}}
+                </span>
+              </div>
+              <input type="text" name="subject" class="border border-gray-400 w-full h-10 px-4 focus:border-custom-sky" />
             </div>
             <div class="desktop:col-span-2">
-              <div class="pb-1">Message</div>
-              <textarea class="border border-gray-400 w-full h-52 px-4 focus:border-custom-sky" />
+              <div class="pb-1 flex flex-row">
+                <span class="whitespace-nowrap flex items-end">Message</span>
+                <span
+                  :class="[contactErrors.message!='' ? 'text-red-600 text-sm italic pl-2 leading-6' : 'hidden']"
+                >
+                  {{contactErrors.message}}
+                </span>
+              </div>
+              <textarea name="message" class="border border-gray-400 w-full h-52 px-4 focus:border-custom-sky" />
             </div>
             <div class="desktop:col-span-2 text-center">
               <input 
-                type="submit" 
+                type="button" 
                 value="Send Message" 
                 class="bg-custom-sky text-white px-4 py-2 rounded hover:opacity-70 cursor-pointer" 
+                @click="contactValidation"
               />
             </div>
           </form>
@@ -631,18 +660,31 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { elements } from 'vue-meta/types/vue-meta'
 
-//  declare interface BaseComponentData {
-//   isMobileMenuOpen:boolean
-//   isDarkMode:boolean
-//   introVisible: boolean
-// }
+ declare interface BaseComponentData {
+  isMobileMenuOpen:boolean
+  isDarkMode:boolean
+  introVisible: boolean
+  aboutImgVisible: boolean
+  aboutDetailVisible: boolean
+  skillBarVisible:boolean
+  resumeVisible:boolean
+  resume2Visible:boolean
+  portfolioVisible:boolean
+  currentSection:string
+  contactErrors:{name:string, email:string, subject:string, message:string}
+  locations:any[]
+  mapsApiKey:any
+  mapOptions:object
+  capabilities:object
+}
 
 import { ObserveVisibility } from 'vue-observe-visibility'
 Vue.directive('observe-visibility', ObserveVisibility)
 export default Vue.extend({
   name: 'IndexPage',
-  data()/*: BaseComponentData*/ {
+  data(): BaseComponentData {
     return {
       isMobileMenuOpen: false,
       isDarkMode: false,
@@ -654,9 +696,16 @@ export default Vue.extend({
       resume2Visible:false,
       portfolioVisible:false,
       currentSection:'intro',
+      contactErrors:{
+        name:'',
+        email:'',
+        subject:'',
+        message:''
+      },
       locations:[
         {"title":"葵聯邨聯逸樓","address1":"香港葵涌葵盛圍","coords":{"lat":22.361802297540137,"lng":114.12586327790989},"placeId":"ChIJbyr84JX4AzQRRjDmwoKaPK0"}
       ],
+      mapsApiKey: process.env.GMAP_API_KEY,
       mapOptions: {"center":{"lat":38.0,"lng":-100.0},"fullscreenControl":true,"mapTypeControl":false,"streetViewControl":false,"zoom":4,"zoomControl":true,"maxZoom":17},
       capabilities: {"input":true,"autocomplete":false,"directions":false,"distanceMatrix":false,"details":false}
     }
@@ -697,6 +746,26 @@ export default Vue.extend({
     portfolioVisibilityChanged (isVisible:boolean, entry:any) {
       this.portfolioVisible = isVisible
     },
+    contactValidation () {
+      let name: HTMLInputElement = document.querySelector('input[name="name"]')!;
+      let email: HTMLInputElement = document.querySelector('input[name="email"]')!;
+      let subject: HTMLInputElement = document.querySelector('input[name="subject"]')!;
+      let message: HTMLTextAreaElement = document.querySelector('textarea[name="message"]')!;
+      const emailRegexp  =/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+      let emailV  = emailRegexp.test(email.value);
+      if(name.value=='' || name.value.trim() =='') this.contactErrors.name = 'Please enter your name';
+      else this.contactErrors.name = '';
+
+      if(email.value=='' || email.value.trim() =='') this.contactErrors.email = 'Please enter email';
+      else if(!emailV) this.contactErrors.email = 'Invalid email';
+      else this.contactErrors.email = '';
+
+      if(subject.value=='' || subject.value.trim() =='') this.contactErrors.subject = 'Please enter subject';
+      else this.contactErrors.subject = '';
+
+      if(message.value==null || message.value=='' || message.value.trim() =='') this.contactErrors.message = 'Please enter message';
+      else this.contactErrors.message = '';
+    }
   }
 })
 </script>
