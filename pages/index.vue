@@ -518,39 +518,70 @@
       </div>
     </section>
     <section 
-      class="w-full px-0 bg-yellow-50 mb-20" 
+      class="w-full px-2 desktop:px-8 desktop:min-h-screen" 
     >
-      <div class="bg-white dekstop:pl-5 px-2 desktop:px-8 pl-4">
-        <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ">Contact</h1>
-        <div class="border-b-3 border-sky-400 w-14 mb-5" />
-        <article class="pr-2 pb-4 font-normal font-open_sans font-light">
-          Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
-        </article>
-      </div>
+      <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">Contact</h1>
+      <div class="border-b-3 border-sky-400 w-14 ml-2 mb-5" />
+      <article class="mx-2 font-normal font-open_sans font-light">
+        Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
+      </article>
       <div 
-        class="flex flex-col desktop:flex-row px-2 mt-2 pb-2 gap-2"
+        class="flex flex-col desktop:flex-row px-2 mt-6 mb-10"
       >
-        <div class="flex flex-col mt-0 bg-white px-6 w-full desktop:w-5/12">
-          <div class="flex flex-col pt-6">
-            <div class="flex flex-row pb-6 px-0 desktop:px-4 justify-center content-center border-2 border-black">
-              <div class="bx bx-map bx-sm text-custom-sky bg-light-sky rounded-full p-4 mr-4" />
-              <div class="flex flex-col">
-                <div class="text-2xl text-black">Location</div>
-                <div class="text-sm text-dark-blue whitespace-nowrap">A108 Adam Street, New York, NY 535022</div>
+        <div class="flex flex-col p-4 desktop:p-6 m-2 desktop:m-0 shadow-box1">
+          <ul class='mb-2'>
+            <li class="flex flex-row mb-6">
+              <div class="mt-1">
+                <div class="bx bx-map bx-sm text-custom-sky bg-light-sky rounded-full p-3" />
               </div>
-            </div>
-            <div class="flex flex-row pb-6 px-0 desktop:px-4 justify-center content-center border-2 border-black">
-              <div class="bx bx-map bx-sm text-custom-sky bg-light-sky rounded-full p-4 mr-4" />
-              <div class="flex flex-col">
-                <div class="text-2xl text-black">Location</div>
-                <div class="text-sm text-dark-blue whitespace-nowrap">A108 Adam Street, New York, NY 535022</div>
+              <div class="flex flex-col ml-4">
+                <div class="font-normal text-2xl pr-2">Location:</div>
+                <div class="font-open_sans font-light text-sm">A108 Adam Street, New York, NY 535022</div>
               </div>
-            </div>
-            <div>u</div>
+            </li>
+           <li class="flex flex-row mb-6">
+              <div>
+                <div class="bx bx-map bx-sm text-custom-sky bg-light-sky rounded-full p-3" />
+              </div>
+              <div class="flex flex-col ml-4">
+                <div class="font-normal text-2xl pr-2">Email:</div>
+                <div class="font-open_sans font-light text-sm">abc@gmail.com</div>
+              </div>
+            </li>
+            <li class="flex flex-row mb-6">
+              <div>
+                <div class="bx bx-map bx-sm text-custom-sky bg-light-sky rounded-full p-3" />
+              </div>
+              <div class="flex flex-col ml-4">
+                <div class="font-normal text-2xl pr-2">Phone / Whatsapp:</div>
+                <div class="font-open_sans font-light text-sm">12345678</div>
+              </div>
+            </li>
+          </ul>
+          <div class=" border-2 border-black">
+            <GMap
+              ref="gMap"
+              language="en"
+              :center="{lat: locations[0].coords.lat, lng: locations[0].coords.lng}"
+              :zoom="18"
+            >
+              <GMapMarker
+                v-for="location in locations"
+                :key="location.id"
+                :position="{lat: location.coords.lat, lng: location.coords.lng}"
+                @click="currentLocation = location"
+              >
+                <GMapInfoWindow :options="{maxWidth: 150, maxHeight:150}">
+                  <code>
+                    hello
+                  </code>
+                </GMapInfoWindow>
+              </GMapMarker>
+              <GMapCircle />
+            </GMap>
           </div>
-          <div>b</div>
         </div>
-        <div class="flex w-full bg-white">2</div>
+        <div>2</div>
       </div>
     </section>
   </div>
@@ -580,7 +611,12 @@ export default Vue.extend({
       skillBarVisible:false,
       resumeVisible:false,
       resume2Visible:false,
-      portfolioVisible:false
+      portfolioVisible:false,
+      locations:[
+        {"title":"葵聯邨聯逸樓","address1":"香港葵涌葵盛圍","coords":{"lat":22.361802297540137,"lng":114.12586327790989},"placeId":"ChIJbyr84JX4AzQRRjDmwoKaPK0"}
+      ],
+      mapOptions: {"center":{"lat":38.0,"lng":-100.0},"fullscreenControl":true,"mapTypeControl":false,"streetViewControl":false,"zoom":4,"zoomControl":true,"maxZoom":17},
+      capabilities: {"input":true,"autocomplete":false,"directions":false,"distanceMatrix":false,"details":false}
     }
   },
   methods: 

@@ -1,3 +1,4 @@
+require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -39,12 +40,17 @@ export default {
     '@nuxtjs/tailwindcss',
     'nuxt-resolve-url-loader',
     '@nuxt/image',
+    ['@nuxtjs/dotenv', { filename: `.env.${process.env.NODE_ENV}` }],
+    ['nuxt-gmaps', {
+      key: process.env.GMAP_API_KEY,
+    }]
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
