@@ -127,6 +127,27 @@
      </span>
   </div>
 
+
+  <div
+    class="fixed w-screen h-screen z-40 flex justify-center items-center"
+  >
+    <div class="fixed h-screen left-10 flex items-center p-4">
+      <div class="bg-black text-white bx bxs-chevron-left bx-md bg-black"></div>
+    </div>
+    <div class="w-10/12 desktop:w-3/6 flex flex-col">
+      <nuxt-img 
+        src="/portfolio/1.png" 
+        provider="static"
+        class=""
+        />
+        <div class="bg-white px-2 py-4">
+          asdsdsadsa
+        </div>
+    </div>
+    
+  </div>
+  <div class="fixed w-screen h-screen z-30 bg-black opacity-75 flex justify-center items-center" />
+
   <div class="h-screen items-center justify-center desktop:justify-start desktop:ml-72 w-full">
     <section 
     class="flex flex-col desktop:items-center justify-center h-screen bg-clip-border bg-center-top bg-cover bg-hero bg-mobile bg-fixed w-full" 
@@ -592,12 +613,13 @@
               </div>
             </li>
           </ul>
-          <div class=" border-2 border-black">
+          <div class="">
             <GMap
               ref="gMap"
-              language="en"
+              language="zh"
               :center="{lat: locations[0].coords.lat, lng: locations[0].coords.lng}"
               :zoom="18"
+              class="h-20"
             >
               <GMapMarker
                 v-for="location in locations"

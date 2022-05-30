@@ -48,6 +48,9 @@ module.exports = {
           },
           boxShadow: {
             'box1': '0px 0px 9px 3px rgba(0,0,0,0.12)',
+          },
+          backdropBlur: {
+            xs: '2px',
           }
       },
       variants: {
