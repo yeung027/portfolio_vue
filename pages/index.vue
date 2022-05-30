@@ -4,7 +4,7 @@
   :class="[isMobileMenuOpen ? 'mobile:overflow-hidden' : '']"
 >
   <div 
-    class="rounded-full z-10 bg-sky-400 h-10 w-10 block fixed desktop:static right-4 top-4 flex items-center justify-center text-white cursor-pointer block desktop:hidden"
+    class="rounded-full z-20 bg-sky-400 h-10 w-10 block fixed desktop:static right-4 top-4 flex items-center justify-center text-white cursor-pointer block desktop:hidden"
     @click="menuBtnClick"
   >
     <div 
@@ -13,8 +13,11 @@
      />
   </div>
   <div 
-    class="bg-deep-dark w-72 fixed h-screen z-10 flex flex-col text-white ease-in-out duration-300"
-    :class="[isMobileMenuOpen ? '-left-0' : '-left-72 desktop:-left-0']"
+    class="w-screen desktop:w-72 fixed h-screen z-10 flex flex-row text-white ease-in-out duration-300"
+    :class="[isMobileMenuOpen ? '-left-0' : '-left-full desktop:-left-0']"
+  >
+  <div 
+    class="bg-deep-dark w-72 fixed h-screen flex flex-col text-white"
   >
     <div class="flex justify-center pt-5">
       <nuxt-img 
@@ -33,63 +36,63 @@
     <div class="flex justify-left flex-col gap-8 px-8 mt-10">
       <div 
         class="flex flex-row gap-2 text-white leading-7"
-        :class="[false ? 'text-gray-500' : 'text-white']"
+        :class="[currentSection!='intro' ? 'text-gray-500' : 'text-white']"
       >
         <div 
           class="bx bx-home bx-sm h-auto w-auto"
-          :class="[false ? 'text-gray-500' : 'text-custom-sky']"
+          :class="[currentSection!='intro' ? 'text-gray-500' : 'text-custom-sky']"
         />
-       Home
+        <a href="/#intro" @click="menuItemClick('intro')">Home</a>
        </div>
       <div 
         class="flex flex-row gap-2 text-white leading-7"
-        :class="[true ? 'text-gray-500' : 'text-white']"
+        :class="[currentSection!='about' ? 'text-gray-500' : 'text-white']"
       >
         <div 
           class="bx bx-user bx-sm h-auto w-auto"
-          :class="[true ? 'text-gray-500' : 'text-custom-sky']"
+          :class="[currentSection!='about' ? 'text-gray-500' : 'text-custom-sky']"
         />
-       About
+        <a href="/#about" @click="menuItemClick('about')">About</a>
        </div>
        <div 
         class="flex flex-row gap-2 text-white leading-7"
-        :class="[true ? 'text-gray-500' : 'text-white']"
+        :class="[currentSection!='skills' ? 'text-gray-500' : 'text-white']"
+      >
+        <div 
+          class="bx bx-user bx-sm h-auto w-auto"
+          :class="[currentSection!='skills' ? 'text-gray-500' : 'text-custom-sky']"
+        />
+        <a href="/#skills" @click="menuItemClick('skills')">Skills</a>
+       </div>
+       <div 
+        class="flex flex-row gap-2 text-white leading-7"
+        :class="[currentSection!='resume' ? 'text-gray-500' : 'text-white']"
       >
         <div 
           class="bx bx-note bx-sm h-auto w-auto bx-rotate-180"
-          :class="[true ? 'text-gray-500' : 'text-custom-sky']"
+          :class="[currentSection!='resume' ? 'text-gray-500' : 'text-custom-sky']"
         />
-       Resume
+        <a href="/#resume" @click="menuItemClick('resume')">Resume</a>
        </div>
        <div 
         class="flex flex-row gap-2 text-white leading-7"
-        :class="[true ? 'text-gray-500' : 'text-white']"
+        :class="[currentSection!='portfolio' ? 'text-gray-500' : 'text-white']"
       >
         <div 
           class="bx bx-briefcase-alt bx-sm h-auto w-auto"
-          :class="[true ? 'text-gray-500' : 'text-custom-sky']"
+          :class="[currentSection!='portfolio' ? 'text-gray-500' : 'text-custom-sky']"
         />
-       Portfolio
+        <a href="/#portfolio" @click="menuItemClick('portfolio')">Portfolio</a>
        </div>
        <div 
         class="flex flex-row gap-2 text-white leading-7"
-        :class="[true ? 'text-gray-500' : 'text-white']"
-      >
-        <div 
-          class="bx bx-support bx-sm h-auto w-auto"
-          :class="[true ? 'text-gray-500' : 'text-custom-sky']"
-        />
-       Services
-       </div>
-       <div 
-        class="flex flex-row gap-2 text-white leading-7"
-        :class="[true ? 'text-gray-500' : 'text-white']"
+        :class="[currentSection!='contact' ? 'text-gray-500' : 'text-white']"
       >
         <div 
           class="bx bx-envelope bx-sm h-auto w-auto"
-          :class="[true ? 'text-gray-500' : 'text-custom-sky']"
+          :class="[currentSection!='contact' ? 'text-gray-500' : 'text-custom-sky']"
         />
-       Contact
+        <a href="/#contact" @click="menuItemClick('contact')">Contact</a>
        </div>
     </div>
     <div class="flex-col bottom-0 h-full justify-end pb-10 hidden desktop:flex">
@@ -99,10 +102,17 @@
       </div>
     </div>
   </div>
+  <div 
+    class="w-full block desktop:hidden"
+    @click="menuBtnClick"
+  >
+  </div>
+  </div>
   <div class="h-screen items-center justify-center desktop:justify-start desktop:ml-72 w-full">
     <section 
     class="flex flex-col desktop:items-center justify-center h-screen bg-clip-border bg-center-top bg-cover bg-hero bg-mobile bg-fixed w-full" 
     v-observe-visibility="introVisibilityChanged"
+    id="intro"
     >
       <div>
       <h1 class="flex w-auto text-white font-medium text-3xl desktop:text-5xl desktop:-ml-60 pl-12 desktop:0">
@@ -125,6 +135,7 @@
     </section>
     <section 
       class="w-full px-2 desktop:px-8" 
+      id="about"
     >
       <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">About</h1>
       <div class="border-b-3 border-sky-400 w-14 ml-2 mb-5" />
@@ -182,6 +193,7 @@
     </section>
     <section 
       class="w-full px-2 desktop:px-8" 
+      id="skills"
     >
       <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">Skills</h1>
       <div class="border-b-3 border-sky-400 w-14 ml-2 mb-5" />
@@ -334,6 +346,7 @@
     </section>
     <section 
       class="w-full px-2 desktop:px-8" 
+      id="resume"
     >
       <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">Resume</h1>
       <div class="border-b-3 border-sky-400 w-14 ml-2 mb-5" />
@@ -402,6 +415,7 @@
     </section>
     <section 
       class="w-full px-2 desktop:px-8 desktop:min-h-screen" 
+      id="portfolio"
     >
       <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">Portfolio</h1>
       <div class="border-b-3 border-sky-400 w-14 ml-2 mb-5" />
@@ -519,6 +533,7 @@
     </section>
     <section 
       class="w-full px-2 desktop:px-8 desktop:min-h-screen" 
+      id="contact"
     >
       <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">Contact</h1>
       <div class="border-b-3 border-sky-400 w-14 ml-2 mb-5" />
@@ -528,7 +543,7 @@
       <div 
         class="flex flex-col desktop:flex-row px-2 mt-6 mb-10"
       >
-        <div class="flex flex-col p-4 desktop:p-6 m-2 desktop:m-0 shadow-box1">
+        <div class="flex flex-col p-4 desktop:p-6 m-2 desktop:m-0 shadow-box1 w-auto desktop:w-3/5">
           <ul class='mb-2'>
             <li class="flex flex-row mb-6">
               <div class="mt-1">
@@ -541,7 +556,7 @@
             </li>
            <li class="flex flex-row mb-6">
               <div>
-                <div class="bx bx-map bx-sm text-custom-sky bg-light-sky rounded-full p-3" />
+                <div class="bx bx-envelope bx-sm text-custom-sky bg-light-sky rounded-full p-3" />
               </div>
               <div class="flex flex-col ml-4">
                 <div class="font-normal text-2xl pr-2">Email:</div>
@@ -550,7 +565,7 @@
             </li>
             <li class="flex flex-row mb-6">
               <div>
-                <div class="bx bx-map bx-sm text-custom-sky bg-light-sky rounded-full p-3" />
+                <div class="bx bx-phone bx-sm text-custom-sky bg-light-sky rounded-full p-3" />
               </div>
               <div class="flex flex-col ml-4">
                 <div class="font-normal text-2xl pr-2">Phone / Whatsapp:</div>
@@ -581,7 +596,33 @@
             </GMap>
           </div>
         </div>
-        <div>2</div>
+        <div class="shadow-box1 w-auto desktop:w-full m-2 desktop:ml-6 desktop:mt-0 p-4 py-8">
+          <form class="grid grid-cols-1 desktop:grid-cols-2 gap-6">
+            <div class="">
+              <div class="pb-1">Your Name</div>
+              <input type="text" class="border border-gray-400 w-full h-10 px-4 focus:border-custom-sky" />
+            </div>
+            <div class="">
+              <div class="pb-1">Your Email</div>
+              <input type="text" class="border border-gray-400 w-full h-10 px-4 focus:border-custom-sky" />
+            </div>
+            <div class="desktop:col-span-2">
+              <div class="pb-1">Subject</div>
+              <input type="text" class="border border-gray-400 w-full h-10 px-4 focus:border-custom-sky" />
+            </div>
+            <div class="desktop:col-span-2">
+              <div class="pb-1">Message</div>
+              <textarea class="border border-gray-400 w-full h-52 px-4 focus:border-custom-sky" />
+            </div>
+            <div class="desktop:col-span-2 text-center">
+              <input 
+                type="submit" 
+                value="Send Message" 
+                class="bg-custom-sky text-white px-4 py-2 rounded hover:opacity-70 cursor-pointer" 
+              />
+            </div>
+          </form>
+        </div>
       </div>
     </section>
   </div>
@@ -612,6 +653,7 @@ export default Vue.extend({
       resumeVisible:false,
       resume2Visible:false,
       portfolioVisible:false,
+      currentSection:'intro',
       locations:[
         {"title":"葵聯邨聯逸樓","address1":"香港葵涌葵盛圍","coords":{"lat":22.361802297540137,"lng":114.12586327790989},"placeId":"ChIJbyr84JX4AzQRRjDmwoKaPK0"}
       ],
@@ -624,6 +666,11 @@ export default Vue.extend({
     menuBtnClick(e:Event)
     {
       this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    },
+    menuItemClick(str:string, e:Event)
+    {
+      this.isMobileMenuOpen = !this.isMobileMenuOpen;
+      this.currentSection = str;
     },
     themeSwitch()
     {
