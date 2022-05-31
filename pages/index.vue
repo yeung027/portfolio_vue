@@ -710,7 +710,7 @@
                   {{contactErrors.name}}
                 </span>
               </div>
-              <input type="text" name="name" class="border border-gray-400 w-full h-10 px-4 focus:border-custom-sky" />
+              <input type="text" name="name" class="border border-gray-400 w-full h-10 px-4 focus:border-custom-sky" :readonly="contractFormBusy" />
             </div>
             <div class="">
               <div class="pb-1 flex flex-row">
@@ -721,7 +721,7 @@
                   {{contactErrors.email}}
                 </span>
               </div>
-              <input type="text" name="email" class="border border-gray-400 w-full h-10 px-4 focus:border-custom-sky" />
+              <input type="text" name="email" class="border border-gray-400 w-full h-10 px-4 focus:border-custom-sky" :readonly="contractFormBusy" />
             </div>
             <!--<div class="desktop:col-span-2">
               <div class="pb-1 flex flex-row">
@@ -743,15 +743,21 @@
                   {{contactErrors.message}}
                 </span>
               </div>
-              <textarea name="message" class="border border-gray-400 w-full h-52 px-4 focus:border-custom-sky" />
+              <textarea name="message" class="border border-gray-400 w-full h-52 px-4 focus:border-custom-sky" :readonly="contractFormBusy" />
             </div>
-            <div class="desktop:col-span-2 text-center">
-              <input 
-                type="button" 
-                value="Send Message" 
-                class="bg-custom-sky text-white px-4 py-2 rounded hover:opacity-70 cursor-pointer" 
+            <div class="desktop:col-span-2 flex flex-row justify-center">
+              <div 
+                class="bg-custom-sky text-white px-4 pt-2 pb-1 rounded hover:opacity-70 cursor-pointer flex flex-row w-min whitespace-nowrap" 
                 @click="contactValidation"
-              />
+              >
+                <div :class="[contractFormBusy ? 'block' : 'hidden']">
+                <div 
+                  class='bx bx-loader-circle bx-spin bx-sm' 
+                  
+                />
+                </div>
+                <span class="ml-1 mt-0.5">Send Message</span>
+              </div>
             </div>
           </form>
         </div>
@@ -796,6 +802,7 @@ import { elements } from 'vue-meta/types/vue-meta'
   pfBackdropMoveDir: number //0 = left, 1 = right
   pfBackdropMoveAnimDo: boolean
   pfBackdropMoveAnimLock: boolean
+  contractFormBusy:boolean
 }
 
 import { ObserveVisibility } from 'vue-observe-visibility'
@@ -836,6 +843,7 @@ export default Vue.extend({
       snackOpen:false,
       snackType:'normal',
       snackMessage:'',
+      contractFormBusy:false,
       locations:[
         {"title":"葵聯邨聯逸樓","address1":"香港葵涌葵盛圍","coords":{"lat":22.361802297540137,"lng":114.12586327790989},"placeId":"ChIJbyr84JX4AzQRRjDmwoKaPK0"}
       ],
@@ -913,6 +921,7 @@ export default Vue.extend({
       else return '';
     },
     contactValidation () {
+      if(this.contractFormBusy) return;
       let error = 0;
       let name = this.contactValidation_name();
       let email = this.contactValidation_email();
@@ -935,27 +944,34 @@ export default Vue.extend({
 
       if(message!=''){ this.contactErrors.message = message; error++;}
       else this.contactErrors.message = '';
-
       if(error>0)
       {
         this.snackType  = 'error';
-        this.snackMessage = 'test';
+        this.snackMessage = 'Please check the form carefully for errors!';
         this.setSnackOpen(true);
       }
-
-
-
-
-      let url:any  = process.env.strapiBaseUrl + '/api/portfolio-contacts';
-      let data = {
-        name: nameEle.value, email: emailEle.value, message: messageEle.value
+      else
+      {
+        let url:any  = process.env.strapiBaseUrl + '/api/portfolio-contacts';
+        let data = {
+          name: nameEle.value, email: emailEle.value, message: messageEle.value
+        }
+        this.contractFormBusy = true;
+        this.$axios.post(url,{
+          data
+        }).then(respons =>{
+          this.snackType  = 'normal';
+          this.snackMessage = 'Message sent successfully! Thanks for your enquiry!';
+          this.setSnackOpen(true);
+          this.contractFormBusy = false;
+        })
+        .catch(error=>{
+          this.snackType  = 'error';
+          this.snackMessage = 'Something went wrong, please try again later, sorry for the inconvenience.';
+          this.setSnackOpen(true);
+          this.contractFormBusy = false;
+        })
       }
-      this.$axios.post(url,{
-        data
-      }).then(respons =>{
-        console.log(respons);
-    })
-
     },
     setpfBackdropOpen (open:boolean, index:number)
     {
