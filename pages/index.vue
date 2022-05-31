@@ -67,7 +67,7 @@
         :class="[currentSection!='skills' ? 'text-gray-500' : 'text-white']"
       >
         <div 
-          class="bx bx-user bx-sm h-auto w-auto"
+          class="bx bx-certification bx-sm h-auto w-auto"
           :class="[currentSection!='skills' ? 'text-gray-500' : 'text-custom-sky']"
         />
         <a href="/#skills" @click="menuItemClick('skills')">Skills</a>
@@ -205,7 +205,7 @@
 
   <div class="h-screen items-center justify-center desktop:justify-start desktop:ml-72 w-full">
     <section 
-    class="flex flex-col desktop:items-center justify-center h-screen bg-clip-border bg-center-top bg-cover bg-hero bg-mobile bg-fixed w-full" 
+    class="flex flex-col desktop:items-center justify-center h-screen bg-clip-border bg-center-top bg-cover bg-hero bg-mobile desktop:bg-fixed w-full" 
     v-observe-visibility="introVisibilityChanged"
     id="intro"
     >
