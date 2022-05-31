@@ -682,7 +682,6 @@
               language="zh"
               :center="{lat: locations[0].coords.lat, lng: locations[0].coords.lng}"
               :zoom="18"
-              class="h-20"
             >
               <GMapMarker
                 v-for="location in locations"
@@ -724,7 +723,7 @@
               </div>
               <input type="text" name="email" class="border border-gray-400 w-full h-10 px-4 focus:border-custom-sky" />
             </div>
-            <div class="desktop:col-span-2">
+            <!--<div class="desktop:col-span-2">
               <div class="pb-1 flex flex-row">
                 <span class="whitespace-nowrap flex items-end">Subject</span>
                 <span
@@ -734,7 +733,7 @@
                 </span>
               </div>
               <input type="text" name="subject" class="border border-gray-400 w-full h-10 px-4 focus:border-custom-sky" />
-            </div>
+            </div>-->
             <div class="desktop:col-span-2">
               <div class="pb-1 flex flex-row">
                 <span class="whitespace-nowrap flex items-end">Message</span>
@@ -917,9 +916,13 @@ export default Vue.extend({
       let error = 0;
       let name = this.contactValidation_name();
       let email = this.contactValidation_email();
-      let subject = this.contactValidation_subject();
+      //let subject = this.contactValidation_subject();
       let message = this.contactValidation_message();
 
+      let nameEle: HTMLInputElement = document.querySelector('input[name="name"]')!;
+      let emailEle: HTMLInputElement = document.querySelector('input[name="email"]')!;
+      //let subjectEle: HTMLInputElement = document.querySelector('input[name="subject"]')!;
+      let messageEle: HTMLTextAreaElement = document.querySelector('textarea[name="message"]')!;
 
       if(name!=''){ this.contactErrors.name = name; error++;}
       else this.contactErrors.name = '';
@@ -927,8 +930,8 @@ export default Vue.extend({
       if(email!=''){ this.contactErrors.email = email; error++;}
       else this.contactErrors.email = '';
 
-      if(subject!=''){ this.contactErrors.subject = subject; error++;}
-      else this.contactErrors.subject = '';
+      //if(subject!=''){ this.contactErrors.subject = subject; error++;}
+      //else this.contactErrors.subject = '';
 
       if(message!=''){ this.contactErrors.message = message; error++;}
       else this.contactErrors.message = '';
@@ -939,6 +942,20 @@ export default Vue.extend({
         this.snackMessage = 'test';
         this.setSnackOpen(true);
       }
+
+
+
+
+      let url:any  = process.env.strapiBaseUrl + '/api/portfolio-contacts';
+      let data = {
+        name: nameEle.value, email: emailEle.value, message: messageEle.value
+      }
+      this.$axios.post(url,{
+        data
+      }).then(respons =>{
+        console.log(respons);
+    })
+
     },
     setpfBackdropOpen (open:boolean, index:number)
     {
