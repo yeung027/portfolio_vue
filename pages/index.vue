@@ -132,17 +132,16 @@
     :class="[pfBackdropOpen || pfBackdropAnim ? 'flex' : 'hidden']"
     v-touch:swipe.left="pfBackdropSwipeLeftHandler"
     v-touch:swipe.right="pfBackdropSwipeRightHandler"
-    id="abc"
   >
     <div class="hidden desktop:flex fixed h-screen left-10 items-center p-4">
       <div 
-        class="bg-black text-white bx bxs-chevron-left bx-md bg-black cursor-pointer bg-opacity-50 hover:bg-opacity-100" 
+        class="duration-700 bg-black text-white bx bxs-chevron-left bx-md bg-black cursor-pointer bg-opacity-50 hover:bg-opacity-100" 
         @click="pfBackdropPrev()"
       />
     </div>
     <div class="hidden desktop:flex fixed h-screen right-10 items-center p-4">
       <div 
-        class="bg-black text-white bx bxs-chevron-right bx-md bg-black cursor-pointer bg-opacity-50 hover:bg-opacity-100" 
+        class="duration-700 bg-black text-white bx bxs-chevron-right bx-md bg-black cursor-pointer bg-opacity-50 hover:bg-opacity-100" 
         @click="pfBackdropNext()"
       />
     </div>
@@ -152,7 +151,7 @@
       :class="getContainer0MoveAnim()"
     >
       <div 
-        class="w-full ease-in-out duration-700 transition transform"
+        class="w-full ease-in-out duration-1000 transition transform"
         :class="[(!pfBackdropAnimDo && pfBackdropOpen) || (pfBackdropAnimDo && !pfBackdropOpen) ? 'opacity-50 scale-0' : 'opacity-100 scale-100']"
       >
         <nuxt-img 
@@ -171,7 +170,7 @@
       :class="getContainer1MoveAnim()"
     >
       <div 
-        class="w-full ease-in-out duration-700 transition transform"
+        class="w-full ease-in-out duration-1000 transition transform"
         :class="[(!pfBackdropAnimDo && pfBackdropOpen) || (pfBackdropAnimDo && !pfBackdropOpen) ? 'opacity-50 scale-0' : 'opacity-100 scale-100']"
       >
         <nuxt-img 
@@ -1036,8 +1035,8 @@ export default Vue.extend({
       this.pfBackdropNextContainer = this.pfBackdropCurrentContainer==0 ? 1 : 0;
       if(this.pfBackdropCurrentContainer==0) this.pfBackdropContainer1_Index = dir==0 ? this.pfBackdropImgIndexAdd(this.getCurrentContainerImgIndex()) : this.pfBackdropImgIndexLess(this.getCurrentContainerImgIndex());
       else this.pfBackdropContainer0_Index = dir==0 ? this.pfBackdropImgIndexAdd(this.getCurrentContainerImgIndex()) : this.pfBackdropImgIndexLess(this.getCurrentContainerImgIndex());
-      setTimeout(() => this.pfBackdropMoveAnimDo = true, 50);
-      setTimeout(() => this.setPfBackdropMoveAnimEnd(), 550);
+      setTimeout(() => this.pfBackdropMoveAnimDo = true, 70);
+      setTimeout(() => this.setPfBackdropMoveAnimEnd(), 1050);
     },
     setPfBackdropMoveAnimEnd()
     {
@@ -1055,8 +1054,8 @@ export default Vue.extend({
       }
       else if(!this.pfBackdropMoveAnimDo && this.pfBackdropMoveAnim && this.pfBackdropNextContainer==0)
       {
-        if(this.pfBackdropMoveDir==0) return 'translate-x-full ml-20 opacity-0'
-        else return '-translate-x-full ml-20 opacity-0'
+        if(this.pfBackdropMoveDir==0) return 'translate-x-full ml-20 opacity-50'
+        else return '-translate-x-full -ml-20 opacity-50'
       }
       else if(this.pfBackdropMoveAnim && this.pfBackdropMoveAnimDo && this.pfBackdropNextContainer==0)
       {
@@ -1075,8 +1074,8 @@ export default Vue.extend({
       }
       else if(!this.pfBackdropMoveAnimDo && this.pfBackdropMoveAnim && this.pfBackdropNextContainer==1)
       {
-        if(this.pfBackdropMoveDir==0) return 'translate-x-full ml-20 opacity-0'
-        else return '-translate-x-full ml-20 opacity-0'
+        if(this.pfBackdropMoveDir==0) return 'translate-x-full ml-20 opacity-50'
+        else return '-translate-x-full -ml-20 opacity-50'
       }
       else if(this.pfBackdropMoveAnim && this.pfBackdropMoveAnimDo && this.pfBackdropNextContainer==1)
       {
