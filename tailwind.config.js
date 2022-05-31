@@ -11,6 +11,9 @@ module.exports = {
           '6': '6px',
           '8': '8px',
         },
+        minHeight: {
+          '1/2': '50%',
+        },
         backgroundPosition: {
           'mobile': '60% 0%',
         },

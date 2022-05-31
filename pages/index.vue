@@ -28,12 +28,20 @@
     </div>
     <div class="flex justify-center text-white font-medium text-2xl pt-3 tracking-wide cursor-pointer">Alex Smith</div>
     <div class="flex justify-center flex-row gap-4 mt-4">
-      <div class="bx bxl-twitter bx-xs text-white rounded-full h-auto w-auto bg-deep-blue p-1.5 cursor-pointer" />
-      <div class="bx bxl-github bx-xs text-white rounded-full h-auto w-auto bg-deep-blue p-1.5 cursor-pointer" />
-      <div class="bx bxl-instagram bx-xs text-white rounded-full h-auto w-auto bg-deep-blue p-1.5 cursor-pointer" />
-      <div class="bx bx-envelope bx-xs text-white rounded-full h-auto w-auto bg-deep-blue p-1.5 cursor-pointer" />
+      <a href="http://google.com" target="_blank">
+        <div class="bx bxl-twitter bx-xs text-white rounded-full h-auto w-auto bg-deep-blue p-1.5 cursor-pointer" />
+      </a>
+      <a href="http://google.com" target="_blank">
+        <div class="bx bxl-github bx-xs text-white rounded-full h-auto w-auto bg-deep-blue p-1.5 cursor-pointer" />
+      </a>
+      <a href="http://google.com" target="_blank">
+        <div class="bx bxl-instagram bx-xs text-white rounded-full h-auto w-auto bg-deep-blue p-1.5 cursor-pointer" />
+      </a>
+      <a href="http://google.com" target="_blank">
+        <div class="bx bx-envelope bx-xs text-white rounded-full h-auto w-auto bg-deep-blue p-1.5 cursor-pointer" />
+      </a>
     </div>
-    <div class="flex justify-left flex-col gap-8 px-8 mt-10">
+    <div class="justify-between h-2/5 desktop:h-full flex desktop:justify-left flex-col desktop:gap-8 px-8 mt-10">
       <div 
         class="flex flex-row gap-2 text-white leading-7"
         :class="[currentSection!='intro' ? 'text-gray-500' : 'text-white']"
@@ -132,7 +140,12 @@
     :class="[pfBackdropOpen || pfBackdropAnim ? 'flex' : 'hidden']"
     v-touch:swipe.left="pfBackdropSwipeLeftHandler"
     v-touch:swipe.right="pfBackdropSwipeRightHandler"
-  >
+  > 
+
+    <div 
+      class="flex fixed top-2 desktop:top-10 right-2 desktop:right-10 text-white bx bx-x bx-md cursor-pointer hover:bg-opacity-100 z-40 opacity-70 hover:opacity-100" 
+      @click="setpfBackdropOpen(false, -1)"
+    />
     <div class="hidden desktop:flex fixed h-screen left-10 items-center p-4">
       <div 
         class="duration-700 bg-black text-white bx bxs-chevron-left bx-md bg-black cursor-pointer bg-opacity-50 hover:bg-opacity-100" 
@@ -151,7 +164,7 @@
       :class="getContainer0MoveAnim()"
     >
       <div 
-        class="w-full ease-in-out duration-1000 transition transform"
+        class="w-full ease-in-out duration-500 transition transform"
         :class="[(!pfBackdropAnimDo && pfBackdropOpen) || (pfBackdropAnimDo && !pfBackdropOpen) ? 'opacity-50 scale-0' : 'opacity-100 scale-100']"
       >
         <nuxt-img 
@@ -170,7 +183,7 @@
       :class="getContainer1MoveAnim()"
     >
       <div 
-        class="w-full ease-in-out duration-1000 transition transform"
+        class="w-full ease-in-out duration-500 transition transform"
         :class="[(!pfBackdropAnimDo && pfBackdropOpen) || (pfBackdropAnimDo && !pfBackdropOpen) ? 'opacity-50 scale-0' : 'opacity-100 scale-100']"
       >
         <nuxt-img 
@@ -515,6 +528,7 @@
           <nuxt-img 
             src="/portfolio/1.png" 
             provider="static"
+            preload
             class="w-full group-hover:opacity-50"
           />
           <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
@@ -535,6 +549,7 @@
           <nuxt-img 
             src="/portfolio/2.png" 
             provider="static"
+            preload
             class="w-full group-hover:opacity-50"
           />
           <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
@@ -555,6 +570,7 @@
           <nuxt-img 
             src="/portfolio/3.png" 
             provider="static"
+            preload
             class="w-full group-hover:opacity-50"
           />
           <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
@@ -575,6 +591,7 @@
           <nuxt-img 
             src="/portfolio/4.png" 
             provider="static"
+            preload
             class="w-full group-hover:opacity-50"
           />
           <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
@@ -595,6 +612,7 @@
           <nuxt-img 
             src="/portfolio/5.png" 
             provider="static"
+            preload
             class="w-full group-hover:opacity-50"
           />
           <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
@@ -615,6 +633,7 @@
           <nuxt-img 
             src="/portfolio/6.png" 
             provider="static"
+            preload
             class="w-full group-hover:opacity-50"
           />
           <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
@@ -1036,7 +1055,7 @@ export default Vue.extend({
       if(this.pfBackdropCurrentContainer==0) this.pfBackdropContainer1_Index = dir==0 ? this.pfBackdropImgIndexAdd(this.getCurrentContainerImgIndex()) : this.pfBackdropImgIndexLess(this.getCurrentContainerImgIndex());
       else this.pfBackdropContainer0_Index = dir==0 ? this.pfBackdropImgIndexAdd(this.getCurrentContainerImgIndex()) : this.pfBackdropImgIndexLess(this.getCurrentContainerImgIndex());
       setTimeout(() => this.pfBackdropMoveAnimDo = true, 70);
-      setTimeout(() => this.setPfBackdropMoveAnimEnd(), 1050);
+      setTimeout(() => this.setPfBackdropMoveAnimEnd(), 550);
     },
     setPfBackdropMoveAnimEnd()
     {
