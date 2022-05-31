@@ -771,7 +771,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { elements } from 'vue-meta/types/vue-meta'
+import Vue2TouchEvents from 'vue2-touch-events'
+
+Vue.use(Vue2TouchEvents)
 
  declare interface BaseComponentData {
   isMobileMenuOpen:boolean
