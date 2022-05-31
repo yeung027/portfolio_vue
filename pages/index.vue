@@ -152,6 +152,7 @@
     <div 
       class="fixed w-full desktop:w-3/6 h-full grid place-items-center ease-in-out transition transform"
       :class="getContainer0MoveAnim()"
+      v-touch:swipe="pfBackdropSwipeHandler"
     >
       <div 
         class="w-full ease-in-out duration-700 transition transform"
@@ -942,7 +943,6 @@ export default Vue.extend({
 
       //if(subject!=''){ this.contactErrors.subject = subject; error++;}
       //else this.contactErrors.subject = '';
-
       if(message!=''){ this.contactErrors.message = message; error++;}
       else this.contactErrors.message = '';
       if(error>0)
@@ -1085,6 +1085,10 @@ export default Vue.extend({
       }
 
       return this.pfBackdropCurrentContainer==1 ? 'opacity-100' : 'opacity-0';
+    },
+    pfBackdropSwipeHandler(e:any)
+    {
+      alert('you swipe')
     }
   }
 })
