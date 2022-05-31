@@ -747,8 +747,9 @@
             </div>
             <div class="desktop:col-span-2 flex flex-row justify-center">
               <div 
-                class="bg-custom-sky text-white px-4 pt-2 pb-1 rounded hover:opacity-70 cursor-pointer flex flex-row w-min whitespace-nowrap" 
+                class="bg-custom-sky text-white px-4 rounded hover:opacity-70 cursor-pointer flex flex-row w-min whitespace-nowrap" 
                 @click="contactValidation"
+                :class="[contractFormBusy ? 'pt-2 pb-1' : 'pt-2 pb-2']"
               >
                 <div :class="[contractFormBusy ? 'block' : 'hidden']">
                 <div 
