@@ -130,7 +130,8 @@
   <div
     class="fixed w-screen h-screen z-40 justify-center items-center"
     :class="[pfBackdropOpen || pfBackdropAnim ? 'flex' : 'hidden']"
-    v-touch:swipe.left="pfBackdropSwipeHandler"
+    v-touch:swipe.left="pfBackdropSwipeLeftHandler"
+    v-touch:swipe.right="pfBackdropSwipeRightHandler"
     id="abc"
   >
     <div class="hidden desktop:flex fixed h-screen left-10 items-center p-4">
@@ -1085,13 +1086,14 @@ export default Vue.extend({
 
       return this.pfBackdropCurrentContainer==1 ? 'opacity-100' : 'opacity-0';
     },
-    pfBackdropSwipeHandler()
+    pfBackdropSwipeLeftHandler()
     {
-      let ele: HTMLDivElement = document.querySelector('#abc')!;
-      console.log(ele)
-      ele.style.border = 'red 2px solid';
-      
-    }
+      this.pfBackdropMove(0);
+    },
+    pfBackdropSwipeRightHandler()
+    {
+      this.pfBackdropMove(1);
+    },
   }
 })
 </script>
