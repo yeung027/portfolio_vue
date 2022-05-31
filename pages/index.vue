@@ -134,29 +134,56 @@
   >
     <div 
       class="flex fixed top-2 desktop:top-10 right-2 desktop:right-10 text-white bx bx-x bx-md cursor-pointer hover:bg-opacity-100 z-40 opacity-70 hover:opacity-100" 
-      @click="setpfBackdropOpen(false, 0)"
+      @click="setpfBackdropOpen(false, -1)"
     />
     <div class="hidden desktop:flex fixed h-screen left-10 items-center p-4">
-      <div class="bg-black text-white bx bxs-chevron-left bx-md bg-black cursor-pointer bg-opacity-50 hover:bg-opacity-100"></div>
+      <div class="bg-black text-white bx bxs-chevron-left bx-md bg-black cursor-pointer bg-opacity-50 hover:bg-opacity-100" />
     </div>
-    <div class="w-full desktop:w-3/6 h-full grid place-items-center">
+    <div class="hidden desktop:flex fixed h-screen right-10 items-center p-4">
+      <div 
+        class="bg-black text-white bx bxs-chevron-right bx-md bg-black cursor-pointer bg-opacity-50 hover:bg-opacity-100" 
+        @click="pfBackdropNext()"
+      />
+    </div>
+    
+    <div 
+      class="fixed w-full desktop:w-3/6 h-full grid place-items-center ease-in-out duration-300 transition transform"
+      :class="[pfBackdropCurrentContainer==0 || (pfBackdropMoveAnim && pfBackdropNextContainer==0) ? '-translate-x-0 -ml-0 opacity-100' : pfBackdropMoveDir==0 ? 'translate-x-full ml-20 opacity-0' : '-translate-x-full -ml-20 opacity-0']"
+    >
       <div 
         class="w-full ease-in-out duration-700 transition transform"
-        :class="[(!pfBackdropDo && pfBackdropOpen) || (pfBackdropDo && !pfBackdropOpen) ? 'opacity-50 scale-0' : 'opacity-100 scale-100']"
+        :class="[(!pfBackdropAnimDo && pfBackdropOpen) || (pfBackdropAnimDo && !pfBackdropOpen) ? 'opacity-50 scale-0' : 'opacity-100 scale-100']"
       >
         <nuxt-img 
-          src="/portfolio/1.png" 
+          :src="getPfImgSrc(0)" 
           provider="static"
           class=""
           />
           <div class="bg-white px-2 py-4">
-            asdsdsadsa
+            {{getPfDesc(0)}}
           </div>
         </div>
     </div>
-    <div class="hidden desktop:flex fixed h-screen right-10 items-center p-4">
-      <div class="bg-black text-white bx bxs-chevron-right bx-md bg-black cursor-pointer bg-opacity-50 hover:bg-opacity-100"></div>
+
+    <div 
+      class="fixed w-full desktop:w-3/6 h-full grid place-items-center ease-in-out duration-300 transition transform"
+      :class="[pfBackdropCurrentContainer==1 || (pfBackdropMoveAnim && pfBackdropNextContainer==1) ? '-translate-x-0 -ml-0 opacity-100' : pfBackdropMoveDir==0 ? 'translate-x-full ml-20 opacity-0' : '-translate-x-full -ml-20 opacity-0']"
+    >
+      <div 
+        class="w-full ease-in-out duration-700 transition transform"
+        :class="[(!pfBackdropAnimDo && pfBackdropOpen) || (pfBackdropAnimDo && !pfBackdropOpen) ? 'opacity-50 scale-0' : 'opacity-100 scale-100']"
+      >
+        <nuxt-img 
+          :src="getPfImgSrc(1)" 
+          provider="static"
+          class=""
+          />
+          <div class="bg-white px-2 py-4">
+            {{getPfDesc(1)}}
+          </div>
+        </div>
     </div>
+    
   </div>
   <div 
     class="fixed w-screen h-screen z-30 bg-black justify-center items-center backdrop-filter backdrop-blur-xs bg-opacity-75"
@@ -511,7 +538,10 @@
             class="w-full group-hover:opacity-50"
           />
           <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
-            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
+            <div 
+              class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
+              @click="setpfBackdropOpen(true, 1)"
+            >
               <div class="bx bx-sm bx-plus h-6 my-2" />
             </div>
             <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
@@ -528,7 +558,10 @@
             class="w-full group-hover:opacity-50"
           />
           <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
-            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
+            <div 
+              class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
+              @click="setpfBackdropOpen(true, 2)"
+            >
               <div class="bx bx-sm bx-plus h-6 my-2" />
             </div>
             <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
@@ -545,7 +578,10 @@
             class="w-full group-hover:opacity-50"
           />
           <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
-            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
+            <div 
+              class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
+              @click="setpfBackdropOpen(true, 3)"
+            >
               <div class="bx bx-sm bx-plus h-6 my-2" />
             </div>
             <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
@@ -562,7 +598,10 @@
             class="w-full group-hover:opacity-50"
           />
           <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
-            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
+            <div 
+              class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
+              @click="setpfBackdropOpen(true, 4)"
+            >
               <div class="bx bx-sm bx-plus h-6 my-2" />
             </div>
             <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
@@ -579,7 +618,10 @@
             class="w-full group-hover:opacity-50"
           />
           <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
-            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
+            <div 
+              class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
+              @click="setpfBackdropOpen(true, 5)"
+            >
               <div class="bx bx-sm bx-plus h-6 my-2" />
             </div>
             <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
@@ -734,7 +776,6 @@ import { elements } from 'vue-meta/types/vue-meta'
   currentSection:string
   contactErrors:{name:string, email:string, subject:string, message:string}
   locations:any[]
-  mapsApiKey:any
   mapOptions:object
   capabilities:object
   snackOpen: boolean
@@ -742,7 +783,15 @@ import { elements } from 'vue-meta/types/vue-meta'
   snackMessage: string
   pfBackdropOpen: boolean //portfolio
   pfBackdropAnim: boolean
-  pfBackdropDo: boolean
+  pfBackdropAnimDo: boolean
+  pfBackdropImages: string[]
+  pfBackdropDescs: string[]
+  pfBackdropContainer0_Index: number
+  pfBackdropContainer1_Index: number
+  pfBackdropCurrentContainer: number
+  pfBackdropNextContainer: number
+  pfBackdropMoveAnim: boolean
+  pfBackdropMoveDir: number //0 = left, 1 = right
 }
 
 import { ObserveVisibility } from 'vue-observe-visibility'
@@ -769,14 +818,21 @@ export default Vue.extend({
       },
       pfBackdropOpen: false,
       pfBackdropAnim: false,
-      pfBackdropDo: false,
+      pfBackdropAnimDo: false,
+      pfBackdropImages: ['/portfolio/1.png', '/portfolio/2.png', '/portfolio/3.png', '/portfolio/4.png', '/portfolio/5.png', '/portfolio/6.png'],
+      pfBackdropDescs: ['very good', 'goooood', 'yes yes', 'lol', 'wow', 'so far so good'],
+      pfBackdropContainer0_Index: 0,
+      pfBackdropContainer1_Index: 5,
+      pfBackdropCurrentContainer:0,
+      pfBackdropNextContainer:1,
+      pfBackdropMoveAnim:false,
+      pfBackdropMoveDir:1,
       snackOpen:false,
       snackType:'normal',
       snackMessage:'',
       locations:[
         {"title":"葵聯邨聯逸樓","address1":"香港葵涌葵盛圍","coords":{"lat":22.361802297540137,"lng":114.12586327790989},"placeId":"ChIJbyr84JX4AzQRRjDmwoKaPK0"}
       ],
-      mapsApiKey: process.env.GMAP_API_KEY,
       mapOptions: {"center":{"lat":38.0,"lng":-100.0},"fullscreenControl":true,"mapTypeControl":false,"streetViewControl":false,"zoom":4,"zoomControl":true,"maxZoom":17},
       capabilities: {"input":true,"autocomplete":false,"directions":false,"distanceMatrix":false,"details":false}
     }
@@ -879,15 +935,46 @@ export default Vue.extend({
     },
     setpfBackdropOpen (open:boolean, index:number)
     {
+      if(index>=0) this.setCurrentContainerImgIndex(index);
       this.pfBackdropOpen = open;
       this.pfBackdropAnim = true;
       let that = this;
-      setTimeout(function () { that.pfBackdropDo = true }.bind(this), 50);
+      setTimeout(function () { that.pfBackdropAnimDo = true }.bind(this), 50);
       if(!open)
-      setTimeout(function () { 
-        that.pfBackdropDo = false; 
-        that.pfBackdropAnim = false; 
-      }.bind(this), 400);
+        setTimeout(function () { 
+          that.pfBackdropAnimDo = false; 
+          that.pfBackdropAnim = false; 
+        }.bind(this), 600);
+    },
+    setCurrentContainerImgIndex(index:number)
+    {
+      console.log('pfBackdropCurrentContainer: '+this.pfBackdropCurrentContainer);
+      if(this.pfBackdropCurrentContainer==0) this.pfBackdropContainer0_Index = index;
+      else this.pfBackdropContainer1_Index = index;
+    },
+    getCurrentContainerImgIndex():number
+    {
+      if(this.pfBackdropCurrentContainer==0) return this.pfBackdropContainer0_Index
+      else return this.pfBackdropContainer1_Index
+    },
+    getContainerImgIndex(containerIndex: number):number
+    {
+      if(containerIndex==0) return this.pfBackdropContainer0_Index
+      else return this.pfBackdropContainer1_Index
+    },
+    getPfImgSrc(containerIndex: number)
+    {
+      return this.pfBackdropImages[this.getContainerImgIndex(containerIndex)];
+    },
+    getPfDesc(containerIndex: number)
+    {
+      return this.pfBackdropDescs[this.getContainerImgIndex(containerIndex)];
+    },
+    pfBackdropNext()
+    {
+      this.pfBackdropMoveDir = 0;
+      this.pfBackdropMoveAnim = true;
+      this.pfBackdropNextContainer = 1;
     }
   }
 })
