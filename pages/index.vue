@@ -1,7 +1,7 @@
 <template>
 <div 
   class="h-screen flex flex-row overflow-x-hidden"
-  :class="[isMobileMenuOpen ? 'mobile:overflow-hidden' : '']"
+  :class="[isMobileMenuOpen ? 'overflow-hidden desktop:overflow-auto' : '']"
 >
   <div 
     class="rounded-full z-20 bg-sky-400 h-10 w-10 block fixed desktop:static right-4 top-4 flex items-center justify-center text-white cursor-pointer block desktop:hidden"
@@ -12,7 +12,7 @@
       :class="[isMobileMenuOpen ? 'bx-x' : 'bx-menu']"
      />
   </div>
-  <div 
+  <nav 
     class="w-screen desktop:w-72 fixed h-screen z-10 flex flex-row text-white ease-in-out duration-300"
     :class="[isMobileMenuOpen ? '-left-0' : '-left-full desktop:-left-0']"
   >
@@ -107,7 +107,7 @@
     @click="menuBtnClick"
   >
   </div>
-  </div>
+  </nav>
 
   <div
     class="fixed right-6 desktop:right-10 bottom-6 border pl-4 pr-2 rounded flex flex-row items-center ease-in-out duration-300 transition transform z-20"
@@ -129,24 +129,39 @@
 
 
   <div
-    class="fixed w-screen h-screen z-40 flex justify-center items-center"
+    class="fixed w-screen h-screen z-40 justify-center items-center"
+    :class="[pfBackdropOpen || pfBackdropAnim ? 'flex' : 'hidden']"
   >
-    <div class="fixed h-screen left-10 flex items-center p-4">
-      <div class="bg-black text-white bx bxs-chevron-left bx-md bg-black"></div>
+    <div 
+      class="flex fixed top-2 desktop:top-10 right-2 desktop:right-10 text-white bx bx-x bx-md cursor-pointer hover:bg-opacity-100 z-40 opacity-70 hover:opacity-100" 
+      @click="setpfBackdropOpen(false, 0)"
+    />
+    <div class="hidden desktop:flex fixed h-screen left-10 items-center p-4">
+      <div class="bg-black text-white bx bxs-chevron-left bx-md bg-black cursor-pointer bg-opacity-50 hover:bg-opacity-100"></div>
     </div>
-    <div class="w-10/12 desktop:w-3/6 flex flex-col">
-      <nuxt-img 
-        src="/portfolio/1.png" 
-        provider="static"
-        class=""
-        />
-        <div class="bg-white px-2 py-4">
-          asdsdsadsa
+    <div class="w-full desktop:w-3/6 h-full grid place-items-center">
+      <div 
+        class="w-full ease-in-out duration-700 transition transform"
+        :class="[(!pfBackdropDo && pfBackdropOpen) || (pfBackdropDo && !pfBackdropOpen) ? 'opacity-50 scale-0' : 'opacity-100 scale-100']"
+      >
+        <nuxt-img 
+          src="/portfolio/1.png" 
+          provider="static"
+          class=""
+          />
+          <div class="bg-white px-2 py-4">
+            asdsdsadsa
+          </div>
         </div>
     </div>
-    
+    <div class="hidden desktop:flex fixed h-screen right-10 items-center p-4">
+      <div class="bg-black text-white bx bxs-chevron-right bx-md bg-black cursor-pointer bg-opacity-50 hover:bg-opacity-100"></div>
+    </div>
   </div>
-  <div class="fixed w-screen h-screen z-30 bg-black opacity-75 flex justify-center items-center" />
+  <div 
+    class="fixed w-screen h-screen z-30 bg-black justify-center items-center backdrop-filter backdrop-blur-xs bg-opacity-75"
+    :class="[pfBackdropOpen ? 'flex' : 'hidden']"
+  />
 
   <div class="h-screen items-center justify-center desktop:justify-start desktop:ml-72 w-full">
     <section 
@@ -476,7 +491,10 @@
             class="w-full group-hover:opacity-50"
           />
           <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
-            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
+            <div 
+              class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
+              @click="setpfBackdropOpen(true, 0)"
+            >
               <div class="bx bx-sm bx-plus h-6 my-2" />
             </div>
             <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
@@ -722,6 +740,9 @@ import { elements } from 'vue-meta/types/vue-meta'
   snackOpen: boolean
   snackType: string
   snackMessage: string
+  pfBackdropOpen: boolean //portfolio
+  pfBackdropAnim: boolean
+  pfBackdropDo: boolean
 }
 
 import { ObserveVisibility } from 'vue-observe-visibility'
@@ -746,9 +767,12 @@ export default Vue.extend({
         subject:'',
         message:''
       },
+      pfBackdropOpen: false,
+      pfBackdropAnim: false,
+      pfBackdropDo: false,
       snackOpen:false,
       snackType:'normal',
-      snackMessage:'dasdasdasdssa',
+      snackMessage:'',
       locations:[
         {"title":"葵聯邨聯逸樓","address1":"香港葵涌葵盛圍","coords":{"lat":22.361802297540137,"lng":114.12586327790989},"placeId":"ChIJbyr84JX4AzQRRjDmwoKaPK0"}
       ],
@@ -852,6 +876,18 @@ export default Vue.extend({
         this.snackMessage = 'test';
         this.setSnackOpen(true);
       }
+    },
+    setpfBackdropOpen (open:boolean, index:number)
+    {
+      this.pfBackdropOpen = open;
+      this.pfBackdropAnim = true;
+      let that = this;
+      setTimeout(function () { that.pfBackdropDo = true }.bind(this), 50);
+      if(!open)
+      setTimeout(function () { 
+        that.pfBackdropDo = false; 
+        that.pfBackdropAnim = false; 
+      }.bind(this), 400);
     }
   }
 })

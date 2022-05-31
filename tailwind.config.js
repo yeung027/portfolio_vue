@@ -41,6 +41,12 @@ module.exports = {
               '1/5': '20%',
               '1/6': '16.66%',
             },
+            zIndex: {
+              'n1': '-1',
+            },
+            backdropBlur: {
+              xs: '2px',
+            }
           },
           screens: {
             'mobile': '390px',
