@@ -121,7 +121,6 @@
     <span class="">{{snackMessage}}</span>
     <span 
       class="text-light-gray cursor-pointer h-10 flex items-center px-2"
-      @click="setSnackOpen(false)"
      >
       <span class="bx bx-xs bx-x" />
      </span>
@@ -131,11 +130,9 @@
   <div
     class="fixed w-screen h-screen z-40 justify-center items-center"
     :class="[pfBackdropOpen || pfBackdropAnim ? 'flex' : 'hidden']"
+    v-touch:swipe.left="pfBackdropSwipeHandler"
+    id="abc"
   >
-    <div 
-      class="flex fixed top-2 desktop:top-10 right-2 desktop:right-10 text-white bx bx-x bx-md cursor-pointer hover:bg-opacity-100 z-40 opacity-70 hover:opacity-100" 
-      @click="setpfBackdropOpen(false, -1)"
-    />
     <div class="hidden desktop:flex fixed h-screen left-10 items-center p-4">
       <div 
         class="bg-black text-white bx bxs-chevron-left bx-md bg-black cursor-pointer bg-opacity-50 hover:bg-opacity-100" 
@@ -152,7 +149,6 @@
     <div 
       class="fixed w-full desktop:w-3/6 h-full grid place-items-center ease-in-out transition transform"
       :class="getContainer0MoveAnim()"
-      v-touch:swipe="pfBackdropSwipeHandler"
     >
       <div 
         class="w-full ease-in-out duration-700 transition transform"
@@ -509,7 +505,7 @@
         Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
       </article>
       <div 
-        class="grid grid-cols-1 desktop:grid-cols-3 gap-y-6 pl-2 pb-20 pt-10 ease-in-out delay-300 duration-1000 transition transform"
+        class="justify-items-center grid grid-cols-1 desktop:grid-cols-3 gap-y-6 desktop:pl-2 pb-20 pt-10 ease-in-out delay-300 duration-1000 transition transform"
         v-observe-visibility="portfolioVisibilityChanged"
         :class="[portfolioVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10']"
       >
@@ -771,9 +767,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import Vue2TouchEvents from 'vue2-touch-events'
 
-Vue.use(Vue2TouchEvents)
 
  declare interface BaseComponentData {
   isMobileMenuOpen:boolean
@@ -810,6 +804,9 @@ Vue.use(Vue2TouchEvents)
 }
 
 import { ObserveVisibility } from 'vue-observe-visibility'
+import Vue2TouchEvents from 'vue2-touch-events'
+
+Vue.use(Vue2TouchEvents)
 Vue.directive('observe-visibility', ObserveVisibility)
 export default Vue.extend({
   name: 'IndexPage',
@@ -1088,9 +1085,12 @@ export default Vue.extend({
 
       return this.pfBackdropCurrentContainer==1 ? 'opacity-100' : 'opacity-0';
     },
-    pfBackdropSwipeHandler(e:any)
+    pfBackdropSwipeHandler()
     {
-      alert('you swipe')
+      let ele: HTMLDivElement = document.querySelector('#abc')!;
+      console.log(ele)
+      ele.style.border = 'red 2px solid';
+      
     }
   }
 })
