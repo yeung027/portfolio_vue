@@ -19,7 +19,8 @@ module.exports = {
         },
         fontFamily: {
           'open_sans': ['Open Sans', 'sans-serif'],
-          'roboto': ['Roboto', 'sans-serif']
+          'roboto': ['Roboto', 'sans-serif'],
+          'raleway': ['Raleway', 'sans-serif']
         },
         extend: {
             colors: {

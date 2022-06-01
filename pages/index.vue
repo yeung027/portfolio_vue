@@ -3,7 +3,12 @@
   class="h-screen flex flex-row overflow-x-hidden"
   :class="[isMobileMenuOpen ? 'overflow-hidden desktop:overflow-auto' : '']"
 >
-  <Nav :isMobileMenuOpen="isMobileMenuOpen" :currentSection="currentSection" @menuItemClick="menuItemClick" @menuBtnClick="menuBtnClick" />
+  <Nav 
+    :isMobileMenuOpen="isMobileMenuOpen" 
+    :currentSection="currentSection" 
+    @menuItemClick="menuItemClick" 
+    @menuBtnClick="menuBtnClick" 
+  />
   
 
   <div
@@ -720,7 +725,7 @@ import Nav from '../components/Nav.vue'
 Vue.use(Vue2TouchEvents)
 Vue.directive('observe-visibility', ObserveVisibility)
 export default Vue.extend({
-  name: 'IndexPage',
+  name: 'Portfolio',
   components: {
     Nav
   },
@@ -1005,12 +1010,6 @@ export default Vue.extend({
 </script>
 <style module>
 
-  .highhigh
-  {
-    width: 100%;
-    background-color: #000;
-    height: 200%;
-  }
   .cursor 
   {
     display: block;
