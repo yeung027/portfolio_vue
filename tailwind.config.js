@@ -16,6 +16,7 @@ module.exports = {
         },
         backgroundPosition: {
           'mobile': '60% 0%',
+          'desktop': '200% 60%',
         },
         fontFamily: {
           'open_sans': ['Open Sans', 'sans-serif'],
@@ -39,7 +40,8 @@ module.exports = {
               'light-gray': '#525252',
             },
             backgroundImage: {
-              'hero': "url('~@/static/img/hero-bg.jpg')"
+              'hero': "url('~@/static/img/hero-bg.jpg')",
+              'hei': "url('~@/static/img/hei.jpeg')"
             },
             inset: {
               '1/5': '20%',

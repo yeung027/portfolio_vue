@@ -94,20 +94,20 @@
 
   <div class="h-screen items-center justify-center desktop:justify-start desktop:ml-72 w-full">
     <section  
-    class="flex flex-col desktop:items-center justify-center h-screen bg-clip-border bg-center-top bg-cover bg-hero bg-mobile desktop:bg-fixed w-full" 
+    class="flex flex-col desktop:items-start justify-center h-screen bg-clip-border bg-cover bg-hei bg-mobile desktop:bg-desktop desktop:bg-fixed w-full" 
     v-observe-visibility="introVisibilityChanged"
     id="intro"
     >
       <div>
-      <h1 class="flex w-auto text-white font-medium text-3xl desktop:text-5xl desktop:-ml-60 pl-12 desktop:0">
-        Alex Smith
+      <h1 class="flex w-auto text-white font-medium text-3xl desktop:text-5xl desktop:ml-10 pl-6 desktop:0">
+        Hei Yeung
       </h1>
-      <div class="w-auto flex flex-row gap-2 text-white font-normal text-2xl pt-3 tracking-wide desktop:-ml-60 pl-12 desktop:0">
+      <div class="w-auto flex flex-row gap-2 text-white font-normal text-2xl pt-3 tracking-wide desktop:ml-10 pl-6 desktop:0">
         <h2 class="">I'm</h2>
         <h2 class="overflow-x-hidden group-hover:animate-type-reverse whitespace-nowrap text-brand-accent border-b-3 border-sky-400"  
               :class="[introVisible ? $style.type_reverse : '']"
         >
-          Stupid
+          Web Developer
           </h2>
 
         <span
@@ -1061,15 +1061,15 @@ export default Vue.extend({
 
   @keyframes type {
     0% { width: 0ch }
-    5%, 10% { width: 1ch }
-    15%, 20% { width: 1ch }
-    25%, 30% { width: 1ch }
-    35%, 40% { width: 1ch }
-    45%, 50% { width: 2.6ch }
-    55%, 60% { width: 2.6ch }
-    65%, 70% { width: 2.6ch }
-    75%, 80% { width: 2.6ch }
-    85%, 90% { width: 2.6ch }
-    100% { width: 2.6ch }
+    5%, 10% { width: 3ch }
+    15%, 20% { width: 3ch }
+    25%, 30% { width: 5ch }
+    35%, 40% { width: 5ch }
+    45%, 50% { width: 13ch }
+    55%, 60% { width: 13ch }
+    65%, 70% { width: 13ch }
+    75%, 80% { width: 13ch }
+    85%, 90% { width: 13ch }
+    100% { width: 13ch }
   }
 </style>
