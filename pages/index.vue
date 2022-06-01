@@ -2,10 +2,13 @@
 <div 
   class="h-screen flex flex-row overflow-x-hidden"
   :class="[isMobileMenuOpen ? 'overflow-hidden desktop:overflow-auto' : '']"
+  id="root"
 >
   <Nav 
     :isMobileMenuOpen="isMobileMenuOpen" 
     :currentSection="currentSection" 
+    :introVisible="introVisible"
+    :topEleQuery="`#intro`"
     @menuItemClick="menuItemClick" 
     @menuBtnClick="menuBtnClick" 
   />
@@ -100,7 +103,7 @@
   />
 
   <div class="h-screen items-center justify-center desktop:justify-start desktop:ml-72 w-full">
-    <section 
+    <section  
     class="flex flex-col desktop:items-center justify-center h-screen bg-clip-border bg-center-top bg-cover bg-hero bg-mobile desktop:bg-fixed w-full" 
     v-observe-visibility="introVisibilityChanged"
     id="intro"
@@ -1022,7 +1025,7 @@ export default Vue.extend({
     pfBackdropSwipeRightHandler()
     {
       this.pfBackdropMove(1);
-    },
+    }
   }
 })
 </script>

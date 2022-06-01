@@ -1,4 +1,5 @@
 <template>
+<client-only>
     <div>
     <div 
     class="rounded-full z-20 bg-sky-400 h-10 w-10 block fixed desktop:static right-4 top-4 flex items-center justify-center text-white cursor-pointer block desktop:hidden"
@@ -9,6 +10,17 @@
       :class="[isMobileMenuOpen ? 'bx-x' : 'bx-menu']"
      />
   </div>
+
+  <div 
+    class=" ease-in-out duration-300 rounded-full z-20 bg-sky-400 h-10 w-10 block fixed desktop:static right-4 bottom-4 flex items-center justify-center text-white cursor-pointer block desktop:hidden"
+    :class="[introVisible ? 'opacity-0' : 'opacity-100 desktop:hidden']"
+    >
+    <div 
+      class="bx bx-sm h-auto w-auto bx-up-arrow-alt"
+      @click="scrollTop"
+     />
+  </div>
+
   <nav 
     class="w-screen desktop:w-72 fixed h-screen z-10 flex flex-row text-white ease-in-out duration-300"
     :class="[isMobileMenuOpen ? '-left-0' : '-left-full desktop:-left-0']"
@@ -114,12 +126,16 @@
   </div>
   </nav>
   </div>
+</client-only>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+var VueScrollTo = require('vue-scrollto');
+Vue.use(VueScrollTo)
+
 export default Vue.extend({
-    props: ['isMobileMenuOpen', 'currentSection'],
+    props: ['isMobileMenuOpen', 'currentSection', 'introVisible', 'topEleQuery'],
     data() {
         return{
             
@@ -132,6 +148,47 @@ export default Vue.extend({
             this.$props.isMobileMenuOpen = !this.$props.isMobileMenuOpen;
             this.$props.currentSection = str;
         },
-    }
+        scrollTop()
+        {
+            var options = {
+                container: '#root',
+                easing: 'ease-in',
+                lazy: false,
+                offset: -60,
+                force: true,
+                cancelable: true,
+                onStart: function(element:any) {
+                // scrolling started
+                },
+                onDone: function(element:any) {
+                // scrolling is done
+                },
+                onCancel: function() {
+                // scrolling has been interrupted
+                },
+                x: false,
+                y: true
+            }
+            let element: any = document.querySelector(this.$props.topEleQuery)!;
+            /*var cancelScroll = */
+            if(element)
+                VueScrollTo.scrollTo(element, 500, options)
+        },
+        // handleScroll (e:WheelEvent) {
+        //     console.log(document.pageYOffset)
+        // }
+    },
+    // created () 
+    // {
+    //     if (process.client) { 
+    //         window.addEventListener('wheel', this.handleScroll);
+    //     }
+    // },
+    // destroyed () 
+    // {
+    //     if (process.client) { 
+    //         window.removeEventListener('wheel', this.handleScroll);
+    //     }
+    // }
 })
 </script>
