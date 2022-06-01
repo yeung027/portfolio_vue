@@ -104,10 +104,12 @@
       </h1>
       <div class="w-auto flex flex-row gap-2 text-white font-normal text-2xl pt-3 tracking-wide desktop:ml-10 pl-6 desktop:0">
         <h2 class="">I'm</h2>
-        <h2 class="overflow-x-hidden group-hover:animate-type-reverse whitespace-nowrap text-brand-accent border-b-3 border-sky-400"  
-              :class="[introVisible ? $style.type_reverse : '']"
+        <h2 
+          id="intro_title" 
+          class="h-9 overflow-x-hidden whitespace-nowrap text-brand-accent border-b-3 border-sky-400"  
+          :class="$style.textShadow"
         >
-          Web Developer
+          {{introTitle}}
           </h2>
 
         <span
@@ -728,6 +730,12 @@ import Vue from 'vue'
   snackType: string
   snackMessage: string
   snackAutoCloseTimeout: any
+  introTitles: string[]
+  introTitlesIndex:number
+  introTitleLastIndex:number
+  introTitle:string
+  introTitleInterval:any
+  introTitleDir:number
 }
 
 import { ObserveVisibility } from 'vue-observe-visibility'
@@ -784,10 +792,58 @@ export default Vue.extend({
       snackType:'normal',
       snackMessage:'',
       snackAutoCloseTimeout: null,
+      introTitles:['Web Developer', 'Full Stack developer', 'Programmer'],
+      introTitlesIndex:0,
+      introTitleLastIndex:0,
+      introTitle:'',
+      introTitleInterval:null,
+      introTitleDir:1
     }
+  },
+  mounted: function() 
+  {
+    this.introTitleUpdate();
+    this.registtIntroTitleInterval(200);
   },
   methods: 
   {
+    registtIntroTitleInterval(speed:number)
+    {
+      let that = this;
+      this.introTitleInterval = setInterval(function(){
+          that.introTitleUpdate();
+      }.bind(this), speed);
+    },
+    introTitleUpdate()
+    {
+      let str = this.introTitles[this.introTitlesIndex];
+      
+      this.introTitle = str.substring(0, this.introTitleLastIndex);
+
+      //console.log("length: "+this.introTitles[this.introTitlesIndex].length +", index: "+this.introTitleLastIndex);
+      if(this.introTitleDir==1)
+        this.introTitleLastIndex++;
+      else this.introTitleLastIndex--;
+
+      if(this.introTitleLastIndex > str.length)
+      {
+        let that = this;
+        clearInterval(this.introTitleInterval);
+        this.introTitleDir = 0;
+        this.introTitleLastIndex = str.length -1;
+        setTimeout(function () { that.registtIntroTitleInterval(70) }.bind(this), 700);
+      }
+      else if(this.introTitleLastIndex <0)
+      {
+        let that = this;
+        clearInterval(this.introTitleInterval);
+        this.introTitleDir = 1;
+        this.introTitleLastIndex =0;
+        this.introTitlesIndex++;
+        if(this.introTitlesIndex>this.introTitles.length-1) this.introTitlesIndex = 0;
+        setTimeout(function () { that.registtIntroTitleInterval(200) }.bind(this), 1000);
+      }
+    },
     menuItemClick(str:string, e:Event)
     {
       this.isMobileMenuOpen = !this.isMobileMenuOpen;
@@ -1014,7 +1070,7 @@ export default Vue.extend({
     {
       if(this.snackAutoCloseTimeout!=null) clearTimeout(this.snackAutoCloseTimeout);
       this.snackOpen = v;
-      console.log(v);
+      //console.log(v);
       if(v)
       {
         let that = this;
@@ -1063,13 +1119,20 @@ export default Vue.extend({
     0% { width: 0ch }
     5%, 10% { width: 3ch }
     15%, 20% { width: 3ch }
-    25%, 30% { width: 5ch }
+    25%, 30% { width: 6ch }
     35%, 40% { width: 5ch }
-    45%, 50% { width: 13ch }
-    55%, 60% { width: 13ch }
-    65%, 70% { width: 13ch }
-    75%, 80% { width: 13ch }
+    45%, 50% { width: 9ch }
+    55%, 60% { width: 9ch }
+    65%, 70% { width: 10ch }
+    75%, 80% { width: 11ch }
     85%, 90% { width: 13ch }
     100% { width: 13ch }
   }
+  .textShadow
+  {
+    /* text-shadow: -1px -1px 0 #b3afaf, 1px -1px 0 #b3afaf, -1px 1px 0 #b3afaf, 1px 1px 0 #b3afaf; */
+    text-shadow: #000 0px 0px 1px;
+    -webkit-font-smoothing: antialiased;
+  };
+  
 </style>
