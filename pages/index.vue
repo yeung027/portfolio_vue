@@ -160,11 +160,12 @@
     </div>
     
     <div 
-      class="fixed w-full desktop:w-3/6 h-full grid place-items-center ease-in-out transition transform"
+      class="fixed w-full desktop:w-3/6 h-full grid place-items-center duration-500 ease-in-out transition transform"
+      id="pfBackdropContainer_0"
       :class="getContainer0MoveAnim()"
     >
       <div 
-        class="w-full ease-in-out duration-500 transition transform"
+        class="w-full ease-in-out duration-300 transition transform"
         :class="[(!pfBackdropAnimDo && pfBackdropOpen) || (pfBackdropAnimDo && !pfBackdropOpen) ? 'opacity-50 scale-0' : 'opacity-100 scale-100']"
       >
         <nuxt-img 
@@ -179,11 +180,12 @@
     </div>
 
     <div 
-      class="fixed w-full desktop:w-3/6 h-full grid place-items-center ease-in-out transition transform"
+      class="fixed w-full desktop:w-3/6 h-full grid place-items-center duration-500 ease-in-out transition transform"
+      id="pfBackdropContainer_1"
       :class="getContainer1MoveAnim()"
     >
       <div 
-        class="w-full ease-in-out duration-500 transition transform"
+        class="w-full ease-in-out duration-300 transition transform"
         :class="[(!pfBackdropAnimDo && pfBackdropOpen) || (pfBackdropAnimDo && !pfBackdropOpen) ? 'opacity-50 scale-0' : 'opacity-100 scale-100']"
       >
         <nuxt-img 
@@ -1054,8 +1056,8 @@ export default Vue.extend({
       this.pfBackdropNextContainer = this.pfBackdropCurrentContainer==0 ? 1 : 0;
       if(this.pfBackdropCurrentContainer==0) this.pfBackdropContainer1_Index = dir==0 ? this.pfBackdropImgIndexAdd(this.getCurrentContainerImgIndex()) : this.pfBackdropImgIndexLess(this.getCurrentContainerImgIndex());
       else this.pfBackdropContainer0_Index = dir==0 ? this.pfBackdropImgIndexAdd(this.getCurrentContainerImgIndex()) : this.pfBackdropImgIndexLess(this.getCurrentContainerImgIndex());
-      setTimeout(() => this.pfBackdropMoveAnimDo = true, 70);
-      setTimeout(() => this.setPfBackdropMoveAnimEnd(), 550);
+      setTimeout(() => this.pfBackdropMoveAnimDo = true, 100);
+      setTimeout(() => this.setPfBackdropMoveAnimEnd(), 600);
     },
     setPfBackdropMoveAnimEnd()
     {
@@ -1066,43 +1068,35 @@ export default Vue.extend({
     },
     getContainer0MoveAnim():string
     {
-      if(this.pfBackdropMoveAnim && this.pfBackdropCurrentContainer==0 )
-      {
-        if(this.pfBackdropMoveDir==0) return '-translate-x-full -ml-20 opacity-0'
-        else return 'translate-x-full ml-20 opacity-0'
-      }
-      else if(!this.pfBackdropMoveAnimDo && this.pfBackdropMoveAnim && this.pfBackdropNextContainer==0)
-      {
-        if(this.pfBackdropMoveDir==0) return 'translate-x-full ml-20 opacity-50'
-        else return '-translate-x-full -ml-20 opacity-50'
-      }
-      else if(this.pfBackdropMoveAnim && this.pfBackdropMoveAnimDo && this.pfBackdropNextContainer==0)
-      {
-        if(this.pfBackdropMoveDir==0) return 'translate-x-0 opacity-100'
-        else return '-translate-x-0 opacity-100'
-      }
-
-      return this.pfBackdropCurrentContainer==0 ? 'opacity-100' : 'opacity-0';
+      return this.getContainerMoveAnim(0);
     },
     getContainer1MoveAnim():string
     {
-      if(this.pfBackdropMoveAnim && this.pfBackdropCurrentContainer==1)
+      return this.getContainerMoveAnim(1);
+    },
+    getContainerMoveAnim(index:number):string
+    {
+      let containerEle: HTMLDivElement = document.querySelector('#pfBackdropContainer_'+index)!;
+      if(containerEle) containerEle.style.transitionDuration = '500ms';
+      if(this.pfBackdropMoveAnim && this.pfBackdropCurrentContainer==index )
       {
-        if(this.pfBackdropMoveDir==0) return '-translate-x-full -ml-20 opacity-0'
-        else return 'translate-x-full ml-20 opacity-0'
+        if(this.pfBackdropMoveDir==0) return '-translate-x-full opacity-0'
+        else return 'translate-x-full opacity-0'
       }
-      else if(!this.pfBackdropMoveAnimDo && this.pfBackdropMoveAnim && this.pfBackdropNextContainer==1)
+      else if(!this.pfBackdropMoveAnimDo && this.pfBackdropMoveAnim && this.pfBackdropNextContainer==index)
       {
-        if(this.pfBackdropMoveDir==0) return 'translate-x-full ml-20 opacity-50'
-        else return '-translate-x-full -ml-20 opacity-50'
+        if(containerEle) containerEle.style.transitionDuration = '0s';
+        if(this.pfBackdropMoveDir==0) return 'translate-x-full opacity-0'
+        else return '-translate-x-full opacity-0'
+
       }
-      else if(this.pfBackdropMoveAnim && this.pfBackdropMoveAnimDo && this.pfBackdropNextContainer==1)
+      else if(this.pfBackdropMoveAnim && this.pfBackdropMoveAnimDo && this.pfBackdropNextContainer==index)
       {
         if(this.pfBackdropMoveDir==0) return 'translate-x-0 opacity-100'
         else return '-translate-x-0 opacity-100'
       }
 
-      return this.pfBackdropCurrentContainer==1 ? 'opacity-100' : 'opacity-0';
+      return this.pfBackdropCurrentContainer==index ? 'opacity-100' : 'opacity-0';
     },
     pfBackdropSwipeLeftHandler()
     {
