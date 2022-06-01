@@ -14,22 +14,12 @@
   />
   
 
-  <div
-    class="fixed right-6 desktop:right-10 bottom-6 border pl-4 pr-2 rounded flex flex-row items-center ease-in-out duration-300 transition transform z-20"
-    :class="[snackOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      , snackType=='normal' ? 'bg-light-light-green text-green border-green' : 'bg-red-100 border-red-400 text-red-700']"
-  >
-    <span 
-      class="bx bx-xs py-3"
-      :class="[snackType=='normal' ? 'bx-check' : 'bx-error']"
-     />
-    <span class="">{{snackMessage}}</span>
-    <span 
-      class="text-light-gray cursor-pointer h-10 flex items-center px-2"
-     >
-      <span class="bx bx-xs bx-x" />
-     </span>
-  </div>
+  <Snack 
+    :open="snackOpen" 
+    :type="snackType" 
+    :message="snackMessage" 
+    @setOpen="setSnackOpen" 
+  />
 
 
   <div
@@ -568,7 +558,7 @@
       </div>
     </section>
     <section 
-      class="w-full px-2 desktop:px-8 desktop:min-h-screen" 
+      class="w-full px-2 desktop:px-8 desktop:min-h-screen mb-20 desktop:mb-4" 
       id="contact"
     >
       <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">Contact</h1>
@@ -720,9 +710,6 @@ import Vue from 'vue'
   locations:any[]
   mapOptions:object
   capabilities:object
-  snackOpen: boolean
-  snackType: string
-  snackMessage: string
   pfBackdropOpen: boolean //portfolio
   pfBackdropAnim: boolean
   pfBackdropAnimDo: boolean
@@ -737,18 +724,24 @@ import Vue from 'vue'
   pfBackdropMoveAnimDo: boolean
   pfBackdropMoveAnimLock: boolean
   contractFormBusy:boolean
+  snackOpen: boolean
+  snackType: string
+  snackMessage: string
+  snackAutoCloseTimeout: any
 }
 
 import { ObserveVisibility } from 'vue-observe-visibility'
 import Vue2TouchEvents from 'vue2-touch-events'
 import Nav from '../components/Nav.vue'
+import Snack from '../components/Snack.vue'
 
 Vue.use(Vue2TouchEvents)
 Vue.directive('observe-visibility', ObserveVisibility)
 export default Vue.extend({
   name: 'Portfolio',
   components: {
-    Nav
+    Nav,
+    Snack
   },
   data(): BaseComponentData {
     return {
@@ -781,15 +774,16 @@ export default Vue.extend({
       pfBackdropMoveDir:1,
       pfBackdropMoveAnimDo: false,
       pfBackdropMoveAnimLock: false,
-      snackOpen:false,
-      snackType:'normal',
-      snackMessage:'',
       contractFormBusy:false,
       locations:[
         {"title":"葵聯邨聯逸樓","address1":"香港葵涌葵盛圍","coords":{"lat":22.361802297540137,"lng":114.12586327790989},"placeId":"ChIJbyr84JX4AzQRRjDmwoKaPK0"}
       ],
       mapOptions: {"center":{"lat":38.0,"lng":-100.0},"fullscreenControl":true,"mapTypeControl":false,"streetViewControl":false,"zoom":4,"zoomControl":true,"maxZoom":17},
-      capabilities: {"input":true,"autocomplete":false,"directions":false,"distanceMatrix":false,"details":false}
+      capabilities: {"input":true,"autocomplete":false,"directions":false,"distanceMatrix":false,"details":false},
+      snackOpen:false,
+      snackType:'normal',
+      snackMessage:'',
+      snackAutoCloseTimeout: null,
     }
   },
   methods: 
@@ -802,16 +796,6 @@ export default Vue.extend({
     menuBtnClick(e:Event)
     {
         this.isMobileMenuOpen = !this.isMobileMenuOpen;
-    },
-    setSnackOpen(v:any)
-    {
-      this.snackOpen = v;
-
-      if(v==true)
-      {
-        let that = this;
-        setTimeout(function () { that.setSnackOpen(false) }.bind(this), 6000)
-      }
     },
     themeSwitch()
     {
@@ -886,9 +870,9 @@ export default Vue.extend({
       else this.contactErrors.message = '';
       if(error>0)
       {
-        this.snackType  = 'error';
+        this.snackType = 'error';
         this.snackMessage = 'Please check the form carefully for errors!';
-        this.setSnackOpen(true);
+        this.snackOpen = true;
       }
       else
       {
@@ -902,13 +886,13 @@ export default Vue.extend({
         }).then(respons =>{
           this.snackType  = 'normal';
           this.snackMessage = 'Message sent successfully! Thanks for your enquiry!';
-          this.setSnackOpen(true);
+          this.snackOpen = true;
           this.contractFormBusy = false;
         })
         .catch(error=>{
           this.snackType  = 'error';
           this.snackMessage = 'Something went wrong, please try again later, sorry for the inconvenience.';
-          this.setSnackOpen(true);
+          this.snackOpen = true;
           this.contractFormBusy = false;
         })
       }
@@ -1025,6 +1009,18 @@ export default Vue.extend({
     pfBackdropSwipeRightHandler()
     {
       this.pfBackdropMove(1);
+    },
+    setSnackOpen (v:boolean)
+    {
+      if(this.snackAutoCloseTimeout!=null) clearTimeout(this.snackAutoCloseTimeout);
+      this.snackOpen = v;
+      console.log(v);
+      if(v)
+      {
+        console.log('ya');
+        let that = this;
+        this.snackAutoCloseTimeout = setTimeout(function () { that.setSnackOpen(false); that.snackAutoCloseTimeout = null; }.bind(this), 1000);
+      }
     }
   }
 })

@@ -27,7 +27,7 @@
           <span>Portfoio Details</span>
         </div>
       </header>
-      <main class="px-4 pt-10 flex flex-col desktop:flex-row h-full w-full">
+      <main class="px-4 pt-10 flex flex-col desktop:flex-row h-full w-full mb-60 desktop:mb-4">
         <div class="desktop:w-8/12 px-0 py-4 desktop:py-0">
             <VueSlickCarousel v-bind="slickSettings">
               <div class="flex w-full">
