@@ -11,8 +11,8 @@
       @menuItemClick="menuItemClick" 
       @menuBtnClick="menuBtnClick" 
     />
-    <div class="h-screen items-center justify-center desktop:justify-start desktop:ml-72 w-screen desktop:pr-72 flex flex-col">
-      <header class="flex flex-col desktop:flex-row w-full pt-4 desktop:pt-6 px-4 font-raleway">
+    <div class="mt-10 desktop:mt-2 h-screen items-center justify-center desktop:justify-start desktop:ml-72 w-screen desktop:pr-72 flex flex-col">
+      <header class="flex flex-col desktop:flex-row w-full pt-4 desktop:pt-6 pl-6 pr-6 desktop:pr-8 font-raleway">
         <h1 
           id="topH1" 
           class="text-3xl font-normal w-full desktop:w-2/4 font-thin"
@@ -27,7 +27,7 @@
           <span>Portfoio Details</span>
         </div>
       </header>
-      <main class="px-4 pt-10 flex flex-col desktop:flex-row h-full w-full mb-60 desktop:mb-4">
+      <main class="px-4 pt-10 flex flex-col desktop:flex-row h-full w-full pb-10 desktop:pb-4">
         <div class="desktop:w-8/12 px-0 py-4 desktop:py-0">
             <VueSlickCarousel v-bind="slickSettings">
               <div class="flex w-full">
@@ -87,7 +87,7 @@
               <h2 class="font-roboto text-2xl font-normal leading-7">
                 This is an example of portfolio detail
               </h2>
-              <article class="mt-4 font-normal font-open_sans font-light">
+              <article class="mt-4 font-normal font-open_sans font-light pb-40 desktop:pb-6">
                 Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
               </article>
           </div>

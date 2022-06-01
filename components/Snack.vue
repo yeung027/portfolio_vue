@@ -1,6 +1,6 @@
 <template>
     <div
-        class="fixed right-6 desktop:right-10 bottom-6 border pl-4 pr-2 rounded flex flex-row items-center ease-in-out duration-300 transition transform z-20"
+        class="fixed mx-6 desktop:mx-0 right-0 desktop:right-10 bottom-6 border pl-4 pr-2 rounded flex flex-row items-center ease-in-out duration-300 transition transform z-20"
         :class="[open ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         , type=='normal' ? 'bg-light-light-green text-green border-green' : 'bg-red-100 border-red-400 text-red-700']"
     >
@@ -21,20 +21,19 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
- declare interface BaseComponentData {
-     autoCloseTimeout:any
- }
+
 
 export default Vue.extend({
   name: 'snack',
   props: ['open', 'type', 'message'],
-  data(): BaseComponentData {
+  data() {
       return {
-        autoCloseTimeout: null,
       }
   },
-  methods: {
-   
+  watch: {
+   open: function(newVal, oldVal) {
+       this.$emit('setOpen', newVal)
+   }
   }
 })
 </script>

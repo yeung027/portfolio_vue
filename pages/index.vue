@@ -18,7 +18,7 @@
     :open="snackOpen" 
     :type="snackType" 
     :message="snackMessage" 
-    @setOpen="setSnackOpen" 
+    @setOpen="setSnackOpen"
   />
 
 
@@ -558,7 +558,7 @@
       </div>
     </section>
     <section 
-      class="w-full px-2 desktop:px-8 desktop:min-h-screen mb-20 desktop:mb-4" 
+      class="w-full px-2 desktop:px-8 desktop:min-h-screen pb-20 desktop:pb-4" 
       id="contact"
     >
       <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">Contact</h1>
@@ -1017,9 +1017,12 @@ export default Vue.extend({
       console.log(v);
       if(v)
       {
-        console.log('ya');
         let that = this;
-        this.snackAutoCloseTimeout = setTimeout(function () { that.setSnackOpen(false); that.snackAutoCloseTimeout = null; }.bind(this), 1000);
+        this.snackAutoCloseTimeout = setTimeout(
+          function () {
+             that.setSnackOpen(false); that.snackAutoCloseTimeout = null; 
+          }.bind(this)
+        , 6000);
       }
     }
   }
