@@ -29,13 +29,13 @@
     class="bg-deep-dark w-72 fixed h-screen flex flex-col text-white"
   >
     <div class="flex justify-center pt-5">
-      <nuxt-img 
-        src="/img/profile-img.jpg" 
+      <img 
+        src="/img/menu-hei.jpg" 
         provider="static"
         class="rounded-full w-28 h-28 border-8 border-deep-blue"
       />
     </div>
-    <div class="flex justify-center text-white font-medium text-2xl pt-3 tracking-wide cursor-pointer">Alex Smith</div>
+    <div class="flex justify-center text-white font-medium text-2xl pt-3 tracking-wide cursor-pointer">Hei Yeung</div>
     <div class="flex justify-center flex-row gap-4 mt-4">
       <a href="http://google.com" target="_blank">
         <div class="bx bxl-twitter bx-xs text-white rounded-full h-auto w-auto bg-deep-blue p-1.5 cursor-pointer" />

@@ -134,8 +134,8 @@
         v-observe-visibility="aboutImgVisibilityChanged"
         :class="[aboutImgVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10']"
       >
-          <nuxt-img 
-            src="/img/profile-img.jpg" 
+          <img 
+            src="/img/profile-hei.jpg" 
             provider="static"
             class="desktop:w-11/12 z-0"
           />
