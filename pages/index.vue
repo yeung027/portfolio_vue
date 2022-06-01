@@ -126,11 +126,17 @@
       <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">About</h1>
       <div class="border-b-3 border-sky-400 w-14 ml-2 mb-5" />
       <article class="mx-2 font-normal font-open_sans font-light">
-        Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
+        I am a Full-stack Developer. Well-versed in back-end frameworks such as Node.js, Next.js, Express.js and Ruby on rails.
+
+Also I have experience in front-end frameworks such as react and jQuery.
+
+Now I am mainly coding in reactjs because I can coding in javascript on both font-end and back-end.
+
+Moreover, I have learn react native to make mobile App in both ios and android.
       </article>
-      <div class="flex flex-col desktop:flex-row mx-2 mt-6 items-start">
+      <div class="flex flex-col desktop:flex-row mx-2 desktop:mx-0 mt-6 items-start">
       <div 
-        class="flex desktop:justify-center w-11/12 desktop:w-2/5 ease-in-out duration-500 delay-500 transform"
+        class="flex desktop:justify-start w-11/12 desktop:w-2/5 ease-in-out duration-500 delay-500 transform"
         v-observe-visibility="aboutImgVisibilityChanged"
         :class="[aboutImgVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10']"
       >
@@ -145,14 +151,14 @@
         v-observe-visibility="aboutDetailVisibilityChanged"
         :class="[aboutDetailVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10']"
       >
-      <h1 class="font-medium text-3xl text-dark-blue pb-4 ml-0 dekstop:ml-5">Redundant Staff</h1>
+      <h1 class="font-medium text-3xl text-dark-blue pb-4 ml-0 dekstop:ml-5">Web Developer</h1>
       <article class="dekstop:mx-2 font-normal font-open_sans font-light">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        I build things for the web.
       </article>
       <ul class='bx-ul bx-xs desktop:grid desktop:grid-cols-2 desktop:pt-4'>
         <li class="ml-2 desktop:ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
           <span class="-ml-6 font-normal text-base pr-2">Phone:</span>
-          <span class="font-open_sans font-light text-base">12345678</span>
+          <span class="font-open_sans font-light text-base">55463085</span>
         </li>
         <li class="ml-2 desktop:ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
           <span class="-ml-6 font-normal text-base pr-2">Town:</span>
@@ -160,11 +166,11 @@
         </li>
         <li class="ml-2 desktop:ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
           <span class="-ml-6 font-normal text-base pr-2">Website:</span>
-          <span class="font-open_sans font-light text-base">www.abc.com</span>
+          <span class="font-open_sans font-light text-base">portfolio.hei.ninja</span>
         </li>
         <li class="ml-2 desktop:ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
           <span class="-ml-6 font-normal text-base pr-2">Email:</span>
-          <span class="font-open_sans font-light text-base">abc@gmail.com</span>
+          <span class="font-open_sans font-light text-base">shinghei.yeng@gmail.com</span>
         </li>
         <li class="ml-2 desktop:ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
           <span class="-ml-6 font-normal text-base pr-2">Freelance:</span>
@@ -350,52 +356,44 @@
           <div class="text-black font-roboto text-2xl font-medium pb-4">Professional Experience</div>
           <div class="border-l-2 border-dark-blue px-6 pb-1">
             <div class="relative border-2 border-dark-blue rounded-full w-4 h-4 -ml-8 -mt-2 bg-white" />
-            <div class="text-black font-roboto text-xl font-medium -mt-5">Senior graphic design specialist</div>
+            <div class="text-black font-roboto text-xl font-medium -mt-5">Programmer</div>
             <div class="text-black font-open_sans text-base font-medium pt-2 pl-2">2019 - Present</div>
-            <div class="text-black font-open_sans text-base font-normal pt-2 italic">Experion, New York, NY</div>
+            <div class="text-black font-open_sans text-base font-normal pt-2 italic">Speedy Group Corporation Limited</div>
             <ul class="list-disc ml-4 pt-2 font-open_sans text-base font-normal pb-8">
-              <li class="my-2">Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
-              <li class="my-2">Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project.</li>
+              <li class="my-2">Working at Student Finance Office</li>
+              <li class="my-2">In-house software development</li>
             </ul>
           </div>
           <div class="border-l-2 border-dark-blue px-6 pb-1">
             <div class="relative border-2 border-dark-blue rounded-full w-4 h-4 -ml-8 -mt-2 bg-white" />
-            <div class="text-black font-roboto text-xl font-medium -mt-5">Graphic design specialist</div>
+            <div class="text-black font-roboto text-xl font-medium -mt-5">Web Developer</div>
             <div class="text-black font-open_sans text-base font-medium pt-2 pl-2">2017 - 2018</div>
-            <div class="text-black font-open_sans text-base font-normal pt-2 italic">Stepping Stone Advertising, New York, NY</div>
+            <div class="text-black font-open_sans text-base font-normal pt-2 italic">Joyaether Ltd</div>
             <ul class="list-disc ml-4 pt-2 font-open_sans text-base font-normal pb-2">
-              <li class="my-2">Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
-              <li class="my-2">Managed up to 5 projects or tasks at a given time while under pressure</li>
+              <li class="my-2">Understanding clients requirements, dev/prod servers setup</li>
+              <li class="my-2">Develop data fetching API for teammate</li>
+              <li class="my-2">Assist in maintaining Linux servers</li>
             </ul>
           </div>
         </div>
         
         <div
-          class="pb-8 desktop:pb-0 ease-in-out delay-500 duration-1000 transition transform"
+          class="pb-2 desktop:pb-0 ease-in-out delay-500 duration-1000 transition transform"
           v-observe-visibility="resume2VisibilityChanged"
           :class="[resume2Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10']"
         >
           <div class="text-black font-roboto text-2xl font-medium pb-4">Education</div>
           <div class="border-l-2 border-dark-blue px-6 pb-1">
             <div class="relative border-2 border-dark-blue rounded-full w-4 h-4 -ml-8 -mt-2 bg-white" />
-            <div class="text-black font-roboto text-xl font-medium -mt-5">Senior graphic design specialist</div>
+            <div class="text-black font-roboto text-xl font-medium -mt-5">Higher Diploma in Enterprise Computing</div>
             <div class="text-black font-open_sans text-base font-medium pt-2 pl-2">2019 - Present</div>
-            <div class="text-black font-open_sans text-base font-normal pt-2 italic">Experion, New York, NY</div>
-            <ul class="list-disc ml-4 pt-2 font-open_sans text-base font-normal pb-8">
-              <li class="my-2">Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
-              <li class="my-2">Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project.</li>
-            </ul>
-          </div>
-          <div class="border-l-2 border-dark-blue px-6 pb-1">
-            <div class="relative border-2 border-dark-blue rounded-full w-4 h-4 -ml-8 -mt-2 bg-white" />
-            <div class="text-black font-roboto text-xl font-medium -mt-5">Graphic design specialist</div>
-            <div class="text-black font-open_sans text-base font-medium pt-2 pl-2">2017 - 2018</div>
-            <div class="text-black font-open_sans text-base font-normal pt-2 italic">Stepping Stone Advertising, New York, NY</div>
+            <div class="text-black font-open_sans text-base font-normal pt-2 italic">Hong Kong Institute of Vocational Education</div>
             <ul class="list-disc ml-4 pt-2 font-open_sans text-base font-normal pb-2">
-              <li class="my-2">Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
-              <li class="my-2">Managed up to 5 projects or tasks at a given time while under pressure</li>
+              <li class="my-2">Learn Programming with JAVA</li>
+              <li class="my-2">Study concepts of OOP</li>
             </ul>
           </div>
+          
         </div>
       </div>
     </section>
@@ -579,7 +577,7 @@
               </div>
               <div class="flex flex-col ml-4">
                 <div class="font-normal text-2xl pr-2">Location:</div>
-                <div class="font-open_sans font-light text-sm">A108 Adam Street, New York, NY 535022</div>
+                <div class="font-open_sans font-light text-sm">Kwai Chung, N.T., Hong Kong</div>
               </div>
             </li>
            <li class="flex flex-row mb-6">
@@ -588,7 +586,7 @@
               </div>
               <div class="flex flex-col ml-4">
                 <div class="font-normal text-2xl pr-2">Email:</div>
-                <div class="font-open_sans font-light text-sm">abc@gmail.com</div>
+                <div class="font-open_sans font-light text-sm">shinghei.yeung@gmail.com</div>
               </div>
             </li>
             <li class="flex flex-row mb-6">
@@ -597,7 +595,7 @@
               </div>
               <div class="flex flex-col ml-4">
                 <div class="font-normal text-2xl pr-2">Phone / Whatsapp:</div>
-                <div class="font-open_sans font-light text-sm">12345678</div>
+                <div class="font-open_sans font-light text-sm">55463085</div>
               </div>
             </li>
           </ul>

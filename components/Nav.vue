@@ -37,16 +37,16 @@
     </div>
     <div class="flex justify-center text-white font-medium text-2xl pt-3 tracking-wide cursor-pointer">Hei Yeung</div>
     <div class="flex justify-center flex-row gap-4 mt-4">
-      <a href="http://google.com" target="_blank">
+      <a href="https://twitter.com/heyhei027" target="_blank">
         <div class="bx bxl-twitter bx-xs text-white rounded-full h-auto w-auto bg-deep-blue p-1.5 cursor-pointer" />
       </a>
-      <a href="http://google.com" target="_blank">
+      <a href="https://github.com/yeung027" target="_blank">
         <div class="bx bxl-github bx-xs text-white rounded-full h-auto w-auto bg-deep-blue p-1.5 cursor-pointer" />
       </a>
       <a href="http://google.com" target="_blank">
         <div class="bx bxl-instagram bx-xs text-white rounded-full h-auto w-auto bg-deep-blue p-1.5 cursor-pointer" />
       </a>
-      <a href="http://google.com" target="_blank">
+      <a href="mailto:shinghei.yeung@gmail.com" target="_blank">
         <div class="bx bx-envelope bx-xs text-white rounded-full h-auto w-auto bg-deep-blue p-1.5 cursor-pointer" />
       </a>
     </div>
