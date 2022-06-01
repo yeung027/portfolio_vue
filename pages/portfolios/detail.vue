@@ -12,7 +12,7 @@
         <h1 class="text-3xl font-normal w-full desktop:w-2/4 font-thin">Portfoio Details</h1>
         <div class="w-full desktop:w-2/4 text-right flex justify-start desktop:justify-end items-end font-light gap-2">
           <NuxtLink 
-            to="/" 
+            to="/#portfolio" 
             class="text-custom-sky"
           >Home</NuxtLink>
           <span>/</span>
@@ -20,15 +20,69 @@
         </div>
       </header>
       <main class="px-4 pt-10 flex flex-col desktop:flex-row h-full w-full">
-        <div class="desktop:w-8/12 h-full px-0">
+        <div class="desktop:w-8/12 px-0 py-4 desktop:py-0">
             <VueSlickCarousel v-bind="slickSettings">
-              <div class="bg-custom-sky"><h3>1</h3></div>
-              <div class="bg-custom-sky"><h3>2</h3></div>
-              /*...*/
+              <div class="flex w-full">
+                <nuxt-img 
+                  src="/portfolio/detail/1/1.jpg" 
+                  provider="static"
+                  class=" max-h-96 px-auto mx-auto"
+                  />
+              </div>
+              <div class="flex w-full">
+                <nuxt-img 
+                  src="/portfolio/detail/1/2.jpg" 
+                  provider="static"
+                  class=" max-h-96 px-auto mx-auto"
+                  />
+              </div>
+              <div class="flex w-full">
+                <nuxt-img 
+                  src="/portfolio/detail/1/3.jpg" 
+                  provider="static"
+                  class=" max-h-96 px-auto mx-auto"
+                  />
+              </div>
           </VueSlickCarousel>
         </div>
-        <div class="">
-          2
+        <div class="pt-10 desktop:pt-4 px-6">
+          <h2 class="font-roboto text-xl font-normal">
+            Information
+          </h2>
+          <ul class="mt-4">
+            <li class="py-1">
+              <span class="font-medium mr-1">Category:</span>
+              <span class="font-normal">Web design</span>
+            </li>
+            <li class="py-1">
+              <span class="font-medium mr-1">Client:</span>
+              <span class="font-normal">ABC Company</span>
+            </li>
+            <li class="py-1">
+              <span class="font-medium mr-1">Project Date:</span>
+              <span class="font-normal">1/2/2021</span>
+            </li>
+            <li class="py-1">
+              <span class="font-medium mr-1">Project URL:</span>
+              <span class="font-normal">
+                <a 
+                  href="http://google.com" 
+                  target="_blank"
+                  class="text-custom-sky"
+                >
+                  aaaaaa.com
+                </a>
+              </span>
+            </li>
+          </ul>
+          <div class="mt-6">
+              <h2 class="font-roboto text-2xl font-normal leading-7">
+                This is an example of portfolio detail
+              </h2>
+              <article class="mt-4 font-normal font-open_sans font-light">
+                Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
+              </article>
+          </div>
         </div>
       </main>
     </div>
@@ -58,6 +112,8 @@ export default Vue.extend({
         arrows:false,
         dots:true,
         dotsClass: "custom-dots",
+        autoplay:true,
+        autoplaySpeed:2500
       }
     }
   },
@@ -108,10 +164,9 @@ export default Vue.extend({
 
   display: block;
 
-  width: 20px;
-  height: 20px;
-  padding: 5px;
-
+  width: 18px;
+  height: 18px;
+  padding: 0px;
   cursor: pointer;
 
   color: transparent;
@@ -129,28 +184,25 @@ export default Vue.extend({
 }
 .custom-dots li button:before {
   font-family: 'slick';
-  font-size: 10px;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 14px;
 
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
-
-  width: 20px;
-  height: 20px;
-
+  width: 19px;
+  height: 19px;
   content: '•';
   text-align: center;
-
   opacity: 0.25;
-  color: black;
+  color: #525252;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 .custom-dots li.slick-active button:before {
   opacity: 0.75;
-  color: black;
+  color: #149ddd;
 }
   
 </style>

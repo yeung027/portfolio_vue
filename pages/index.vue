@@ -434,9 +434,12 @@
             >
               <div class="bx bx-sm bx-plus h-6 my-2" />
             </div>
-            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
-              <div class="bx bx-sm bx-link h-6 my-2" />
-            </div>
+            <NuxtLink 
+              to="/portfolios/detail" 
+              class="h-10 bg-custom-sky w-1/2 flex content-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
+            >
+              <div class="bx bx-sm bx-link h-6 my-auto" />
+            </NuxtLink>
           </div>
         </div>
         <div 
@@ -455,9 +458,12 @@
             >
               <div class="bx bx-sm bx-plus h-6 my-2" />
             </div>
-            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
-              <div class="bx bx-sm bx-link h-6 my-2" />
-            </div>
+            <NuxtLink 
+              to="/portfolios/detail" 
+              class="h-10 bg-custom-sky w-1/2 flex content-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
+            >
+              <div class="bx bx-sm bx-link h-6 my-auto" />
+            </NuxtLink>
           </div>
         </div>
         <div 
@@ -476,9 +482,12 @@
             >
               <div class="bx bx-sm bx-plus h-6 my-2" />
             </div>
-            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
-              <div class="bx bx-sm bx-link h-6 my-2" />
-            </div>
+            <NuxtLink 
+              to="/portfolios/detail" 
+              class="h-10 bg-custom-sky w-1/2 flex content-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
+            >
+              <div class="bx bx-sm bx-link h-6 my-auto" />
+            </NuxtLink>
           </div>
         </div>
         <div 
@@ -497,9 +506,12 @@
             >
               <div class="bx bx-sm bx-plus h-6 my-2" />
             </div>
-            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
-              <div class="bx bx-sm bx-link h-6 my-2" />
-            </div>
+            <NuxtLink 
+              to="/portfolios/detail" 
+              class="h-10 bg-custom-sky w-1/2 flex content-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
+            >
+              <div class="bx bx-sm bx-link h-6 my-auto" />
+            </NuxtLink>
           </div>
         </div>
         <div 
@@ -518,9 +530,12 @@
             >
               <div class="bx bx-sm bx-plus h-6 my-2" />
             </div>
-            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
-              <div class="bx bx-sm bx-link h-6 my-2" />
-            </div>
+            <NuxtLink 
+              to="/portfolios/detail" 
+              class="h-10 bg-custom-sky w-1/2 flex content-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
+            >
+              <div class="bx bx-sm bx-link h-6 my-auto" />
+            </NuxtLink>
           </div>
         </div>
         <div 
@@ -539,9 +554,12 @@
             >
               <div class="bx bx-sm bx-plus h-6 my-2" />
             </div>
-            <div class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90">
-              <div class="bx bx-sm bx-link h-6 my-2" />
-            </div>
+            <NuxtLink 
+              to="/portfolios/detail" 
+              class="h-10 bg-custom-sky w-1/2 flex content-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
+            >
+              <div class="bx bx-sm bx-link h-6 my-auto" />
+            </NuxtLink>
           </div>
         </div>
       </div>
