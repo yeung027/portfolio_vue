@@ -158,7 +158,7 @@
         @click="pfBackdropNext()"
       />
     </div>
-    
+    <client-only>
     <div 
       class="fixed w-full desktop:w-3/6 h-full grid place-items-center duration-500 ease-in-out transition transform"
       id="pfBackdropContainer_0"
@@ -198,7 +198,7 @@
           </div>
         </div>
     </div>
-    
+    </client-only>
   </div>
   <div 
     class="fixed w-screen h-screen z-30 bg-black justify-center items-center backdrop-filter backdrop-blur-xs bg-opacity-75"
@@ -826,6 +826,7 @@ import Vue from 'vue'
 
 import { ObserveVisibility } from 'vue-observe-visibility'
 import Vue2TouchEvents from 'vue2-touch-events'
+import Nav from '../components/Nav.vue'
 
 Vue.use(Vue2TouchEvents)
 Vue.directive('observe-visibility', ObserveVisibility)
@@ -1076,6 +1077,7 @@ export default Vue.extend({
     },
     getContainerMoveAnim(index:number):string
     {
+      if (!process.client) return '';
       let containerEle: HTMLDivElement = document.querySelector('#pfBackdropContainer_'+index)!;
       if(containerEle) containerEle.style.transitionDuration = '500ms';
       if(this.pfBackdropMoveAnim && this.pfBackdropCurrentContainer==index )
