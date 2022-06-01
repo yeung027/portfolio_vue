@@ -13,7 +13,7 @@
 
   <div 
     class=" ease-in-out duration-300 rounded-full z-20 bg-sky-400 h-10 w-10 block fixed desktop:static right-4 bottom-4 flex items-center justify-center text-white cursor-pointer block desktop:hidden"
-    :class="[introVisible ? 'opacity-0' : 'opacity-100 desktop:hidden']"
+    :class="[topVisible ? 'opacity-0' : 'opacity-100 desktop:hidden']"
     >
     <div 
       class="bx bx-sm h-auto w-auto bx-up-arrow-alt"
@@ -135,7 +135,7 @@ var VueScrollTo = require('vue-scrollto');
 Vue.use(VueScrollTo)
 
 export default Vue.extend({
-    props: ['isMobileMenuOpen', 'currentSection', 'introVisible', 'topEleQuery'],
+    props: ['isMobileMenuOpen', 'currentSection', 'topVisible', 'topEleQuery'],
     data() {
         return{
             

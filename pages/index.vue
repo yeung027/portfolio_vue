@@ -7,8 +7,8 @@
   <Nav 
     :isMobileMenuOpen="isMobileMenuOpen" 
     :currentSection="currentSection" 
-    :introVisible="introVisible"
     :topEleQuery="`#intro`"
+    :topVisible="introVisible"
     @menuItemClick="menuItemClick" 
     @menuBtnClick="menuBtnClick" 
   />

@@ -7,17 +7,22 @@
       :isMobileMenuOpen="isMobileMenuOpen" 
       :currentSection="currentSection" 
       :topEleQuery="`#topH1`"
+      :topVisible="toph1Visible"
       @menuItemClick="menuItemClick" 
       @menuBtnClick="menuBtnClick" 
     />
     <div class="h-screen items-center justify-center desktop:justify-start desktop:ml-72 w-screen desktop:pr-72 flex flex-col">
       <header class="flex flex-col desktop:flex-row w-full pt-4 desktop:pt-6 px-4 font-raleway">
-        <h1 id="topH1" class="text-3xl font-normal w-full desktop:w-2/4 font-thin">Portfoio Details</h1>
+        <h1 
+          id="topH1" 
+          class="text-3xl font-normal w-full desktop:w-2/4 font-thin"
+          v-observe-visibility="topH1VisibilityChanged"
+        >Portfoio Details</h1>
         <div class="w-full desktop:w-2/4 text-right flex justify-start desktop:justify-end items-end font-light gap-2">
-          <NuxtLink 
-            to="/#portfolio" 
+          <a 
+            href="/#portfolio" 
             class="text-custom-sky"
-          >Home</NuxtLink>
+          >Home</a>
           <span>/</span>
           <span>Portfoio Details</span>
         </div>
@@ -95,6 +100,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import Nav from '../../components/Nav.vue'
+import { ObserveVisibility } from 'vue-observe-visibility'
+Vue.directive('observe-visibility', ObserveVisibility)
 // @ts-ignore
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
@@ -109,6 +116,7 @@ export default Vue.extend({
   },
   data() {
     return {
+      toph1Visible:false,
       isMobileMenuOpen: false,
       currentSection:'portfolio',
       slickSettings:{
@@ -131,6 +139,9 @@ export default Vue.extend({
     {
         this.isMobileMenuOpen = !this.isMobileMenuOpen;
     },
+    topH1VisibilityChanged (isVisible:boolean, entry:any) {
+      this.toph1Visible = isVisible
+    }
   }
 })
 </script>
