@@ -150,6 +150,7 @@ export default Vue.extend({
         },
         scrollTop()
         {
+            if(this.$props.topEleQuery=='' || this.$props.topEleQuery.trim()=='') return;
             var options = {
                 container: '#root',
                 easing: 'ease-in',

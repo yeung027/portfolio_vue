@@ -1,18 +1,10 @@
 <template>
 <div 
   class="bg-white h-screen flex flex-row overflow-x-hidden"
-  :class="[isMobileMenuOpen ? 'overflow-hidden desktop:overflow-auto' : '']"
+  :class="[$parent.isMobileMenuOpen ? 'overflow-hidden desktop:overflow-auto' : '']"
   id="root"
 >
-  <Nav 
-    :isMobileMenuOpen="isMobileMenuOpen" 
-    :currentSection="currentSection" 
-    :topEleQuery="`#intro`"
-    :topVisible="introVisible"
-    @menuItemClick="menuItemClick" 
-    @menuBtnClick="menuBtnClick" 
-  />
-  
+
 
   <Snack 
     :open="snackOpen" 
@@ -766,7 +758,6 @@ import Vue from 'vue'
 
 
  declare interface BaseComponentData {
-  isMobileMenuOpen:boolean
   isDarkMode:boolean
   introVisible: boolean
   aboutImgVisible: boolean
@@ -775,7 +766,6 @@ import Vue from 'vue'
   resumeVisible:boolean
   resume2Visible:boolean
   portfolioVisible:boolean
-  currentSection:string
   contactErrors:{name:string, email:string, subject:string, message:string}
   locations:any[]
   mapOptions:object
@@ -815,13 +805,14 @@ Vue.use(Vue2TouchEvents)
 Vue.directive('observe-visibility', ObserveVisibility)
 export default Vue.extend({
   name: 'Portfolio',
+  layout: 'default',
   components: {
     Nav,
     Snack
   },
   data(): BaseComponentData {
     return {
-      isMobileMenuOpen: false,
+      
       isDarkMode: false,
       introVisible:false,
       aboutImgVisible:false,
@@ -830,7 +821,7 @@ export default Vue.extend({
       resumeVisible:false,
       resume2Visible:false,
       portfolioVisible:false,
-      currentSection:'intro',
+      
       contactErrors:{
         name:'',
         email:'',
@@ -868,8 +859,19 @@ export default Vue.extend({
       introTitleDir:1
     }
   },
+  watch: {
+    'introVisible': 
+    {
+      handler: function (after, before) 
+      {
+        this.$nuxt.$emit('topVisibleChange', after);
+      },
+      deep: true
+    }
+  },
   mounted: function() 
   {
+    this.$nuxt.$emit('topEleQueryChange', '#intro_title');
     this.introTitleUpdate();
     this.registtIntroTitleInterval(200);
   },
@@ -911,15 +913,6 @@ export default Vue.extend({
         if(this.introTitlesIndex>this.introTitles.length-1) this.introTitlesIndex = 0;
         setTimeout(function () { that.registtIntroTitleInterval(200) }.bind(this), 1000);
       }
-    },
-    menuItemClick(str:string, e:Event)
-    {
-      this.isMobileMenuOpen = !this.isMobileMenuOpen;
-      this.currentSection = str;
-    },
-    menuBtnClick(e:Event)
-    {
-        this.isMobileMenuOpen = !this.isMobileMenuOpen;
     },
     themeSwitch()
     {

@@ -1,16 +1,8 @@
 <template>
   <div class="bg-white h-screen flex flex-row overflow-x-hidden"
-  :class="[isMobileMenuOpen ? 'overflow-hidden desktop:overflow-auto' : '']"
+  :class="[$parent.isMobileMenuOpen ? 'overflow-hidden desktop:overflow-auto' : '']"
   id="root"
   >
-    <Nav 
-      :isMobileMenuOpen="isMobileMenuOpen" 
-      :currentSection="currentSection" 
-      :topEleQuery="`#topH1`"
-      :topVisible="toph1Visible"
-      @menuItemClick="menuItemClick" 
-      @menuBtnClick="menuBtnClick" 
-    />
     <div class="mt-10 desktop:mt-2 h-screen items-center justify-center desktop:justify-start desktop:ml-72 w-screen desktop:pr-72 flex flex-col">
       <header class="flex flex-col desktop:flex-row w-full pt-4 desktop:pt-6 pl-6 pr-6 desktop:pr-8 font-raleway">
         <h1 
@@ -117,8 +109,6 @@ export default Vue.extend({
   data() {
     return {
       toph1Visible:false,
-      isMobileMenuOpen: false,
-      currentSection:'portfolio',
       slickSettings:{
         arrows:false,
         dots:true,
@@ -128,17 +118,22 @@ export default Vue.extend({
       }
     }
   },
+  watch: {
+    'toph1Visible': 
+    {
+      handler: function (after, before) 
+      {
+        this.$nuxt.$emit('topVisibleChange', after);
+      },
+      deep: true
+    }
+  },
+  mounted: function() 
+  {
+    this.$nuxt.$emit('topEleQueryChange', '#topH1');
+  },
   methods: 
   {
-    menuItemClick(str:string, e:Event)
-    {
-      this.isMobileMenuOpen = !this.isMobileMenuOpen;
-      this.currentSection = str;
-    },
-    menuBtnClick(e:Event)
-    {
-        this.isMobileMenuOpen = !this.isMobileMenuOpen;
-    },
     topH1VisibilityChanged (isVisible:boolean, entry:any) {
       this.toph1Visible = isVisible
     }
