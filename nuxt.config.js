@@ -25,7 +25,9 @@ export default {
       { hid: 'topic', name: 'topic', content: 'Web Developer Portfolio' },
       { hid: 'classification', name: 'classification', content: 'Web Development' },
       { hid: 'category', name: 'category', content: 'Web Development' },
-      { hid: 'coverage', name: 'coverage', content: 'Worldwide' }
+      { hid: 'coverage', name: 'coverage', content: 'Worldwide' },
+      { hid: 'accept-language', name: 'accept-language',' http-equiv':'accept-language', content: 'en, zh-HK' },
+      { hid: 'content-language', name: 'content-language',' http-equiv':'content-language', content: 'en, zh-HK' },
     ],
     link: [
       { rel: 'shortcut icon', type: 'image/x-icon', href: '/icos/favicon.ico' },
