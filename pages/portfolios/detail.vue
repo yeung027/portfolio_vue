@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen flex flex-row overflow-x-hidden"
+  <div class="bg-white h-screen flex flex-row overflow-x-hidden"
   :class="[isMobileMenuOpen ? 'overflow-hidden desktop:overflow-auto' : '']"
   id="root"
   >
