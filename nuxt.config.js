@@ -2,18 +2,36 @@ require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'portfolio_vue',
+    title: 'Hei Yeung: Web Developer',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'zh-HK'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { hid: 'description', name: 'description', content: 'Web Developer Portfolio' },
+      { name: 'format-detection', content: 'telephone=no' },
+      { hid: 'author', name: 'author', content: 'Hei Yeung' },
+      { hid: 'keywords', name: 'keywords', content: 'Web Developer, Portfolio' },
+      { hid: 'robots', name: 'robots', content: 'index,follow,noodp' },
+      { hid: 'googlebot', name: 'googlebot', content: 'index,follow' },
+      { hid: 'subject', name: 'subject', content: 'Web Developer Portfolio' },
+      { hid: 'url', name: 'url', content: 'http://portfolio.hei.ninja' },
+      { hid: 'geo.placename', name: 'geo.placename', content: 'Hong Kong' },
+      { hid: 'geo.region', name: 'geo.region', content: 'CN-HK' },
+      { hid: 'geo.position', name: 'geo.position', content: '22.360673;114.125612' },
+      { hid: 'ICBM', name: 'ICBM', content: '22.360673, 114.125612' },
+      { hid: 'reply-to', name: 'reply-to', content: 'shinghei.yeung@gmail.com' },
+      { hid: 'topic', name: 'topic', content: 'Web Developer Portfolio' },
+      { hid: 'classification', name: 'classification', content: 'Web Development' },
+      { hid: 'category', name: 'category', content: 'Web Development' },
+      { hid: 'coverage', name: 'coverage', content: 'Worldwide' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'shortcut icon', type: 'image/x-icon', href: '/icos/favicon.ico' },
+      { rel: 'apple-touch-icon', type: 'image/png',sizes: '180x180', href: '/icos/apple-touch-icon.png' },
+      { rel: 'icon', type: 'image/png',sizes: '32x32', href: '/icos/favicon-32x32.png' },
+      { rel: 'icon', type: 'image/png',sizes: '16x16', href: '/icos/favicon-16x16.png' }
     ]
   },
 
