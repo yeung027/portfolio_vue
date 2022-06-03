@@ -963,6 +963,7 @@ export default Vue.extend({
       else return '';
     },
     contactValidation () {
+
       if(this.contractFormBusy) return;
       let error = 0;
       let name = this.contactValidation_name();
@@ -993,7 +994,9 @@ export default Vue.extend({
       }
       else
       {
-        let url:string  = process.env.strapiBaseUrl?.toString() + '/api/portfolio-contacts';
+        console.log('???'+process.env.strapiBaseUrl+ '/api/portfolio-contacts');
+        //return;
+        let url:string  = process.env.strapiBaseUrl + '/api/portfolio-contacts';
         let data = {
           name: nameEle.value, email: emailEle.value, message: messageEle.value
         }
