@@ -930,7 +930,7 @@ export default Vue.extend({
       }
       else
       {
-        let url:any  = process.env.strapiBaseUrl + '/api/portfolio-contacts';
+        let url:string  = process.env.strapiBaseUrl?.toString() + '/api/portfolio-contacts';
         let data = {
           name: nameEle.value, email: emailEle.value, message: messageEle.value
         }
