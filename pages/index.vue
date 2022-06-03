@@ -1,18 +1,10 @@
 <template>
 <div 
-  class="h-screen flex flex-row overflow-x-hidden"
-  :class="[isMobileMenuOpen ? 'overflow-hidden desktop:overflow-auto' : '']"
+  class="bg-white h-screen flex flex-row overflow-x-hidden"
+  :class="[$parent.isMobileMenuOpen ? 'overflow-hidden desktop:overflow-auto' : '']"
   id="root"
 >
-  <Nav 
-    :isMobileMenuOpen="isMobileMenuOpen" 
-    :currentSection="currentSection" 
-    :topEleQuery="`#intro`"
-    :topVisible="introVisible"
-    @menuItemClick="menuItemClick" 
-    @menuBtnClick="menuBtnClick" 
-  />
-  
+
 
   <Snack 
     :open="snackOpen" 
@@ -170,7 +162,7 @@ Moreover, I have learn react native to make mobile App in both ios and android.
         </li>
         <li class="ml-2 desktop:ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
           <span class="-ml-6 font-normal text-base pr-2">Email:</span>
-          <span class="font-open_sans font-light text-base">shinghei.yeng@gmail.com</span>
+          <span class="font-open_sans font-light text-base">shinghei.yeung@gmail.com</span>
         </li>
         <li class="ml-2 desktop:ml-4 py-2"><i class='bx bx-chevron-right text-custom-sky bx-md -mt-4 -pr-4'></i>
           <span class="-ml-6 font-normal text-base pr-2">Freelance:</span>
@@ -178,7 +170,7 @@ Moreover, I have learn react native to make mobile App in both ios and android.
         </li>
       </ul>
       <article class=" my-3 desktop:mx-2 font-normal font-open_sans font-light">
-        Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis. Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
+        I work at Cheung Sha Wan Government Offices as a programmer, develop a internal control system in JAVA
       </article>
     </div>
     </div>
@@ -190,7 +182,7 @@ Moreover, I have learn react native to make mobile App in both ios and android.
       <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">Skills</h1>
       <div class="border-b-3 border-sky-400 w-14 ml-2 mb-5" />
       <article class="mx-2 font-normal font-open_sans font-light">
-        Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
+        The skills set which for my web development are listed below:
       </article>
       <div 
         class="flex flex-col desktop:flex-row px-2 mt-6"
@@ -219,13 +211,30 @@ Moreover, I have learn react native to make mobile App in both ios and android.
             </div>
             <div>
               <div class="grid grid-cols-2 font-roboto text-xs pb-1">
-                <span>CSS / SCSS</span>
+                <span>CSS / Tailwind CSS / SCSS</span>
                 <span class="text-right">95%</span>
               </div>
               <div class="w-full bg-sky-100  h-2.5 overflow-x-hidden">
                 <div 
                   class="h-2.5" 
                   style="width: 95%"
+                >
+                  <div 
+                    class="bg-sky-400 h-full w-full ease-in-out delay-500 duration-1000 transition transform"
+                    :class="[skillBarVisible ? 'translate-x-0' : '-translate-x-10']"
+                   />
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="grid grid-cols-2 font-roboto text-xs pb-1">
+                <span>Vue / Nuxt</span>
+                <span class="text-right">80%</span>
+              </div>
+              <div class="w-full bg-sky-100  h-2.5 overflow-x-hidden">
+                <div 
+                  class="h-2.5" 
+                  style="width: 80%"
                 >
                   <div 
                     class="bg-sky-400 h-full w-full ease-in-out delay-500 duration-1000 transition transform"
@@ -251,9 +260,28 @@ Moreover, I have learn react native to make mobile App in both ios and android.
                 </div>
               </div>
             </div>
+            
             <div>
               <div class="grid grid-cols-2 font-roboto text-xs pb-1">
                 <span>Ruby on rails</span>
+                <span class="text-right">96%</span>
+              </div>
+              <div class="w-full bg-sky-100  h-2.5 overflow-x-hidden">
+                <div 
+                  class="h-2.5" 
+                  style="width: 96%"
+                >
+                  <div 
+                    class="bg-sky-400 h-full w-full ease-in-out delay-500 duration-1000 transition transform"
+                    :class="[skillBarVisible ? 'translate-x-0' : '-translate-x-10']"
+                   />
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="grid grid-cols-2 font-roboto text-xs pb-1">
+                <span>GitHub / Console</span>
                 <span class="text-right">96%</span>
               </div>
               <div class="w-full bg-sky-100  h-2.5 overflow-x-hidden">
@@ -275,13 +303,13 @@ Moreover, I have learn react native to make mobile App in both ios and android.
         >
           <div>
               <div class="grid grid-cols-2 font-roboto text-xs pb-1">
-                <span>Vue</span>
-                <span class="text-right">70%</span>
+                <span>ORM / SQL</span>
+                <span class="text-right">85%</span>
               </div>
               <div class="w-full bg-sky-100  h-2.5 overflow-x-hidden">
                 <div 
                   class="h-2.5" 
-                  style="width: 70%"
+                  style="width: 85%"
                 >
                   <div 
                     class="bg-sky-400 h-full w-full ease-in-out delay-700 duration-1000 transition transform"
@@ -333,6 +361,40 @@ Moreover, I have learn react native to make mobile App in both ios and android.
                 </div>
               </div>
             </div>
+            <div>
+              <div class="grid grid-cols-2 font-roboto text-xs pb-1">
+                <span>React Native</span>
+                <span class="text-right">80%</span>
+              </div>
+              <div class="w-full bg-sky-100  h-2.5 overflow-x-hidden">
+                <div 
+                  class="h-2.5" 
+                  style="width: 80%"
+                >
+                  <div 
+                    class="bg-sky-400 h-full w-full ease-in-out delay-500 duration-1000 transition transform"
+                    :class="[skillBarVisible ? 'translate-x-0' : '-translate-x-10']"
+                   />
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="grid grid-cols-2 font-roboto text-xs pb-1">
+                <span>Node.js</span>
+                <span class="text-right">75%</span>
+              </div>
+              <div class="w-full bg-sky-100  h-2.5 overflow-x-hidden">
+                <div 
+                  class="h-2.5" 
+                  style="width: 75%"
+                >
+                  <div 
+                    class="bg-sky-400 h-full w-full ease-in-out delay-500 duration-1000 transition transform"
+                    :class="[skillBarVisible ? 'translate-x-0' : '-translate-x-10']"
+                   />
+                </div>
+              </div>
+            </div>
         </div>
       </div>
     </section>
@@ -343,7 +405,7 @@ Moreover, I have learn react native to make mobile App in both ios and android.
       <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">Resume</h1>
       <div class="border-b-3 border-sky-400 w-14 ml-2 mb-5" />
       <article class="mx-2 font-normal font-open_sans font-light">
-        Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
+        My professional experience and education information listed below for your reference.
       </article>
       <div 
         class="flex flex-col desktop:flex-row px-2 mt-6 mb-10"
@@ -404,7 +466,7 @@ Moreover, I have learn react native to make mobile App in both ios and android.
       <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">Portfolio</h1>
       <div class="border-b-3 border-sky-400 w-14 ml-2 mb-5" />
       <article class="mx-2 font-normal font-open_sans font-light">
-        Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
+        My porfolio are shown below.
       </article>
       <div 
         class="justify-items-center grid grid-cols-1 desktop:grid-cols-3 gap-y-6 desktop:pl-2 pb-20 pt-10 ease-in-out delay-300 duration-1000 transition transform"
@@ -564,7 +626,7 @@ Moreover, I have learn react native to make mobile App in both ios and android.
       <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">Contact</h1>
       <div class="border-b-3 border-sky-400 w-14 ml-2 mb-5" />
       <article class="mx-2 font-normal font-open_sans font-light">
-        Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
+        Send me a mail or fill in your info. in the form below and I look forward to hearing from you!
       </article>
       <div 
         class="flex flex-col desktop:flex-row px-2 mt-6 mb-10"
@@ -696,7 +758,6 @@ import Vue from 'vue'
 
 
  declare interface BaseComponentData {
-  isMobileMenuOpen:boolean
   isDarkMode:boolean
   introVisible: boolean
   aboutImgVisible: boolean
@@ -705,7 +766,6 @@ import Vue from 'vue'
   resumeVisible:boolean
   resume2Visible:boolean
   portfolioVisible:boolean
-  currentSection:string
   contactErrors:{name:string, email:string, subject:string, message:string}
   locations:any[]
   mapOptions:object
@@ -745,13 +805,14 @@ Vue.use(Vue2TouchEvents)
 Vue.directive('observe-visibility', ObserveVisibility)
 export default Vue.extend({
   name: 'Portfolio',
+  layout: 'default',
   components: {
     Nav,
     Snack
   },
   data(): BaseComponentData {
     return {
-      isMobileMenuOpen: false,
+      
       isDarkMode: false,
       introVisible:false,
       aboutImgVisible:false,
@@ -760,7 +821,7 @@ export default Vue.extend({
       resumeVisible:false,
       resume2Visible:false,
       portfolioVisible:false,
-      currentSection:'intro',
+      
       contactErrors:{
         name:'',
         email:'',
@@ -790,7 +851,7 @@ export default Vue.extend({
       snackType:'normal',
       snackMessage:'',
       snackAutoCloseTimeout: null,
-      introTitles:['Web Developer', 'Full Stack developer', 'Programmer'],
+      introTitles:['Web Developer', 'Full Stack Developer', 'Programmer'],
       introTitlesIndex:0,
       introTitleLastIndex:0,
       introTitle:'',
@@ -798,8 +859,19 @@ export default Vue.extend({
       introTitleDir:1
     }
   },
+  watch: {
+    'introVisible': 
+    {
+      handler: function (after, before) 
+      {
+        this.$nuxt.$emit('topVisibleChange', after);
+      },
+      deep: true
+    }
+  },
   mounted: function() 
   {
+    this.$nuxt.$emit('topEleQueryChange', '#intro_title');
     this.introTitleUpdate();
     this.registtIntroTitleInterval(200);
   },
@@ -841,15 +913,6 @@ export default Vue.extend({
         if(this.introTitlesIndex>this.introTitles.length-1) this.introTitlesIndex = 0;
         setTimeout(function () { that.registtIntroTitleInterval(200) }.bind(this), 1000);
       }
-    },
-    menuItemClick(str:string, e:Event)
-    {
-      this.isMobileMenuOpen = !this.isMobileMenuOpen;
-      this.currentSection = str;
-    },
-    menuBtnClick(e:Event)
-    {
-        this.isMobileMenuOpen = !this.isMobileMenuOpen;
     },
     themeSwitch()
     {
