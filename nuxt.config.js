@@ -1,6 +1,10 @@
 require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  env: {
+    strapiBaseUrl: process.env.strapiBaseUrl || 'https://admin.hei.ninja',
+    GMAP_API_KEY: process.env.GMAP_API_KEY
+  },
   head: {
     title: 'Hei Yeung: Web Developer',
     htmlAttrs: {
