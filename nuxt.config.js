@@ -60,7 +60,7 @@ export default {
     '@nuxtjs/tailwindcss',
     'nuxt-resolve-url-loader',
     '@nuxt/image',
-    ['@nuxtjs/dotenv', { filename: `.env.${process.env.NODE_ENV}` }],
+    //['@nuxtjs/dotenv', { filename: `.env.${process.env.NODE_ENV}` }],
     ['nuxt-gmaps', {
       key: process.env.GMAP_API_KEY,
     }]
