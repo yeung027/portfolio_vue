@@ -490,7 +490,7 @@ Moreover, I have learn react native to make mobile App in both ios and android.
               <div class="bx bx-sm bx-plus h-6 my-2" />
             </div>
             <NuxtLink 
-              to="/portfolios/detail" 
+              to="/portfolios/1" 
               class="h-10 bg-custom-sky w-1/2 flex content-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
             >
               <div class="bx bx-sm bx-link h-6 my-auto" />
@@ -514,7 +514,7 @@ Moreover, I have learn react native to make mobile App in both ios and android.
               <div class="bx bx-sm bx-plus h-6 my-2" />
             </div>
             <NuxtLink 
-              to="/portfolios/detail" 
+              to="/portfolios/1" 
               class="h-10 bg-custom-sky w-1/2 flex content-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
             >
               <div class="bx bx-sm bx-link h-6 my-auto" />
@@ -538,7 +538,7 @@ Moreover, I have learn react native to make mobile App in both ios and android.
               <div class="bx bx-sm bx-plus h-6 my-2" />
             </div>
             <NuxtLink 
-              to="/portfolios/detail" 
+              to="/portfolios/1" 
               class="h-10 bg-custom-sky w-1/2 flex content-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
             >
               <div class="bx bx-sm bx-link h-6 my-auto" />
@@ -562,7 +562,7 @@ Moreover, I have learn react native to make mobile App in both ios and android.
               <div class="bx bx-sm bx-plus h-6 my-2" />
             </div>
             <NuxtLink 
-              to="/portfolios/detail" 
+              to="/portfolios/1" 
               class="h-10 bg-custom-sky w-1/2 flex content-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
             >
               <div class="bx bx-sm bx-link h-6 my-auto" />
@@ -586,7 +586,7 @@ Moreover, I have learn react native to make mobile App in both ios and android.
               <div class="bx bx-sm bx-plus h-6 my-2" />
             </div>
             <NuxtLink 
-              to="/portfolios/detail" 
+              to="/portfolios/1" 
               class="h-10 bg-custom-sky w-1/2 flex content-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
             >
               <div class="bx bx-sm bx-link h-6 my-auto" />
@@ -610,7 +610,7 @@ Moreover, I have learn react native to make mobile App in both ios and android.
               <div class="bx bx-sm bx-plus h-6 my-2" />
             </div>
             <NuxtLink 
-              to="/portfolios/detail" 
+              to="/portfolios/1" 
               class="h-10 bg-custom-sky w-1/2 flex content-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
             >
               <div class="bx bx-sm bx-link h-6 my-auto" />

@@ -22,27 +22,19 @@
       <main class="px-4 pt-10 flex flex-col desktop:flex-row h-full w-full pb-10 desktop:pb-4">
         <div class="desktop:w-8/12 px-0 py-4 desktop:py-0">
             <VueSlickCarousel v-bind="slickSettings">
-              <div class="flex w-full">
-                <nuxt-img 
-                  src="/portfolio/detail/1/1.jpg" 
+              <div 
+                class="flex w-full"
+                v-for="production in contents[intSlug].images"
+                :key="production"
+              >
+              <img 
+                  :src="getImgUrl(slug, production)"
                   provider="static"
                   class=" max-h-96 px-auto mx-auto"
                   />
+                
               </div>
-              <div class="flex w-full">
-                <nuxt-img 
-                  src="/portfolio/detail/1/2.jpg" 
-                  provider="static"
-                  class=" max-h-96 px-auto mx-auto"
-                  />
-              </div>
-              <div class="flex w-full">
-                <nuxt-img 
-                  src="/portfolio/detail/1/3.jpg" 
-                  provider="static"
-                  class=" max-h-96 px-auto mx-auto"
-                  />
-              </div>
+              
           </VueSlickCarousel>
         </div>
         <!--{{contents[intSlug].Title}}-->
@@ -86,7 +78,7 @@ import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 declare interface BaseComponentData {
   toph1Visible:boolean
-    intSlug:-1
+    intSlug:number
     slickSettings: Object
     contents: Object[]
 }
@@ -111,13 +103,14 @@ export default Vue.extend({
       contents: [
         {
           title:'Polofolio Detail',
-          description:'A e-book written by a psychosis patient which about herself.',
+          description:'An e-book written by a psychosis patient which about herself.',
           detail:{
             Title: 'E-book 「思覺失調這一課」',
             Client: 'ShanShan',
             'Project Date' : '15/7/2021',
             URL: '<a class="text-custom-sky hover:text-amber-500 underline" href="http://iloveh3k.com" target="_blank">http://iloveh3k.com</a>'
-          }
+          },
+          images:['1.png', '2.png', '3.png', '4.png', '5.png']
         }
       ]
     }
@@ -148,6 +141,12 @@ export default Vue.extend({
   },
   methods: 
   {
+    getImgUrl(slug:string, suffix:string) 
+    {
+      //:src="`
+      let url:string = '/portfolio/detail/'+slug+'/'+suffix;
+      return url;
+    },
     topH1VisibilityChanged (isVisible:boolean, entry:any) {
       this.toph1Visible = isVisible
     },
