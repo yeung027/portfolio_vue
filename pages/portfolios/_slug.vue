@@ -45,42 +45,27 @@
               </div>
           </VueSlickCarousel>
         </div>
+        <!--{{contents[intSlug].Title}}-->
         <div class="pt-10 desktop:pt-4 px-6">
           <h2 class="font-roboto text-xl font-normal">
             Information
           </h2>
           <ul class="mt-4">
-            <li class="py-1">
-              <span class="font-medium mr-1">Category:</span>
-              <span class="font-normal">Web design</span>
+            <li 
+              class="py-1"
+              v-for="(value, key, index) in contents[intSlug].detail" :key="`${ key }-${ index }`"
+            >
+              <span class="font-medium mr-1">{{key}}:</span>
+              <span class="font-normal" v-html="value"></span>
             </li>
-            <li class="py-1">
-              <span class="font-medium mr-1">Client:</span>
-              <span class="font-normal">ABC Company</span>
-            </li>
-            <li class="py-1">
-              <span class="font-medium mr-1">Project Date:</span>
-              <span class="font-normal">1/2/2021</span>
-            </li>
-            <li class="py-1">
-              <span class="font-medium mr-1">Project URL:</span>
-              <span class="font-normal">
-                <a 
-                  href="http://google.com" 
-                  target="_blank"
-                  class="text-custom-sky"
-                >
-                  aaaaaa.com
-                </a>
-              </span>
-            </li>
+            
           </ul>
           <div class="mt-6">
               <h2 class="font-roboto text-2xl font-normal leading-7">
-                This is an example of portfolio detail
+                {{contents[intSlug].title}}
               </h2>
               <article class="mt-4 font-normal font-open_sans font-light pb-40 desktop:pb-6">
-                Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
+                {{contents[intSlug].description}}
               </article>
           </div>
         </div>
@@ -99,6 +84,12 @@ import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
   // optional style for arrows & dots
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+declare interface BaseComponentData {
+  toph1Visible:boolean
+    intSlug:-1
+    slickSettings: Object
+    contents: Object[]
+}
 
 export default Vue.extend({
   name: 'Portfolio_Detail',
@@ -106,17 +97,39 @@ export default Vue.extend({
     Nav,
     VueSlickCarousel 
   },
-  data() {
+  data(): BaseComponentData {
     return {
       toph1Visible:false,
+      intSlug:-1,
       slickSettings:{
         arrows:false,
         dots:true,
         dotsClass: "custom-dots",
         autoplay:true,
         autoplaySpeed:2500
-      }
+      },
+      contents: [
+        {
+          title:'Polofolio Detail',
+          description:'A e-book written by a psychosis patient which about herself.',
+          detail:{
+            Title: 'E-book 「思覺失調這一課」',
+            Client: 'ShanShan',
+            'Project Date' : '15/7/2021',
+            URL: '<a class="text-custom-sky hover:text-amber-500 underline" href="http://iloveh3k.com" target="_blank">http://iloveh3k.com</a>'
+          }
+        }
+      ]
     }
+  },
+  created()
+  {
+    this.initSlug();
+  },
+  async asyncData({ params }) 
+  {
+    const slug = params.slug; // When calling /abc the slug will be "abc"
+    return { slug }
   },
   watch: {
     'toph1Visible': 
@@ -131,12 +144,21 @@ export default Vue.extend({
   mounted: function() 
   {
     this.$nuxt.$emit('topEleQueryChange', '#topH1');
+    this.initSlug();
   },
   methods: 
   {
     topH1VisibilityChanged (isVisible:boolean, entry:any) {
       this.toph1Visible = isVisible
-    }
+    },
+    initSlug() 
+    {
+      this.intSlug = parseInt(this.$route.params.slug);
+      if(isNaN(this.intSlug)) throw({ statusCode: 404, message: 'Post not found' });
+      this.intSlug-=1;
+      if(this.intSlug<0 || this.intSlug > this.contents.length -1 || !this.contents[this.intSlug]) 
+      throw({ statusCode: 404, message: 'Post not found' });
+    },
   }
 })
 </script>

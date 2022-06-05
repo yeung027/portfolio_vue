@@ -994,7 +994,7 @@ export default Vue.extend({
       }
       else
       {
-        console.log('???'+process.env.strapiBaseUrl+ '/api/portfolio-contacts');
+        //console.log('???'+process.env.strapiBaseUrl+ '/api/portfolio-contacts');
         //return;
         let url:string  = process.env.strapiBaseUrl + '/api/portfolio-contacts';
         let data = {
