@@ -119,9 +119,17 @@ export default Vue.extend({
   {
     this.initSlug();
   },
-  async asyncData({ params }) 
+  async asyncData({ params, error }) 
   {
     const slug = params.slug; // When calling /abc the slug will be "abc"
+    let v:number = parseInt(slug);
+    try {
+      if(slug.length>1 || isNaN(v) || v<=0 || v > 1)
+        throw('Page not found')
+    }
+    catch (err:any) {
+      error({statusCode: 404, message: err.message})
+    }
     return { slug }
   },
   watch: {
@@ -153,10 +161,10 @@ export default Vue.extend({
     initSlug() 
     {
       this.intSlug = parseInt(this.$route.params.slug);
-      if(isNaN(this.intSlug)) throw({ statusCode: 404, message: 'Post not found' });
+      //if(isNaN(this.intSlug)) return this.$nuxt.error({ statusCode: 404, message: 'Post not found' });
       this.intSlug-=1;
-      if(this.intSlug<0 || this.intSlug > this.contents.length -1 || !this.contents[this.intSlug]) 
-      throw({ statusCode: 404, message: 'Post not found' });
+      //if(this.intSlug<0 || this.intSlug > this.contents.length -1 || !this.contents[this.intSlug]) 
+      //  return this.$nuxt.error({ statusCode: 404, message: 'Post not found' });
     },
   }
 })
