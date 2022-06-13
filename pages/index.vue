@@ -419,7 +419,7 @@ Moreover, I have learn react native to make mobile App in both ios and android.
           <div class="border-l-2 border-dark-blue px-6 pb-1">
             <div class="relative border-2 border-dark-blue rounded-full w-4 h-4 -ml-8 -mt-2 bg-white" />
             <div class="text-black font-roboto text-xl font-medium -mt-5">Programmer</div>
-            <div class="text-black font-open_sans text-base font-medium pt-2 pl-2">2019 - Present</div>
+            <div class="text-black font-open_sans text-base font-medium pt-2 pl-2">2022(Apr) - Present</div>
             <div class="text-black font-open_sans text-base font-normal pt-2 italic">Speedy Group Corporation Limited</div>
             <ul class="list-disc ml-4 pt-2 font-open_sans text-base font-normal pb-8">
               <li class="my-2">Working at Student Finance Office</li>
@@ -429,7 +429,7 @@ Moreover, I have learn react native to make mobile App in both ios and android.
           <div class="border-l-2 border-dark-blue px-6 pb-1">
             <div class="relative border-2 border-dark-blue rounded-full w-4 h-4 -ml-8 -mt-2 bg-white" />
             <div class="text-black font-roboto text-xl font-medium -mt-5">Web Developer</div>
-            <div class="text-black font-open_sans text-base font-medium pt-2 pl-2">2017 - 2018</div>
+            <div class="text-black font-open_sans text-base font-medium pt-2 pl-2">2010 - 2012</div>
             <div class="text-black font-open_sans text-base font-normal pt-2 italic">Joyaether Ltd</div>
             <ul class="list-disc ml-4 pt-2 font-open_sans text-base font-normal pb-2">
               <li class="my-2">Understanding clients requirements, dev/prod servers setup</li>
@@ -448,7 +448,7 @@ Moreover, I have learn react native to make mobile App in both ios and android.
           <div class="border-l-2 border-dark-blue px-6 pb-1">
             <div class="relative border-2 border-dark-blue rounded-full w-4 h-4 -ml-8 -mt-2 bg-white" />
             <div class="text-black font-roboto text-xl font-medium -mt-5">Higher Diploma in Enterprise Computing</div>
-            <div class="text-black font-open_sans text-base font-medium pt-2 pl-2">2019 - Present</div>
+            <div class="text-black font-open_sans text-base font-medium pt-2 pl-2">2006</div>
             <div class="text-black font-open_sans text-base font-normal pt-2 italic">Hong Kong Institute of Vocational Education</div>
             <ul class="list-disc ml-4 pt-2 font-open_sans text-base font-normal pb-2">
               <li class="my-2">Learn Programming with JAVA</li>
@@ -901,7 +901,7 @@ export default Vue.extend({
         clearInterval(this.introTitleInterval);
         this.introTitleDir = 0;
         this.introTitleLastIndex = str.length -1;
-        setTimeout(function () { that.registtIntroTitleInterval(70) }.bind(this), 700);
+        setTimeout(function () { that.registtIntroTitleInterval(70) }.bind(this), 1200);
       }
       else if(this.introTitleLastIndex <0)
       {
