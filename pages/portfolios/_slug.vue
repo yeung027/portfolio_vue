@@ -111,6 +111,17 @@ export default Vue.extend({
             URL: '<a class="text-custom-sky hover:text-amber-500 underline" href="http://iloveh3k.com" target="_blank">http://iloveh3k.com</a>'
           },
           images:['1.png', '2.png', '3.png', '4.png', '5.png']
+        },
+        {
+          title:'Polofolio Detail',
+          description:'A promotional email written in HTML',
+          detail:{
+            Title: '八達通推廣email',
+            Client: 'Octopus',
+            'Project Date' : '30/8/2022',
+            URL: '<a class="text-custom-sky hover:text-amber-500 underline" href="https://www.octopus.com.hk/" target="_blank">https://www.octopus.com.hk/</a>'
+          },
+          images:['1.png', '2.png', '3.png', '4.png']
         }
       ]
     }
@@ -124,7 +135,7 @@ export default Vue.extend({
     const slug = params.slug; // When calling /abc the slug will be "abc"
     let v:number = parseInt(slug);
     try {
-      if(slug.length>1 || isNaN(v) || v<=0 || v > 1)
+      if(slug.length>2 || isNaN(v) || v<=0 || v > 2)
         throw('Page not found')
     }
     catch (err:any) {
