@@ -11,7 +11,7 @@
       :type="snackType" 
       :message="snackMessage" 
       @setOpen="setSnackOpen"
-    />
+    /> 
   
   
     <div
