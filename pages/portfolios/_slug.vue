@@ -132,6 +132,17 @@ export default Vue.extend({
             URL: '<a class="text-custom-sky hover:text-amber-500 underline" href="https://www.hongkongdisneyland.com" target="_blank">https://www.hongkongdisneyland.com</a>'
           },
           images:['1.png', '2.png', '3.png', '4.png']
+        },
+        {
+          title:'Polofolio Detail',
+          description:'<p>An app built 2 years ago</p><ul><li>Take over and debug</li><li>Rebuild IOS and Android APP</li><li>Fix issue while compiling app in Xcode & Android studio</li><li>Update package version to fixed issue, such as native camera and calendar not supported by old version</li></ul>',
+          detail:{
+            Title: 'App for CGST WOL',
+            Client: 'CGST',
+            'Project Date' : '2020',
+            URL: '<a class="text-custom-sky hover:text-amber-500 underline" href="https://w3.cgst.edu/WOLP" target="_blank">https://w3.cgst.edu/WOLP</a>'
+          },
+          images:['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg']
         }
       ]
     }
@@ -145,7 +156,7 @@ export default Vue.extend({
     const slug = params.slug; // When calling /abc the slug will be "abc"
     let v:number = parseInt(slug);
     try {
-      if(slug.length>3 || isNaN(v) || v<=0 || v > 3)
+      if(slug.length>4 || isNaN(v) || v<=0 || v > 4)
         throw('Page not found')
     }
     catch (err:any) {

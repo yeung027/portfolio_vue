@@ -46,14 +46,23 @@
         <div 
           class="w-fit ease-in-out duration-300 transition transform"
           :class="[(!pfBackdropAnimDo && pfBackdropOpen) || (pfBackdropAnimDo && !pfBackdropOpen) ? 'opacity-50 scale-0' : 'opacity-100 scale-100']"
+          id="pfBackdropInner_0"
         >
           <nuxt-img 
             :src="getPfImgSrc(0)" 
+            id="pfBackdropImage_0"
             provider="static"
             class=""
             />
-            <div class="bg-white px-2 py-4">
-              {{getPfDesc(0)}}
+            <div 
+              class="bg-white py-4 w-full"
+            >
+              <div
+                id="pfBackdropTextContainer_0"
+                class="absolute bg-white px-2 pb-2"
+              >
+                {{getPfDesc(0)}}
+              </div>
             </div>
           </div>
       </div>
@@ -66,14 +75,23 @@
         <div 
           class="w-full ease-in-out duration-300 transition transform"
           :class="[(!pfBackdropAnimDo && pfBackdropOpen) || (pfBackdropAnimDo && !pfBackdropOpen) ? 'opacity-50 scale-0' : 'opacity-100 scale-100']"
+          id="pfBackdropInner_1"
         >
           <nuxt-img 
             :src="getPfImgSrc(1)" 
+            id="pfBackdropImage_1"
             provider="static"
             class=""
             />
-            <div class="bg-white px-2 py-4">
-              {{getPfDesc(1)}}
+            <div 
+              class="bg-white py-4 w-full"
+            >
+              <div
+                id="pfBackdropTextContainer_1"
+                class="absolute bg-white px-2 pb-2"
+              >
+                {{getPfDesc(1)}}
+              </div>
             </div>
           </div>
       </div>
@@ -118,7 +136,7 @@
         <h1 class="font-medium text-3xl text-dark-blue pb-4 mt-14 ml-2 dekstop:ml-5">About</h1>
         <div class="border-b-3 border-sky-400 w-14 ml-2 mb-5" />
         <article class="mx-2 font-normal font-open_sans font-light">
-          I am a Full-stack Developer. Well-versed in back-end frameworks such as Node.js, Next.js, Express.js and Ruby on rails.
+          I am a Full-stack Developer. Well-versed in back-end frameworks such as Node.js, Next.js, Vue.
   
   Also I have experience in front-end frameworks such as react and jQuery.
   
@@ -170,7 +188,7 @@
           </li>
         </ul>
         <article class=" my-3 desktop:mx-2 font-normal font-open_sans font-light">
-          I work at Cheung Sha Wan Government Offices as a programmer, develop a internal control system in JAVA
+          I work at Open Creative Limited as a web developer
         </article>
       </div>
       </div>
@@ -559,7 +577,7 @@
             class="w-11/12 text-white overflow-y-hidden group"
           >
             <nuxt-img 
-              src="/portfolio/4.png" 
+              src="/portfolio/4.jpg" 
               provider="static"
               preload
               class="w-full group-hover:opacity-50"
@@ -572,61 +590,15 @@
                 <div class="bx bx-sm bx-plus h-6 my-2" />
               </div>
               <NuxtLink 
-                to="/portfolios/1" 
+                to="/portfolios/4" 
                 class="h-10 bg-custom-sky w-1/2 flex content-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
               >
                 <div class="bx bx-sm bx-link h-6 my-auto" />
               </NuxtLink>
             </div>
           </div>
-          <div 
-            class="w-11/12 text-white overflow-y-hidden group"
-          >
-            <nuxt-img 
-              src="/portfolio/5.png" 
-              provider="static"
-              preload
-              class="w-full group-hover:opacity-50"
-            />
-            <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
-              <div 
-                class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
-                @click="setpfBackdropOpen(true, 4)"
-              >
-                <div class="bx bx-sm bx-plus h-6 my-2" />
-              </div>
-              <NuxtLink 
-                to="/portfolios/1" 
-                class="h-10 bg-custom-sky w-1/2 flex content-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
-              >
-                <div class="bx bx-sm bx-link h-6 my-auto" />
-              </NuxtLink>
-            </div>
-          </div>
-          <div 
-            class="w-11/12 text-white overflow-y-hidden group"
-          >
-            <nuxt-img 
-              src="/portfolio/6.png" 
-              provider="static"
-              preload
-              class="w-full group-hover:opacity-50"
-            />
-            <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
-              <div 
-                class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
-                @click="setpfBackdropOpen(true, 5)"
-              >
-                <div class="bx bx-sm bx-plus h-6 my-2" />
-              </div>
-              <NuxtLink 
-                to="/portfolios/1" 
-                class="h-10 bg-custom-sky w-1/2 flex content-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
-              >
-                <div class="bx bx-sm bx-link h-6 my-auto" />
-              </NuxtLink>
-            </div>
-          </div>
+          
+         
         </div>
       </section>
       <section 
@@ -841,8 +813,8 @@
         pfBackdropOpen: false,
         pfBackdropAnim: false,
         pfBackdropAnimDo: false,
-        pfBackdropImages: ['/portfolio/1.png', '/portfolio/2.png', '/portfolio/3.png', '/portfolio/4.png', '/portfolio/5.png', '/portfolio/6.png'],
-        pfBackdropDescs: ['very good', 'goooood', 'yes yes', 'lol', 'wow', 'so far so good'],
+        pfBackdropImages: ['/portfolio/1.png', '/portfolio/2.png', '/portfolio/3.png', '/portfolio/4.jpg', '/portfolio/5.png', '/portfolio/6.png'],
+        pfBackdropDescs: ['E-book 「思覺失調這一課」', '八達通推廣email', 'Disneyland hotel & restaurant queue status viewer', 'CGST WOL App', 'wow', 'so far so good'],
         pfBackdropContainer0_Index: 0,
         pfBackdropContainer1_Index: 5,
         pfBackdropCurrentContainer:0,
@@ -1030,6 +1002,14 @@
       setpfBackdropOpen (open:boolean, index:number)
       {
         if(index>=0) this.setCurrentContainerImgIndex(index);
+
+
+        setTimeout(() => {
+          // alert('fdsfds')
+          this.updateBackDropTextcointainersize(this.pfBackdropNextContainer);
+          this.updateBackDropTextcointainersize(this.pfBackdropNextContainer==0 ? 1:0);
+        },50);
+
         this.pfBackdropOpen = open;
         this.pfBackdropAnim = true;
         let that = this;
@@ -1039,6 +1019,7 @@
             that.pfBackdropAnimDo = false; 
             that.pfBackdropAnim = false; 
           }.bind(this), 600);
+          
       },
       setCurrentContainerImgIndex(index:number)
       {
@@ -1082,6 +1063,13 @@
       pfBackdropMove(dir:number)
       {
         if(this.pfBackdropMoveAnimLock) return;
+
+        setTimeout(() => {
+          // alert('fdsfds')
+          this.updateBackDropTextcointainersize(this.pfBackdropNextContainer);
+          // this.updateBackDropTextcointainersize(this.pfBackdropNextContainer==0 ? 1:0);
+        },50);
+
         this.pfBackdropMoveAnimLock = true;
         this.pfBackdropMoveDir = dir;
         this.pfBackdropMoveAnim = true;
@@ -1091,9 +1079,19 @@
         else this.pfBackdropContainer0_Index = dir==0 ? this.pfBackdropImgIndexAdd(this.getCurrentContainerImgIndex()) : this.pfBackdropImgIndexLess(this.getCurrentContainerImgIndex());
         setTimeout(() => this.pfBackdropMoveAnimDo = true, 100);
         setTimeout(() => this.setPfBackdropMoveAnimEnd(), 600);
+        this.updateBackDropTextcointainersize(this.pfBackdropNextContainer==0 ? 1:0);
+      },
+      updateBackDropTextcointainersize(containerindex:number)
+      {
+        let containerEle: HTMLDivElement  = document.querySelector('#pfBackdropTextContainer_'+containerindex)!;
+        let imageEle: HTMLDivElement      = document.querySelector('#pfBackdropImage_'+containerindex)!;
+        let imagestyle                    = window.getComputedStyle(imageEle);
+        // console.log(`innerRect.width: ${imagestyle.width}`);
+        containerEle.style.width = imagestyle.width;
       },
       setPfBackdropMoveAnimEnd()
       {
+
         this.pfBackdropMoveAnim = false;
         this.pfBackdropMoveAnimDo = false;
         this.pfBackdropCurrentContainer = this.pfBackdropCurrentContainer==0 ? 1 : 0;
