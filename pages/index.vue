@@ -11,7 +11,7 @@
       :type="snackType" 
       :message="snackMessage" 
       @setOpen="setSnackOpen"
-    /> 
+    />
   
   
     <div
@@ -39,7 +39,7 @@
       </div>
       <client-only>
       <div 
-        class="fixed w-full desktop:w-fit h-full grid place-items-center duration-500 ease-in-out transition transform"
+        class="fixed w-fit desktop:w-auto h-full grid place-items-center duration-500 ease-in-out transition transform"
         id="pfBackdropContainer_0"
         :class="getContainer0MoveAnim()"
       >
@@ -59,7 +59,7 @@
       </div>
   
       <div 
-        class="fixed w-full desktop:w-3/6 h-full grid place-items-center duration-500 ease-in-out transition transform"
+        class="fixed w-fit desktop:w-auto h-full grid place-items-center duration-500 ease-in-out transition transform"
         id="pfBackdropContainer_1"
         :class="getContainer1MoveAnim()"
       >
@@ -548,7 +548,7 @@
                 <div class="bx bx-sm bx-plus h-6 my-2" />
               </div>
               <NuxtLink 
-                to="/portfolios/1" 
+                to="/portfolios/3" 
                 class="h-10 bg-custom-sky w-1/2 flex content-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
               >
                 <div class="bx bx-sm bx-link h-6 my-auto" />

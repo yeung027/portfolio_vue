@@ -56,9 +56,8 @@
               <h2 class="font-roboto text-2xl font-normal leading-7">
                 {{contents[intSlug].title}}
               </h2>
-              <article class="mt-4 font-normal font-open_sans font-light pb-40 desktop:pb-6">
-                {{contents[intSlug].description}}
-              </article>
+              <article class="mt-4 font-normal font-open_sans font-light pb-40 desktop:pb-6 descritpion" v-html="contents[intSlug].description" />
+               
           </div>
         </div>
       </main>
@@ -114,12 +113,23 @@ export default Vue.extend({
         },
         {
           title:'Polofolio Detail',
-          description:'A promotional email written in HTML',
+          description:'<p>A promotional email written in HTML</p><ul><li>Content update frequently</li><li>Both english & traditional chinese</li></ul>',
           detail:{
             Title: '八達通推廣email',
             Client: 'Octopus',
             'Project Date' : '30/8/2022',
             URL: '<a class="text-custom-sky hover:text-amber-500 underline" href="https://www.octopus.com.hk/" target="_blank">https://www.octopus.com.hk/</a>'
+          },
+          images:['1.png', '2.png', '3.png', '4.png']
+        },
+        {
+          title:'Polofolio Detail',
+          description:'<p>A queue status viewer for Disneyland hotel and restaurant</p><ul><li>responsive web ui</li><li>Access disneyland&#39;s API and fetch queue status</li><li>Inject Disneyland&#39;s default header and footer</li><li>Multi locales</li></ul>',
+          detail:{
+            Title: 'Disneyland hotel & restaurant queue status viewer',
+            Client: 'Disneyland',
+            'Project Date' : '2/8/2022',
+            URL: '<a class="text-custom-sky hover:text-amber-500 underline" href="https://www.hongkongdisneyland.com" target="_blank">https://www.hongkongdisneyland.com</a>'
           },
           images:['1.png', '2.png', '3.png', '4.png']
         }
@@ -135,7 +145,7 @@ export default Vue.extend({
     const slug = params.slug; // When calling /abc the slug will be "abc"
     let v:number = parseInt(slug);
     try {
-      if(slug.length>2 || isNaN(v) || v<=0 || v > 2)
+      if(slug.length>3 || isNaN(v) || v<=0 || v > 3)
         throw('Page not found')
     }
     catch (err:any) {
@@ -252,6 +262,20 @@ export default Vue.extend({
 .custom-dots li.slick-active button:before {
   opacity: 0.75;
   color: #149ddd;
+}
+
+.descritpion ul
+{
+  margin:5px 0 0 0;
+  list-style-type: circle;
+  list-style-position: outside;
+  margin:7px 0 0 15px;
+  line-height:20px;
+}
+
+.descritpion li
+{
+  padding:3px 0;
 }
   
 </style>
