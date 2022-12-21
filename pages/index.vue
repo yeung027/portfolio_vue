@@ -666,10 +666,10 @@
               </GMap>
             </div>
           </div>
-          <div class="shadow-box1 w-auto desktop:w-full m-2 desktop:ml-6 desktop:mt-0 p-4 py-8">
-            <form class="grid grid-cols-1 desktop:grid-cols-2 gap-6" method="get">
-              <div class="">
-                <div class="pb-1 flex flex-row">
+          <div class="shadow-box1 w-auto desktop:w-full m-2 desktop:ml-6 desktop:mt-0 p-4 py-8 flex justify-center items-start">
+            <form class="flex flex-col gap-6 w-full h-full" method="get">
+              <div class="flex flex-col h-fit">
+                <div class="pb-1 flex flex-row h-fit">
                   <span class="whitespace-nowrap flex items-end">Your Name</span>
                   <span
                     :class="[contactErrors.name!='' ? 'text-red-600 text-sm italic pl-2 leading-6' : 'hidden']"
@@ -701,7 +701,7 @@
                 </div>
                 <input type="text" name="subject" class="border border-gray-400 w-full h-10 px-4 focus:border-custom-sky" />
               </div>-->
-              <div class="desktop:col-span-2">
+              <div class="desktop:col-span-2 h-full">
                 <div class="pb-1 flex flex-row">
                   <span class="whitespace-nowrap flex items-end">Message</span>
                   <span
@@ -710,7 +710,12 @@
                     {{contactErrors.message}}
                   </span>
                 </div>
-                <textarea name="message" class="border border-gray-400 w-full h-52 px-4 focus:border-custom-sky" :readonly="contractFormBusy" />
+                <textarea 
+                name="message" 
+                class="border border-gray-400 w-full px-4 focus:border-custom-sky" 
+                :readonly="contractFormBusy" 
+                :class="$style.myTextArea"
+                />
               </div>
               <div class="desktop:col-span-2 flex flex-row justify-center">
                 <div 
@@ -1208,6 +1213,11 @@
     }
     div#content, .GMap, .GMap__Wrapper {
       width: 100%; height: 100%;
+    }
+    .myTextArea
+    {
+      height: calc(100% - 20px);
+      min-height:200px
     }
     
   </style>
