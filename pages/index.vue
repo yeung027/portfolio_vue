@@ -1205,7 +1205,10 @@
       /* text-shadow: -1px -1px 0 #b3afaf, 1px -1px 0 #b3afaf, -1px 1px 0 #b3afaf, 1px 1px 0 #b3afaf; */
       text-shadow: #000 0px 0px 1px;
       -webkit-font-smoothing: antialiased;
-    };
+    }
+    div#content, .GMap, .GMap__Wrapper {
+      width: 100%; height: 100%;
+    }
     
   </style>
   
