@@ -643,7 +643,7 @@
                 </div>
               </li>
             </ul>
-            <div class="">
+            <div class="w-full h-full">
               <GMap
                 ref="gMap"
                 language="zh"
@@ -658,7 +658,7 @@
                 >
                   <GMapInfoWindow :options="{maxWidth: 150, maxHeight:150}">
                     <code>
-                      hello
+                      My home
                     </code>
                   </GMapInfoWindow>
                 </GMapMarker>
