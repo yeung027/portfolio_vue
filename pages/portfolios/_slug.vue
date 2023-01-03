@@ -107,7 +107,7 @@ export default Vue.extend({
             Title: 'E-book 「思覺失調這一課」',
             Client: 'ShanShan',
             'Project Date' : '15/7/2021',
-            URL: '<a class="text-custom-sky hover:text-amber-500 underline" href="http://iloveh3k.com" target="_blank">http://iloveh3k.com</a>'
+            URL: '<a class="text-custom-sky hover:text-amber-500 underline break-words" href="http://iloveh3k.com" target="_blank">http://iloveh3k.com</a>'
           },
           images:['1.png', '2.png', '3.png', '4.png', '5.png']
         },
@@ -118,7 +118,7 @@ export default Vue.extend({
             Title: '八達通推廣email',
             Client: 'Octopus',
             'Project Date' : '30/8/2022',
-            URL: '<a class="text-custom-sky hover:text-amber-500 underline" href="https://www.octopus.com.hk/" target="_blank">https://www.octopus.com.hk/</a>'
+            URL: '<a class="text-custom-sky hover:text-amber-500 underline break-words" href="https://www.octopus.com.hk/" target="_blank">https://www.octopus.com.hk/</a>'
           },
           images:['1.png', '2.png', '3.png', '4.png']
         },
@@ -129,7 +129,7 @@ export default Vue.extend({
             Title: 'Disneyland hotel & restaurant queue status viewer',
             Client: 'Disneyland',
             'Project Date' : '2/8/2022',
-            URL: '<a class="text-custom-sky hover:text-amber-500 underline" href="https://www.hongkongdisneyland.com" target="_blank">https://www.hongkongdisneyland.com</a>'
+            URL: '<a class="text-custom-sky hover:text-amber-500 underline break-words" href="https://www.hongkongdisneyland.com" target="_blank">https://www.hongkongdisneyland.com</a>'
           },
           images:['1.png', '2.png', '3.png', '4.png']
         },
@@ -140,7 +140,7 @@ export default Vue.extend({
             Title: 'App for CGST WOL',
             Client: 'CGST',
             'Project Date' : '2020',
-            URL: '<a class="text-custom-sky hover:text-amber-500 underline" href="https://w3.cgst.edu/WOLP" target="_blank">https://w3.cgst.edu/WOLP</a>'
+            URL: '<a class="text-custom-sky hover:text-amber-500 underline break-words" href="https://w3.cgst.edu/WOLP" target="_blank">https://w3.cgst.edu/WOLP</a>'
           },
           images:['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg']
         },
@@ -151,7 +151,7 @@ export default Vue.extend({
             Title: 'Hong Kong Disneyland Resort Overview',
             Client: 'Disneyland',
             'Project Date' : '2022',
-            URL: '<a class="text-custom-sky hover:text-amber-500 underline" href="https://www.hongkongdisneyland.com/campaigns/resortoverview/index.html" target="_blank">https://www.hongkongdisneyland.com/campaigns/resortoverview/index.html</a>'
+            URL: '<a class="text-custom-sky hover:text-amber-500 underline break-words" href="https://www.hongkongdisneyland.com/campaigns/resortoverview/index.html" target="_blank">https://www.hongkongdisneyland.com/campaigns/resortoverview/index.html</a>'
           },
           images:['1.png', '2.png', '3.png', '4.png', '5.png']
         }
