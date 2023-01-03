@@ -44,7 +44,7 @@
         :class="getContainer0MoveAnim()"
       >
         <div 
-          class="w-fit ease-in-out duration-300 transition transform"
+          class="w-fit ease-in-out duration-300 transition transform flex flex-col"
           :class="[(!pfBackdropAnimDo && pfBackdropOpen) || (pfBackdropAnimDo && !pfBackdropOpen) ? 'opacity-50 scale-0' : 'opacity-100 scale-100']"
           id="pfBackdropInner_0"
         >
@@ -54,15 +54,11 @@
             provider="static"
             class=""
             />
-            <div 
-              class="bg-white py-4 w-full"
+            <div
+              id="pfBackdropTextContainer_0"
+              class="bg-white px-2 leading-6 py-4 flex"
             >
-              <div
-                id="pfBackdropTextContainer_0"
-                class="absolute bg-white px-2 pb-2"
-              >
                 {{getPfDesc(0)}}
-              </div>
             </div>
           </div>
       </div>
@@ -73,7 +69,7 @@
         :class="getContainer1MoveAnim()"
       >
         <div 
-          class="w-full ease-in-out duration-300 transition transform"
+          class="w-full ease-in-out duration-300 transition transform flex flex-col"
           :class="[(!pfBackdropAnimDo && pfBackdropOpen) || (pfBackdropAnimDo && !pfBackdropOpen) ? 'opacity-50 scale-0' : 'opacity-100 scale-100']"
           id="pfBackdropInner_1"
         >
@@ -83,15 +79,11 @@
             provider="static"
             class=""
             />
-            <div 
-              class="bg-white py-4 w-full"
+            <div
+              id="pfBackdropTextContainer_0"
+              class="bg-white px-2 leading-6 py-4 flex"
             >
-              <div
-                id="pfBackdropTextContainer_1"
-                class="absolute bg-white px-2 pb-2"
-              >
-                {{getPfDesc(1)}}
-              </div>
+              {{getPfDesc(1)}}
             </div>
           </div>
       </div>
@@ -1092,7 +1084,7 @@
         let imageEle: HTMLDivElement      = document.querySelector('#pfBackdropImage_'+containerindex)!;
         let imagestyle                    = window.getComputedStyle(imageEle);
         // console.log(`innerRect.width: ${imagestyle.width}`);
-        containerEle.style.width = imagestyle.width;
+        // containerEle.style.width = imagestyle.width;
       },
       setPfBackdropMoveAnimEnd()
       {
