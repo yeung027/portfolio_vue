@@ -58,7 +58,7 @@
               id="pfBackdropTextContainer_0"
               class="bg-white px-2 leading-6 py-4 flex"
             >
-                {{getPfDesc(0)}}11
+                {{getPfDesc(0)}}
             </div>
           </div>
       </div>
@@ -836,7 +836,7 @@
         pfBackdropAnim: false,
         pfBackdropAnimDo: false,
         pfBackdropImages: ['/portfolio/1.png', '/portfolio/2.png', '/portfolio/3.png', '/portfolio/4.jpg', '/portfolio/5.png'],
-        pfBackdropDescs: ['E-book 「思覺失調這一課」', '八達通推廣email', 'Disneyland hotel & restaurant queue status viewer', 'CGST WOL App', 'wow'],
+        pfBackdropDescs: ['E-book 「思覺失調這一課」', '八達通推廣email', 'Disneyland hotel & restaurant queue status viewer', 'CGST WOL App', 'Disneyland Resort Overview'],
         pfBackdropContainer0_Index: 0,
         pfBackdropContainer1_Index: 4,
         pfBackdropCurrentContainer:0,
