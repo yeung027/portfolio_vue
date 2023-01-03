@@ -58,7 +58,7 @@
               id="pfBackdropTextContainer_0"
               class="bg-white px-2 leading-6 py-4 flex"
             >
-                {{getPfDesc(0)}}
+                {{getPfDesc(0)}}11
             </div>
           </div>
       </div>
@@ -589,6 +589,31 @@
               </NuxtLink>
             </div>
           </div>
+
+          <div 
+            class="w-11/12 text-white overflow-y-hidden group"
+          >
+            <nuxt-img 
+              src="/portfolio/5.png" 
+              provider="static"
+              preload
+              class="w-full group-hover:opacity-50"
+            />
+            <div class="w-full h-0 flex flex-row justify-center content-center ease-in-out duration-150 transition transform text-white -translate-y-2 group-hover:-translate-y-12">
+              <div 
+                class="h-10 bg-custom-sky w-1/2 flex text-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
+                @click="setpfBackdropOpen(true, 4)"
+              >
+                <div class="bx bx-sm bx-plus h-6 my-2" />
+              </div>
+              <NuxtLink 
+                to="/portfolios/5" 
+                class="h-10 bg-custom-sky w-1/2 flex content-center justify-center mt-2 cursor-pointer opacity-70 hover:opacity-90"
+              >
+                <div class="bx bx-sm bx-link h-6 my-auto" />
+              </NuxtLink>
+            </div>
+          </div>
           
          
         </div>
@@ -810,10 +835,10 @@
         pfBackdropOpen: false,
         pfBackdropAnim: false,
         pfBackdropAnimDo: false,
-        pfBackdropImages: ['/portfolio/1.png', '/portfolio/2.png', '/portfolio/3.png', '/portfolio/4.jpg', '/portfolio/5.png', '/portfolio/6.png'],
-        pfBackdropDescs: ['E-book 「思覺失調這一課」', '八達通推廣email', 'Disneyland hotel & restaurant queue status viewer', 'CGST WOL App', 'wow', 'so far so good'],
+        pfBackdropImages: ['/portfolio/1.png', '/portfolio/2.png', '/portfolio/3.png', '/portfolio/4.jpg', '/portfolio/5.png'],
+        pfBackdropDescs: ['E-book 「思覺失調這一課」', '八達通推廣email', 'Disneyland hotel & restaurant queue status viewer', 'CGST WOL App', 'wow'],
         pfBackdropContainer0_Index: 0,
-        pfBackdropContainer1_Index: 5,
+        pfBackdropContainer1_Index: 4,
         pfBackdropCurrentContainer:0,
         pfBackdropNextContainer:1,
         pfBackdropMoveAnim:false,
@@ -1051,11 +1076,11 @@
       },
       pfBackdropImgIndexAdd(i:number):number
       {
-        return i>=5 ? 0 : i+1;
+        return i>=4 ? 0 : i+1;
       },
       pfBackdropImgIndexLess(i:number):number
       {
-        return i<=0 ? 5 : i-1;
+        return i<=0 ? 4 : i-1;
       },
       pfBackdropMove(dir:number)
       {
