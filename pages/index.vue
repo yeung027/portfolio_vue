@@ -180,7 +180,7 @@
           </li>
         </ul>
         <article class=" my-3 desktop:mx-2 font-normal font-open_sans font-light">
-          I work at Open Creative Limited as a web developer
+          I am freelance web developer
         </article>
       </div>
       </div>
@@ -426,26 +426,20 @@
             :class="[resumeVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10']"
           >
             <div class="text-black font-roboto text-2xl font-medium pb-4">Professional Experience</div>
+
             <div class="border-l-2 border-dark-blue px-6 pb-1">
               <div class="relative border-2 border-dark-blue rounded-full w-4 h-4 -ml-8 -mt-2 bg-white" />
-              <div class="text-black font-roboto text-xl font-medium -mt-5">Web Developer</div>
-              <div class="text-black font-open_sans text-base font-medium pt-2 pl-2">2022(Aug) - Present</div>
-              <div class="text-black font-open_sans text-base font-normal pt-2 italic">Open Creative Limited</div>
-              <ul class="list-disc ml-4 pt-2 font-open_sans text-base font-normal pb-8">
-                <li class="my-2">Develop Website for clients</li>
-                <li class="my-2">Understanding clients requirements, dev/prod servers setup</li>
-              </ul>
-            </div>
-            <div class="border-l-2 border-dark-blue px-6 pb-1">
-              <div class="relative border-2 border-dark-blue rounded-full w-4 h-4 -ml-8 -mt-2 bg-white" />
-              <div class="text-black font-roboto text-xl font-medium -mt-5">Programmer</div>
-              <div class="text-black font-open_sans text-base font-medium pt-2 pl-2">2022/4 - 2022/7</div>
+              <div class="text-black font-roboto text-xl font-medium -mt-5">IT Support</div>
+              <div class="text-black font-open_sans text-base font-medium pt-2 pl-2">Aug 2021 - Apr 2022</div>
               <div class="text-black font-open_sans text-base font-normal pt-2 italic">Speedy Group Corporation Limited</div>
-              <ul class="list-disc ml-4 pt-2 font-open_sans text-base font-normal pb-8">
-                <li class="my-2">Working at Student Finance Office</li>
-                <li class="my-2">In-house software development</li>
+              <ul class="list-disc ml-4 pt-2 font-open_sans text-base font-normal pb-2">
+                <li class="my-2">Working at secondary school, provide on-call support for classroom and staff room</li>
+                <li class="my-2">server maintenance, facility purchase, disk cloning for new PC</li>
+                <li class="my-2">hall activity setup, preparation & photography</li>
+                <li class="my-2">website update</li>
               </ul>
             </div>
+
             <div class="border-l-2 border-dark-blue px-6 pb-1">
               <div class="relative border-2 border-dark-blue rounded-full w-4 h-4 -ml-8 -mt-2 bg-white" />
               <div class="text-black font-roboto text-xl font-medium -mt-5">Web Developer</div>
