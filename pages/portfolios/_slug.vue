@@ -129,7 +129,7 @@ export default Vue.extend({
             Title: 'Disneyland hotel & restaurant queue status viewer',
             Client: 'Disneyland',
             'Project Date' : '2/8/2022',
-            URL: '<a class="text-custom-sky hover:text-amber-500 underline break-words" href="https://www.hongkongdisneyland.com" target="_blank">https://www.hongkongdisneyland.com</a>'
+            URL: '<a class="text-custom-sky hover:text-amber-500 underline break-words" href="https://www.hongkongdisneyland.com/queue-status/explorer-club/index.html" target="_blank">https://www.hongkongdisneyland.com/queue-status/explorer-club/index.html</a>'
           },
           images:['1.png', '2.png', '3.png', '4.png']
         },
