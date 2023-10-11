@@ -143,7 +143,7 @@
           :class="[aboutImgVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10']"
         >
             <img 
-              src="/img/profile-hei.jpg" 
+              src="/img/profile-hei2.jpg" 
               provider="static"
               class="desktop:w-11/12 z-0"
             />
